@@ -21,7 +21,7 @@ function reDireccionar(){
 //Si ambos campos tienen valor, crea el usuario, lo guarda y redirecciona al index
 function required(event){
     if(user.value==="" || password.value===""){
-        alert("Debe escribir la info")
+        alert("Debe completar los campos.")
         event.preventDefault()
     }else{
         login();
