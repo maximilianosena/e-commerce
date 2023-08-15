@@ -17,12 +17,16 @@ function reDireccionar(){
     location.replace("index.html")
 }
 
+
+//Si ambos campos tienen valor, crea el usuario, lo guarda y redirecciona al index
 function required(event){
     if(user.value==="" || password.value===""){
         alert("Debe escribir la info")
         event.preventDefault()
     }else{
-        reDireccionar()
+        login();
+        save_session();
+        reDireccionar();
     }
 }
 
@@ -56,12 +60,6 @@ function login(){
 function save_session(){
     localStorage.setItem("usuarios", JSON.stringify(usuarios_Locales))
  }
-
-  //El boton, loguea al nuevo individuo, y guarda la sesión en localStorage
-btn_submit.addEventListener("click",login)
-btn_submit.addEventListener("click",save_session)
-
-
 
 
 //función Informativa para ver los datos en consola
