@@ -18,7 +18,7 @@ function reDireccionar(){
 }
 
 function required(event){
-    if(user.value==="" & password.value===""){
+    if(user.value==="" || password.value===""){
         alert("Debe escribir la info")
         event.preventDefault()
     }else{
