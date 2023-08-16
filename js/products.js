@@ -15,7 +15,7 @@ function show_Cars(array){
         <span class=texto-hover>${car.name} <p>${car.currency} ${car.cost} </p></span> 
      <span id=vendidos>${car.soldCount} vendidos </span> 
         </div>
-        <span>${car.description}</span> 
+        <span class=description>${car.description}</span> 
     
     </div>`;
   
