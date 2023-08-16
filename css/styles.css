@@ -8,9 +8,15 @@
 .jumbotron .display-4 {
   font-weight: bold;
 }
-
-nav a {
+/*hover a nav Milagros*/
+nav a:hover {
   text-decoration: none;
+  background-color: #f27600;
+  font-size: 17px;
+}
+
+.navbar{
+  background-color: #ff9100;
 }
 
 .bd-placeholder-img {
@@ -216,6 +222,90 @@ a.custom-card:hover {
 .row {
   justify-content: center;
   display: flex;
+}
+
+/*Css maxi y milagros*/
+.container_auto{
+  display: flex;
+  align-items:center;
+  padding: 20px 0 20px 0;
+  width: auto;
+  border-radius: 7px;
+  margin: 12px;
+  }
+
+ #lista {
+    margin-top: 12px;
+  }
+  .container_auto:nth-of-type(even){
+    background-color: #ffb14b48;
+  }
+
+.container_auto:nth-of-type(odd){
+    background-color: #d1882979;
+    } 
+
+/*Contenedor de img y nombre de auto*/
+.container_animado{
+  position: relative;
+  display: flex;
+}
+
+/*Con el position,top,left y transform lo centro,
+con el opacity lo oculto*/
+.texto-hover{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background-color: rgb(197, 196, 196);
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: opacity 0.3s ease; /*acelera gradualmente y luego desacelera gradualmente*/
+  text-align: center;
+}
+
+.container_animado img{
+  transform: translateX(100%); /*Lo mueve 100% a la derecha*/
+}
+
+/*Blurrear la imagen al hacerle hover*/
+.container_animado:hover img{
+  filter: blur(2px);
+  transform: translateX(0%); /*lo lleva al comienzo del div*/
+  transition: transform 0.5s ease;
+}
+
+/*Al texto-hover contenido en container_animado cuando paso por encima*/
+.container_animado:hover .texto-hover{
+  opacity: 1;
+}
+
+/*Al primer span enseguida luego del div container_animado*/
+.container_animado + span {
+  opacity: 0;
+}
+
+.container_animado:hover + span{
+  opacity: 1;
+  }
+
+  /*Span con id vendidos*/
+#vendidos {
+  font-size: smaller;
+  color: rgb(88, 87, 87);
+  position:absolute;
+  bottom: 0;
+  left: 208%;
+  text-align: center;
+}
+ /*span con clase*/
+.description {
+  font-size: 23px;
+  margin-left: 20px;
+ font-family: 'Arial Narrow Bold', sans-serif;
+ color: rgb(53, 53, 53);
 }
 
 /*Codigo Franco*/
