@@ -224,7 +224,7 @@ a.custom-card:hover {
   display: flex;
 }
 
-/*Css maxi y milagros*/
+/*Css milagros*/
 .container_auto{
   display: flex;
   align-items:center;
@@ -297,7 +297,7 @@ con el opacity lo oculto*/
   color: rgb(88, 87, 87);
   position:absolute;
   bottom: 0;
-  left: 208%;
+  left: 203%;
   text-align: center;
 }
  /*span con clase*/
