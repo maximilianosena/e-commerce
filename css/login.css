@@ -64,7 +64,7 @@
   }
   
   input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #b36b00;
   }
   
   .footer a {
@@ -81,3 +81,10 @@
     margin-top: 550px;
     
   }
+  
+  .bx {
+    font-size: 30px;
+    transform: translateX(-35px);
+    cursor: pointer;
+  } 
+
