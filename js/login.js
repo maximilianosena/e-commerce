@@ -1,7 +1,10 @@
 let btn_show= document.getElementById("show_password");
 let btn_submit= document.getElementById("submit");
 const password= document.getElementById("password");
+const icon= document.querySelector(".bx");
+
 const user=document.getElementById("user");
+
 
 function switchVisibility(event){
     event.preventDefault()
@@ -83,3 +86,12 @@ get_data_localStorage();
 
 
 //localStorage.clear(); <- Para limpiar el localStorage
+
+//Ojito abre y cierra cuando muestra la contraseña
+icon.addEventListener("click", e => {
+    if (password.type == "password"){
+        password.type = "text";
+    } else {
+        password.type = "password"
+    }
+})
