@@ -270,6 +270,7 @@ con el opacity lo oculto*/
 
 .container_animado img{
   transform: translateX(100%); /*Lo mueve 100% a la derecha*/
+border-radius: 10px;
 }
 
 /*Blurrear la imagen al hacerle hover*/
