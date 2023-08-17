@@ -46,6 +46,7 @@ function login(){
 
 //Funcion que guarda en almacenamiento local, el array creado, en formato JSON
 //porque localStorage solo puede almacenar cadenas de texto.
+//los "guardo" bajo el nombre usuarios
 
 function save_session(){
     localStorage.setItem("usuarios", JSON.stringify(usuarios_Locales))
@@ -54,7 +55,7 @@ function save_session(){
 
 //función Informativa para ver los datos en consola
 function get_data_localStorage() {
-  //Obtengo del localStorage los elementos guardados y los "guardo" bajo el nombre usuarios
+  //Obtengo del localStorage los elementos guardados 
  const savedSession = localStorage.getItem("usuarios"); 
 
  //Si existen elementos:
@@ -70,9 +71,6 @@ function get_data_localStorage() {
 
 // Llamo a la función para conocer el estado del localStorage
 get_data_localStorage();
-
-
-//localStorage.clear(); <- Para limpiar el localStorage
 
 //Ojito abre y cierra cuando muestra la contraseña
 icon.addEventListener("click", e => {
