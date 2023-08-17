@@ -1,4 +1,4 @@
-let btn_show= document.getElementById("show_password");
+let btn_show= document.getElementById ("show_password");
 let btn_submit= document.getElementById("submit");
 const password= document.getElementById("password");
 const icon= document.querySelector(".bx");
