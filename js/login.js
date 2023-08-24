@@ -3,6 +3,7 @@ let btn_submit= document.getElementById("submit");
 const password= document.getElementById("password");
 const icon= document.querySelector(".bx");
 
+
 const user=document.getElementById("user");
 
 function reDireccionar(){
