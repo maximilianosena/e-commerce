@@ -46,17 +46,7 @@ function show_Products(array){
     let category = data.products
     show_Products(category);
   })
-  fetch(url)
-  .then((response) => { 
-    if (response.ok) {
-      return response.json(); 
-    }
-  })
-  .then((data) => {
-    console.log(data); 
-    let category = data.products
-    show_Products(category);
-  }) 
+ 
 
     //codigo Flor y Maxi
 
