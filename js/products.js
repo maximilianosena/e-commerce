@@ -26,8 +26,26 @@ function show_Products(array){
   }
 }
   
-  let url= 'https://japceibal.github.io/emercado-api/cats_products/101.json'
+ 
   
+  //Buscador de categorias
+  const categorias = localStorage.getItem("catID")
+
+  console.log(" Numero de categoria: " + categorias)
+
+  let url= 'https://japceibal.github.io/emercado-api/cats_products/' + categorias + '.json'
+
+  fetch(url)
+  .then((response) => { 
+    if (response.ok) {
+      return response.json(); 
+    }
+  })
+  .then((data) => {
+    console.log(data); 
+    let category = data.products
+    show_Products(category);
+  })
   fetch(url)
   .then((response) => { 
     if (response.ok) {
