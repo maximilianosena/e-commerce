@@ -8,7 +8,7 @@ function show_Products(array){
   
   //La variable contenido muestra las etiquetas HTML, y como se presenta la información de cada artículo
   //Cree un div con class container_auto, para poder manejar el estilo del contenedor de cada artículo
-  //Cree un div con class container_animado, que contiene la imagen,el nombre, el precio y la cdad vendida, para realizar cambios por ej hover y alinear la cdad vendida con la img
+  //Cree un div con class container_animado, que contiene la imagen,el nombre, el precio y la cdad vendida, para realidecreaser cambios por ej hover y alinear la cdad vendida con la img
   //El span description está por fuera del div container_animado
 
   { let contenido= 
@@ -44,12 +44,12 @@ function show_Products(array){
 
     // Código de Filtros
 
-let btn_AZ = document.getElementById("sortAsc")
-let btn_ZA= document.getElementById("sortDesc")
+let btn_increase = document.getElementById("sortAsc")
+let btn_decrease= document.getElementById("sortDesc")
 let btn_relevance= document.getElementById("sortByCount")
 
 
-btn_AZ.addEventListener("click", function(){
+btn_increase.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
   fetch(url)
   .then((response) => { 
@@ -67,7 +67,7 @@ show_Products(ascendente)
   )
 })
 
-btn_ZA.addEventListener("click", function(){
+btn_decrease.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
   fetch(url)
   .then((response) => { 
