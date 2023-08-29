@@ -102,3 +102,45 @@ show_Products(descendente)
 }
   )
 })
+//Código buscador
+
+let search = document.getElementById("search-input");
+
+//Función que busca coincidencias entre el input y el nombre y descripcion del array
+
+function searching(productos) {
+  contenedor.innerHTML= "";
+
+  //Filtro a el array de productos, y creo un nuevo array "filter"
+  //el nombre y descripción del producto tienen que coincidir, incluir los caracteres utilizados en el input.
+  //toLowerCase(), para llevar todos los caracteres a minuscula, y que no se filtre por diferencia entre mayuscula y 
+  //minuscula
+
+const filter = productos.filter(producto=> producto.name.toLowerCase().includes(search.value.toLowerCase())||
+ producto.description.toLowerCase().includes(search.value.toLowerCase()));
+ 
+
+ //Si el array de filter está vacio, devuelve que no hay resultados
+ if (filter.length===0){
+contenedor.innerHTML= "No hay resultado"
+ } else {
+
+  //sino, invoca la función show_Products, pasando como parametro el array filter.
+ show_Products(filter)
+}
+}
+
+//Evento que llama a la función buscar
+search.addEventListener('input', function(){
+  fetch(url)
+  .then((response) => { 
+    if (response.ok) {
+      return response.json(); 
+    }
+  })
+  .then((data) => {
+    console.log(data); 
+    productos = data.products //agrego un let de productos y le meto la info
+  }) 
+  searching(productos); //Invoco la función de searching, pasando como parametro los productos
+});
