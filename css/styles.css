@@ -325,33 +325,68 @@ body {
   background-color: #f0f0f0;
   justify-content: center;
   padding: 20px 0;
-  
-  
 }
+
+
 .contenedor {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
+  justify-content: space-between;
   background-color: #f0f0f0;
-  
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .search-container {
-  display: flex;
-  align-items: center;
   background-color: rgb(216, 216, 216);
   border-radius: 20px;
-  padding: 6px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 600px;
-
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  float: initial;
 }
+
 #search-input {
-  flex: 1;
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 20px;
+  width: 600px; /* Reducir el ancho para ajustar */
+}
+
+/* Filtros de busqueda */
+/* Cambia el color de fondo de los botones */
+.btn-light {
+  background-color: orange;
+  color: #333;
+}
+
+/* Cambia el estilo de los botones de filtro | filtrar  */
+#rangeFilterCount {
+  background-color: orange;
+  color: #fff;
+}
+/* Cambia el estilo de los botones de filtro | limpiar */
+#clearRangeFilter {
+  background-color: orange;
+  color: #fff; 
+  text-decoration: none;
+}
+
+/* Cambia el estilo del input de número */
+.form-control {
+  border: 3px solid orange;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 30px;
+}
+
+/* Cambia el estilo del botón de ordenamiento seleccionado */
+.btn-check:checked + .btn {
+  background-color: #363636;
+  color: #fff;
+}
+
+.contenedor-filtros {
   
 }
+
