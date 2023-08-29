@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     //Codigo Franco
     document.getElementById("herramientas").addEventListener("click", function() {
-        localStorage.setItem("catID", 103);
+        localStorage.setItem("catID", 104);
         window.location = "products.html"
     });
     //Codigo Franco
