@@ -8,7 +8,7 @@ function show_Products(array){
   
   //La variable contenido muestra las etiquetas HTML, y como se presenta la información de cada artículo
   //Cree un div con class container_auto, para poder manejar el estilo del contenedor de cada artículo
-  //Cree un div con class container_animado, que contiene la imagen,el nombre, el precio y la cdad vendida, para realizar cambios por ej hover y alinear la cdad vendida con la img
+  //Cree un div con class container_animado, que contiene la imagen,el nombre, el precio y la cdad vendida, para realidecreaser cambios por ej hover y alinear la cdad vendida con la img
   //El span description está por fuera del div container_animado
 
   { let contenido= 
@@ -26,8 +26,26 @@ function show_Products(array){
   }
 }
   
-  let url= 'https://japceibal.github.io/emercado-api/cats_products/101.json'
+ 
   
+  //Buscador de categorias
+  const categorias = localStorage.getItem("catID")
+
+  console.log(" Numero de categoria: " + categorias)
+
+  let url= 'https://japceibal.github.io/emercado-api/cats_products/' + categorias + '.json'
+
+  fetch(url)
+  .then((response) => { 
+    if (response.ok) {
+      return response.json(); 
+    }
+  })
+  .then((data) => {
+    console.log(data); 
+    let category = data.products
+    show_Products(category);
+  })
   fetch(url)
   .then((response) => { 
     if (response.ok) {
@@ -44,12 +62,12 @@ function show_Products(array){
 
     // Código de Filtros
 
-let btn_AZ = document.getElementById("sortAsc")
-let btn_ZA= document.getElementById("sortDesc")
+let btn_increase = document.getElementById("sortAsc")
+let btn_decrease= document.getElementById("sortDesc")
 let btn_relevance= document.getElementById("sortByCount")
 
 
-btn_AZ.addEventListener("click", function(){
+btn_increase.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
   fetch(url)
   .then((response) => { 
@@ -67,7 +85,7 @@ show_Products(ascendente)
   )
 })
 
-btn_ZA.addEventListener("click", function(){
+btn_decrease.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
   fetch(url)
   .then((response) => { 
@@ -102,3 +120,45 @@ show_Products(descendente)
 }
   )
 })
+//Código buscador
+
+let search = document.getElementById("search-input");
+
+//Función que busca coincidencias entre el input y el nombre y descripcion del array
+
+function searching(productos) {
+  contenedor.innerHTML= "";
+
+  //Filtro a el array de productos, y creo un nuevo array "filter"
+  //el nombre y descripción del producto tienen que coincidir, incluir los caracteres utilizados en el input.
+  //toLowerCase(), para llevar todos los caracteres a minuscula, y que no se filtre por diferencia entre mayuscula y 
+  //minuscula
+
+const filter = productos.filter(producto=> producto.name.toLowerCase().includes(search.value.toLowerCase())||
+ producto.description.toLowerCase().includes(search.value.toLowerCase()));
+ 
+
+ //Si el array de filter está vacio, devuelve que no hay resultados
+ if (filter.length===0){
+contenedor.innerHTML= "No hay resultado"
+ } else {
+
+  //sino, invoca la función show_Products, pasando como parametro el array filter.
+ show_Products(filter)
+}
+}
+
+//Evento que llama a la función buscar
+search.addEventListener('input', function(){
+  fetch(url)
+  .then((response) => { 
+    if (response.ok) {
+      return response.json(); 
+    }
+  })
+  .then((data) => {
+    console.log(data); 
+    productos = data.products //agrego un let de productos y le meto la info
+  }) 
+  searching(productos); //Invoco la función de searching, pasando como parametro los productos
+});
