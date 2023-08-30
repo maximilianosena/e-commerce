@@ -155,7 +155,6 @@ btn_filter.addEventListener("click", function(){
       }else if (!isNaN(minValue) && isNaN(maxValue)){
         let filterArray = tproducts.filter((product) => (product.cost >= minValue ));
         show_Products(filterArray);
-        console.log("error");
       }else{
         show_Products(tproducts);
       }
