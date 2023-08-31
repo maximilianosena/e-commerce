@@ -1,4 +1,6 @@
 let contenedor= document.getElementById("lista");
+let products = []; //array que toma los valores del fetch para usarlos como alcance global
+
 
 function show_Products(array){
   
@@ -43,8 +45,8 @@ function show_Products(array){
   })
   .then((data) => {
     console.log(data); 
-    let category = data.products
-    show_Products(category);
+    products=data.products
+    show_Products(products);
   })
  
 
@@ -59,64 +61,48 @@ let btn_relevance= document.getElementById("sortByCount")
 
 btn_increase.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
-  fetch(url)
-  .then((response) => { 
-    if (response.ok) {
-      return response.json(); 
-    }
-  })
-  .then((data) => { //Obtengo la información y la ordeno de manera ascendente
-let ascendente= data.products.sort((a,b)=>{ 
+
+  //Ordeno el array de products de manera ascendente, en base al precio
+  let ascendente= products.sort((a,b)=>{  
   return a.cost - b.cost
  })
 console.log(ascendente)
 show_Products(ascendente) 
-}
-  )
 })
+
 
 btn_decrease.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
-  fetch(url)
-  .then((response) => { 
-    if (response.ok) {
-      return response.json(); 
-    }
-  })
-  .then((data) => { //Obtengo la información y la ordeno de manera descendente
-let descendente= data.products.sort((a,b)=>{ 
+  
+  //Ordeno el array de products de manera descendente, en base al precio
+let descendente= products.sort((a,b)=>{ 
   return  b.cost - a.cost
  })
 console.log(descendente)
 show_Products(descendente)
-}
-  )
 })
+
 
 btn_relevance.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
-  fetch(url)
-  .then((response) => { 
-    if (response.ok) {
-      return response.json(); 
-    }
-  })
-  .then((data) => { //Obtengo la información y la ordeno de manera descendente
-let descendente= data.products.sort((a,b)=>{ 
+ 
+ //Ordeno el array de products de manera descendente, en base a cdad vendida
+  let descendente= products.sort((a,b)=>{ 
   return  b.soldCount - a.soldCount
  })
 console.log(descendente)
 show_Products(descendente) 
 }
   )
-})
+
+
 //Código buscador
 
 let search = document.getElementById("search-input");
 
 //Función que busca coincidencias entre el input y el nombre y descripcion del array
 
-function searching(productos) {
+function searching(products) {
   contenedor.innerHTML= "";
 
   //Filtro a el array de productos, y creo un nuevo array "filter"
@@ -124,7 +110,7 @@ function searching(productos) {
   //toLowerCase(), para llevar todos los caracteres a minuscula, y que no se filtre por diferencia entre mayuscula y 
   //minuscula
 
-const filter = productos.filter(producto=> producto.name.toLowerCase().includes(search.value.toLowerCase())||
+const filter = products.filter(producto=> producto.name.toLowerCase().includes(search.value.toLowerCase())||
  producto.description.toLowerCase().includes(search.value.toLowerCase()));
  
 
@@ -140,17 +126,7 @@ contenedor.innerHTML= "No hay resultado"
 
 //Evento que llama a la función buscar
 search.addEventListener('input', function(){
-  fetch(url)
-  .then((response) => { 
-    if (response.ok) {
-      return response.json(); 
-    }
-  })
-  .then((data) => {
-    console.log(data); 
-    productos = data.products //agrego un let de productos y le meto la info
-  }) 
-  searching(productos); //Invoco la función de searching, pasando como parametro los productos
+  searching(products); //Invoco la función de searching, pasando como parametro los productos
 });
 
 //Codigo filtrado por precio (Gonza)
@@ -164,16 +140,11 @@ let price_max = document.getElementById("rangeFilterCountMax");
 btn_filter.addEventListener("click", function(){
   contenedor.innerHTML="";
   
-  fetch(url)
-  .then((response)=> {
-    if (response.ok){
-      return response.json();
-    }
-  })
-  .then((data) => {
-    let tproducts = data.products;
+ 
+    let tproducts = products;
     let minValue = parseInt(price_min.value);
     let maxValue = parseInt(price_max.value);
+
     if (!isNaN(minValue) && !isNaN(maxValue)){
       let filterArray = tproducts.filter((product) => (product.cost >= minValue && product.cost <= maxValue));
       console.log(filterArray);
@@ -184,28 +155,17 @@ btn_filter.addEventListener("click", function(){
       }else if (!isNaN(minValue) && isNaN(maxValue)){
         let filterArray = tproducts.filter((product) => (product.cost >= minValue ));
         show_Products(filterArray);
-        console.log("error");
       }else{
         show_Products(tproducts);
       }
      
-  }
-    
-)});
+  }   
+);
 
 btn_clear.addEventListener("click", function(){
   document.getElementById("rangeFilterCountMin").value = "";
   document.getElementById("rangeFilterCountMax").value = "";
 
   contenedor.innerHTML="";
-  fetch(url)
-  .then((response)=> {
-    if (response.ok){
-      return response.json();
-    }
-  })
-  .then((data) => {
-    let tproducts = data.products;
-    show_Products(tproducts);
+    show_Products(products);
   });
-});
