@@ -386,3 +386,48 @@ body {
   color: #fff;
 }
 
+
+
+ /*COLORES PARA IDENTIFICAR LOS ELEMENTOS*/
+  
+  
+  /*id comments*/
+
+#comments{
+  border: black solid 2px;
+}
+
+/*class headComment */
+
+.headComment{
+  border: #0087F7 solid 1px;
+  background-color: wheat;
+}
+
+/*class descriptionComment*/
+
+.descriptionComment{
+  border: tomato solid 1px;
+  background-color: springgreen;
+}
+
+
+/*Clase nombre y fecha*/
+.name,
+.date {
+    display: inline;
+}
+
+.name{
+  color: red;
+}
+
+.date {
+  color: darkmagenta;
+}
+
+
+/*clase del comentario*/
+.comment {
+color: rgb(146, 141, 141);
+}
