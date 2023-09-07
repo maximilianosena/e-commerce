@@ -1,6 +1,10 @@
 let contenedor= document.getElementById("lista");
 let products = []; //array que toma los valores del fetch para usarlos como alcance global
 
+function setProductID(id){
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html"
+}
 
 function show_Products(array){
   
@@ -14,7 +18,7 @@ function show_Products(array){
   //El span description está por fuera del div container_animado
 
   { let contenido= 
-      `<div class=container_product>
+      `<div class=container_product onclick="setProductID(${product.id})">
       <div class=container_animado> <img src="${product.image}" height=300> 
       <span class=texto-hover>${product.name} <p>${product.currency} ${product.cost} </p></span> 
    <span id=vendidos>${product.soldCount} vendidos </span> 
@@ -140,7 +144,6 @@ let price_max = document.getElementById("rangeFilterCountMax");
 btn_filter.addEventListener("click", function(){
   contenedor.innerHTML="";
   
- 
     let tproducts = products;
     let minValue = parseInt(price_min.value);
     let maxValue = parseInt(price_max.value);
@@ -168,4 +171,5 @@ btn_clear.addEventListener("click", function(){
 
   contenedor.innerHTML="";
     show_Products(products);
-  });
+});
+
