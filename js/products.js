@@ -18,7 +18,7 @@ function show_Products(array){
   //El span description está por fuera del div container_animado
 
   { let contenido= 
-      `<div class=container_product onclick="setProductID(${product.id})">
+      `<div class=container_product onclick="setProductID(${product.id})" style="cursor:pointer;">
       <div class=container_animado> <img src="${product.image}" height=300> 
       <span class=texto-hover>${product.name} <p>${product.currency} ${product.cost} </p></span> 
    <span id=vendidos>${product.soldCount} vendidos </span> 
