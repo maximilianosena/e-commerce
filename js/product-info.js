@@ -63,7 +63,7 @@ function showTheProduct(object){
     things.innerHTML+= `<div><img src=${image} height=300px></div> `
    }
    for (let product of object.relatedProducts){
-    things.innerHTML+=`<div>Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
+    things.innerHTML+=`<div onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
     
    }
     
@@ -83,3 +83,7 @@ async function showproduct (){
  
   showproduct()
 
+  function setProductID (id){
+    localStorage.setItem("productID", id);
+    window.location='product-info.html'
+   }
