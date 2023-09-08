@@ -386,6 +386,29 @@ body {
   color: #fff;
 }
 
+/*Colores de estilo en product-info.js*/
+
+/*Estilos para información del producto*/
+.product-info {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/*Estilos para las imágenes de producto*/
+.product-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/*Estilos para los productos relacionados*/
+.related-product {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #e0e0e0;
+}
 
 
  /*COLORES PARA IDENTIFICAR LOS ELEMENTOS*/
