@@ -6,6 +6,7 @@ function setProductID(id){
   window.location = "product-info.html"
 }
 
+
 function show_Products(array){
   
 
@@ -90,7 +91,7 @@ show_Products(descendente)
 btn_relevance.addEventListener("click", function(){
   contenedor.innerHTML=""; //Vacío el contenedor para volver a usarlo
  
- //Ordeno el array de products de manera descendente, en base a cdad vendida
+ //Ordeno el array de products de manera descendente, en base a cada vendida
   let descendente= products.sort((a,b)=>{ 
   return  b.soldCount - a.soldCount
  })
