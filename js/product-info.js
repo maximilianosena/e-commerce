@@ -55,15 +55,15 @@ call_UrlComments();
 let things= document.getElementById("showP")
 function showTheProduct(object){
    things.innerHTML = `
-   <div>Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
+   <div class="product-info">Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
    `
    for (
     let image of object.images
    ){
-    things.innerHTML+= `<div><img src=${image} height=300px></div> `
+    things.innerHTML+= `<div class="product-image"><img src=${image} height=300px></div> `
    }
    for (let product of object.relatedProducts){
-    things.innerHTML+=`<div onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
+    things.innerHTML+=`<div class="related-product" onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
     
    }
     
