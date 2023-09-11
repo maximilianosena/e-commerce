@@ -87,3 +87,51 @@ async function showproduct (){
     localStorage.setItem("productID", id);
     window.location='product-info.html'
    }
+
+
+   /*Codigo Milagros*/
+
+   document.addEventListener("DOMContentLoaded", function () {
+    // Obtener los elementos HTML
+    let newCommentInput = document.getElementById("nuevo-comentario");
+    let addCommentButton = document.getElementById("agregar-comentarios");
+    let currentComments = document.querySelector(".current-comments");
+  
+    addCommentButton.addEventListener("click", function () {
+      // Obtener el texto del nuevo comentario
+      let newComment = newCommentInput.value;
+  
+      // Crear un nuevo elemento de comentario
+      let containerComments= document.getElementById("comments");
+ 
+    
+      let commentDateName = document.createElement("div");
+      commentDateName.className = "headComment";
+      containerComments.appendChild(commentDateName);
+
+       let commentName = document.createElement("div");
+       commentDateName.appendChild(commentName);
+       commentName.className = "name";
+       commentName.textContent = "Nombre"
+
+       let commentDate = document.createElement("div");
+       commentDateName.appendChild(commentDate);
+       commentDate.className = "date"
+       commentDate.textContent = "Fecha"
+       
+
+       
+
+      const commentElement = document.createElement("div");
+      commentElement.className = "descriptionComment";
+      containerComments.appendChild(commentElement);
+
+      let textCommentElement = document.createElement("div");
+      commentElement.appendChild(textCommentElement);
+      textCommentElement.className = "comment";
+      commentElement.textContent = newCommentInput.value;
+      
+      // Limpia el cuadro de texto del comentario después de agregarlo
+    newCommentInput.value = "";
+});
+});
