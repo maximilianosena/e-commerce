@@ -499,6 +499,54 @@ color: rgb(146, 141, 141);
   transition: all 0.2s ease;
 }
 
+
+
+.fas.fa-star:hover{
+color: #FFA500;
+cursor: pointer;
+}
+
+.stars.checked{
+  color: #FFA500;
+}
+
+
+.fas.fa-star.checked:nth-of-type(1)::after{
+content: ":(";
+position: relative;
+bottom: 25px;
+right: 20px;
+}
+
+.fas.fa-star.checked:nth-of-type(2)::after{
+  content: ":/";
+  position: relative;
+  bottom: 25px;
+  right: 20px;
+  }
+
+  .fas.fa-star.checked:nth-of-type(3)::after{
+    content: ":|";
+    position: relative;
+    bottom: 25px;
+right: 20px;
+    }
+
+    .fas.fa-star.checked:nth-of-type(4)::after{
+      content: ":)";
+      position: relative;
+      bottom: 25px;
+      right: 20px;
+      }
+
+      .fas.fa-star.checked:nth-of-type(5)::after{
+        content: ":D";
+        position: relative;
+        bottom: 25px;
+right: 20px;
+        }
+
+
 input {
   display: none;
 }
