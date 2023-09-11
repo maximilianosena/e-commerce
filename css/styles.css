@@ -225,7 +225,7 @@ a.custom-card:hover {
 }
 
 /*Css milagros*/
-.container_auto{
+.container_product{
   display: flex;
   align-items:center;
   padding: 20px 0 20px 0;
@@ -237,15 +237,15 @@ a.custom-card:hover {
  #lista {
     margin-top: 12px;
   }
-  .container_auto:nth-of-type(even){
+  .container_product:nth-of-type(even){
     background-color: #ffb14b48;
   }
 
-.container_auto:nth-of-type(odd){
+.container_product:nth-of-type(odd){
     background-color: #d1882979;
     } 
 
-/*Contenedor de img y nombre de auto*/
+/*Contenedor de img y nombre*/
 .container_animado{
   position: relative;
   display: flex;
@@ -313,6 +313,192 @@ border-radius: 10px;
 }
 
 /*Codigo Franco*/
-.container_auto{
+.container_product{
   padding: 20px 0 20px 20px;
   }
+
+/*Código de la Barra de Busqueda*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.search-container {
+  background-color: rgb(216, 216, 216);
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  float: initial;
+}
+
+#search-input {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  width: 600px; /* Reducir el ancho para ajustar */
+}
+
+/* Filtros de busqueda */
+/* Cambia el color de fondo de los botones */
+.btn-light {
+  background-color: orange;
+  color: #333;
+}
+
+/* Cambia el estilo de los botones de filtro | filtrar  */
+#rangeFilterCount {
+  background-color: orange;
+  color: #fff;
+}
+/* Cambia el estilo de los botones de filtro | limpiar */
+#clearRangeFilter {
+  background-color: orange;
+  color: #fff; 
+  text-decoration: none;
+}
+
+/* Cambia el estilo del input de número */
+.form-control {
+  border: 3px solid orange;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 30px;
+}
+
+/* Cambia el estilo del botón de ordenamiento seleccionado */
+.btn-check:checked + .btn {
+  background-color: #363636;
+  color: #fff;
+}
+
+/*Colores de estilo en product-info.js*/
+
+/*Estilos para información del producto*/
+.product-info {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/*Estilos para las imágenes de producto*/
+.product-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/*Estilos para los productos relacionados*/
+.related-product {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #e0e0e0;
+}
+
+
+ /*COLORES PARA IDENTIFICAR LOS ELEMENTOS*/
+  
+  
+  /*id comments*/
+
+#comments{
+  border: black solid 2px;
+}
+
+/*class headComment */
+
+.headComment{
+  border: #0087F7 solid 1px;
+  background-color: wheat;
+}
+
+/*class descriptionComment*/
+
+.descriptionComment{
+  border: tomato solid 1px;
+  background-color: springgreen;
+}
+
+
+/*Clase nombre y fecha*/
+.name,
+.date {
+    display: inline;
+}
+
+.name{
+  color: red;
+}
+
+.date {
+  color: darkmagenta;
+}
+
+
+/*clase del comentario*/
+.comment {
+color: rgb(146, 141, 141);
+}
+
+/*codigo Franco, comentar*/
+.contenedor-comentarios {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.area-comentario {
+  border: 0;
+  background-color: #e4e4e4;
+  display: block;
+  width: 98%;
+  border-radius: 15px;
+  min-height: 80px;
+  max-height: 90px;
+  margin: 15px;
+}
+
+.boton-enviar {
+  background-color: #E59866;
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #ffffff;
+  transition: background-color ease-in 180ms;
+  margin: 18px;
+}
+
+.boton-enviar:hover {
+  background-color: #DC7633 ;
+}
+
+.stars {
+  font-size: 20px;
+  padding: 18px;
+  float: right;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+input {
+  display: none;
+}
