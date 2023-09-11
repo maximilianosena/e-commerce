@@ -135,3 +135,37 @@ async function showproduct (){
     newCommentInput.value = "";
 });
 });
+
+
+
+//Traigo el elemento estrella
+let stars = document.getElementsByClassName("fas fa-star")
+console.log(stars)
+
+//Lo transformo a un array
+let starsArray = Array.from(stars)
+
+console.log("Array de stars", starsArray)
+
+
+//Creo el array de score, donde guarda las cantidad de estrellas con checked.
+let score = []
+
+
+//Index 1 llega hasta 4, Index 2 es el Index 1 - estrellas checked
+//Si pinto dos estrellas, Index 2 es [2,3,4], y score.push(star), pushea dos estrellas.
+//Si tengo 4 estrellas pintadas, Index 2 es [4], si luego pinto las dos primeras, el Index 1 era [3] y Index 2 [4],
+//por lo tanto, es false y remueve el checked.
+
+starsArray.forEach((star, index1) => {
+    
+    console.log("Index 1:", index1)
+    star.addEventListener("click", function(){
+        score = []
+        starsArray.forEach((star, index2) =>  {
+            index1 >= index2 ? star.classList.add("checked"): star.classList.remove("checked");
+            index1 >= index2 ?  score.push(star):  console.log("Index 2:", index2)
+        })
+    })
+
+});
