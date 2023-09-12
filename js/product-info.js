@@ -114,14 +114,19 @@ const seconds= fecha.getSeconds().toString().padStart(2, '0');
     let addCommentButton = document.getElementById("agregar-comentarios");
     let currentComments = document.querySelector(".current-comments");
   
-    addCommentButton.addEventListener("click", function () {
+    addCommentButton.addEventListener("click", function () { 
       // Obtener el texto del nuevo comentario
       let newComment = newCommentInput.value;
   
       // Crear un nuevo elemento de comentario
       let containerComments= document.getElementById("comments");
  
-    
+    if (newComment.trim()===""){
+
+        alert ("Debe realizar un comentario") }
+
+        else {
+
       let commentDateName = document.createElement("div");
       commentDateName.className = "headComment";
       containerComments.appendChild(commentDateName);
@@ -137,7 +142,17 @@ const seconds= fecha.getSeconds().toString().padStart(2, '0');
        commentDate.textContent = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
        
 
-       
+       for (let i=0; i<5; i++){
+        let elementSpan = document.createElement("span");
+        elementSpan.classList.add("fa", "fa-star")
+        if (i<score.length){
+             elementSpan.classList.add("checked")
+             }
+             commentDateName.appendChild(elementSpan)
+        }
+
+    console.log("El score", score.length)
+
 
       const commentElement = document.createElement("div");
       commentElement.className = "descriptionComment";
@@ -146,10 +161,11 @@ const seconds= fecha.getSeconds().toString().padStart(2, '0');
       let textCommentElement = document.createElement("div");
       commentElement.appendChild(textCommentElement);
       textCommentElement.className = "comment";
-      commentElement.textContent = newCommentInput.value;
+      textCommentElement.textContent = newCommentInput.value;
       
       // Limpia el cuadro de texto del comentario después de agregarlo
     newCommentInput.value = "";
+}
 });
 });
 
