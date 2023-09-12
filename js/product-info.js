@@ -55,15 +55,15 @@ call_UrlComments();
 let things= document.getElementById("showP")
 function showTheProduct(object){
    things.innerHTML = `
-   <div class="product-info">Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
+   <div class=product-info>Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
    `
    for (
     let image of object.images
    ){
-    things.innerHTML+= `<div class="product-image"><img src=${image} height=300px></div> `
+    things.innerHTML+= `<div class=product-image><img src=${image} height=300px></div> `
    }
    for (let product of object.relatedProducts){
-    things.innerHTML+=`<div class="related-product" onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
+    things.innerHTML+=`<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
     
    }
     
@@ -91,6 +91,23 @@ async function showproduct (){
 
    /*Codigo Milagros*/
 
+//Para conocer el usuario conectado
+const savedSession = localStorage.getItem("usuarios")
+    usuarios_Locales = JSON.parse(savedSession)
+    //Busco la última sesión iniciada, obtengo la ubicación, el indice
+    let lastSession= usuarios_Locales.length - 1;
+
+console.log(usuarios_Locales[lastSession].Nombre)
+
+   fecha= new Date();
+   const day = fecha.getDate().toString().padStart(2, '0');
+   const numberMonth = fecha.getMonth()+ 1;
+const month= numberMonth.toString().padStart(2, '0')
+const year= fecha.getFullYear();
+const hour = fecha.getHours().toString().padStart(2, '0');
+const minutes = fecha.getMinutes().toString().padStart(2, '0');
+const seconds= fecha.getSeconds().toString().padStart(2, '0');
+
    document.addEventListener("DOMContentLoaded", function () {
     // Obtener los elementos HTML
     let newCommentInput = document.getElementById("nuevo-comentario");
@@ -112,12 +129,12 @@ async function showproduct (){
        let commentName = document.createElement("div");
        commentDateName.appendChild(commentName);
        commentName.className = "name";
-       commentName.textContent = "Nombre"
+       commentName.textContent = `${usuarios_Locales[lastSession].Nombre} `
 
        let commentDate = document.createElement("div");
        commentDateName.appendChild(commentDate);
        commentDate.className = "date"
-       commentDate.textContent = "Fecha"
+       commentDate.textContent = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
        
 
        
