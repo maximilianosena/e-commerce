@@ -427,42 +427,55 @@ body {
   /*id comments*/
 
 #comments{
-  border: black solid 2px;
+  border: 0;
+  background-color: #e4e4e4;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 15px;
+  min-height: 80px;
+  margin-top: 20px;;
 }
 
 /*class headComment */
 
-.headComment{
-  border: #0087F7 solid 1px;
-  background-color: wheat;
-}
-
 /*class descriptionComment*/
 
 .descriptionComment{
-  border: tomato solid 1px;
-  background-color: springgreen;
+ color: #444;
+  background-color: #e4e4e4;
+  
+  
 }
 
 
 /*Clase nombre y fecha*/
 .name,
 .date {
-    display: inline;
+    display:inline;
+    padding: 8px 14px;
+   
+    
+   
+    
 }
 
 .name{
-  color: red;
+  color: #DC7633 ;
+  
 }
 
 .date {
-  color: darkmagenta;
+  color: rgb(146, 141, 141); 
+  
 }
 
 
 /*clase del comentario*/
 .comment {
-color: rgb(146, 141, 141);
+color: #444;
+padding: 5px 14px;
 }
 
 /*codigo Franco, comentar*/
@@ -474,6 +487,7 @@ color: rgb(146, 141, 141);
   width: 100%;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+
 }
 
 .area-comentario {
