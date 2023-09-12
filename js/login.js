@@ -6,7 +6,7 @@ const icon = document.querySelector(".bx");
 
 const user = document.getElementById("user");
 
-function reDireccionar() {
+function redirect() {
     location.replace("index.html")
 }
 
@@ -18,8 +18,8 @@ function required(event) {
         event.preventDefault()
     } else {
         login();
-        save_session();
-        reDireccionar();
+        saveSession();
+        redirect();
     }
 }
 
@@ -28,7 +28,7 @@ btn_submit.addEventListener("click", required)
 
 
 //ARRAY donde se guardan los nuevos registros de usuarios
-let usuarios_Locales = []
+let localUsers = []
 
 
 function login() {
@@ -40,12 +40,12 @@ function login() {
         "Contraseña": PASSWORD_SAVE
     };
 
-    usuarios_Locales.push(new_user)
+    localUsers.push(new_user)
 }
 
 
-function save_session() {
-    localStorage.setItem("usuarios", JSON.stringify(usuarios_Locales))
+function saveSession() {
+    localStorage.setItem("usuarios", JSON.stringify(localUsers))
 }
 
 
@@ -55,8 +55,8 @@ function get_data_localStorage() {
     const savedSession = localStorage.getItem("usuarios");
 
     if (savedSession) {
-        usuarios_Locales = JSON.parse(savedSession);
-        console.log("Sesiones existentes en localStorage:", usuarios_Locales);
+        localUsers = JSON.parse(savedSession);
+        console.log("Sesiones existentes en localStorage:", localUsers);
     } else {
         console.log("No se encontró sesión en localStorage.");
     }

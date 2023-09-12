@@ -88,11 +88,11 @@ function setProductID(id) {
 
 //Para conocer el usuario conectado
 const savedSession = localStorage.getItem("usuarios")
-usuarios_Locales = JSON.parse(savedSession)
+localUsers = JSON.parse(savedSession)
 //Busco la última sesión iniciada, obtengo la ubicación, el indice
-let lastSession = usuarios_Locales.length - 1;
+let lastSession = localUsers.length - 1;
 
-console.log(usuarios_Locales[lastSession].Nombre)
+console.log(localUsers[lastSession].Nombre)
 
 fecha = new Date();
 const day = fecha.getDate().toString().padStart(2, '0');
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let commentName = document.createElement("div");
             commentDateName.appendChild(commentName);
             commentName.className = "name";
-            commentName.textContent = `${usuarios_Locales[lastSession].Nombre} `
+            commentName.textContent = `${localUsers[lastSession].Nombre} `
 
             let commentDate = document.createElement("div");
             commentDateName.appendChild(commentDate);
