@@ -590,8 +590,6 @@ right: 20px;
           cursor: pointer;
           }
   
-
-
-input {
+.stars > input {
   display: none;
 }
