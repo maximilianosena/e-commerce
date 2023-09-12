@@ -87,3 +87,102 @@ async function showproduct (){
     localStorage.setItem("productID", id);
     window.location='product-info.html'
    }
+
+
+   /*Codigo Milagros*/
+
+//Para conocer el usuario conectado
+const savedSession = localStorage.getItem("usuarios")
+    usuarios_Locales = JSON.parse(savedSession)
+    //Busco la última sesión iniciada, obtengo la ubicación, el indice
+    let lastSession= usuarios_Locales.length - 1;
+
+console.log(usuarios_Locales[lastSession].Nombre)
+
+   fecha= new Date();
+   const day = fecha.getDate().toString().padStart(2, '0');
+   const numberMonth = fecha.getMonth()+ 1;
+const month= numberMonth.toString().padStart(2, '0')
+const year= fecha.getFullYear();
+const hour = fecha.getHours().toString().padStart(2, '0');
+const minutes = fecha.getMinutes().toString().padStart(2, '0');
+const seconds= fecha.getSeconds().toString().padStart(2, '0');
+
+   document.addEventListener("DOMContentLoaded", function () {
+    // Obtener los elementos HTML
+    let newCommentInput = document.getElementById("nuevo-comentario");
+    let addCommentButton = document.getElementById("agregar-comentarios");
+    let currentComments = document.querySelector(".current-comments");
+  
+    addCommentButton.addEventListener("click", function () {
+      // Obtener el texto del nuevo comentario
+      let newComment = newCommentInput.value;
+  
+      // Crear un nuevo elemento de comentario
+      let containerComments= document.getElementById("comments");
+ 
+    
+      let commentDateName = document.createElement("div");
+      commentDateName.className = "headComment";
+      containerComments.appendChild(commentDateName);
+
+       let commentName = document.createElement("div");
+       commentDateName.appendChild(commentName);
+       commentName.className = "name";
+       commentName.textContent = `${usuarios_Locales[lastSession].Nombre} `
+
+       let commentDate = document.createElement("div");
+       commentDateName.appendChild(commentDate);
+       commentDate.className = "date"
+       commentDate.textContent = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
+       
+
+       
+
+      const commentElement = document.createElement("div");
+      commentElement.className = "descriptionComment";
+      containerComments.appendChild(commentElement);
+
+      let textCommentElement = document.createElement("div");
+      commentElement.appendChild(textCommentElement);
+      textCommentElement.className = "comment";
+      commentElement.textContent = newCommentInput.value;
+      
+      // Limpia el cuadro de texto del comentario después de agregarlo
+    newCommentInput.value = "";
+});
+});
+
+
+
+//Traigo el elemento estrella
+let stars = document.getElementsByClassName("fas fa-star")
+console.log(stars)
+
+//Lo transformo a un array
+let starsArray = Array.from(stars)
+
+console.log("Array de stars", starsArray)
+
+
+//Creo el array de score, donde guarda las cantidad de estrellas con checked.
+let score = []
+
+
+//Index 1 llega hasta 4, Index 2 es el Index 1 - estrellas checked
+//Si pinto dos estrellas, Index 2 es [2,3,4], y score.push(star), pushea dos estrellas.
+//Si tengo 4 estrellas pintadas, Index 2 es [4], si luego pinto las dos primeras, el Index 1 era [3] y Index 2 [4],
+//por lo tanto, es false y remueve el checked.
+
+starsArray.forEach((star, index1) => {
+    
+    console.log("Index 1:", index1)
+    star.addEventListener("click", function(){
+        score = []
+        starsArray.forEach((star, index2) =>  {
+            index1 >= index2 ? star.classList.add("checked"): star.classList.remove("checked");
+            index1 >= index2 ?  score.push(star):  console.log("Index 2:", index2)
+        })
+    })
+
+});
