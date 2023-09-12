@@ -510,51 +510,86 @@ color: rgb(146, 141, 141);
 }
 
 
-
-.fas.fa-star:hover{
-color: #FFA500;
-cursor: pointer;
-}
-
-.stars.checked{
-  color: #FFA500;
-}
-
-
 .fas.fa-star.checked:nth-of-type(1)::after{
-content: ":(";
+content: "😣";
 position: relative;
 bottom: 25px;
 right: 20px;
 }
 
+.fas.fa-star.checked:nth-of-type(1).checked {
+  color: #c00000;
+}
+
+.fas.fa-star:nth-of-type(1):hover {
+  color: #c00000;
+  cursor: pointer;
+  }
+
 .fas.fa-star.checked:nth-of-type(2)::after{
-  content: ":/";
+  content: "😕";
   position: relative;
   bottom: 25px;
   right: 20px;
   }
 
+  .fas.fa-star.checked:nth-of-type(2).checked {
+    color: #de2e03;
+  }
+
+  .fas.fa-star:nth-of-type(2):hover {
+    color: #de2e03;
+    cursor: pointer;
+    }
+
   .fas.fa-star.checked:nth-of-type(3)::after{
-    content: ":|";
+    content: "😐";
     position: relative;
     bottom: 25px;
 right: 20px;
     }
 
+    .fas.fa-star.checked:nth-of-type(3).checked {
+      color: #fc4b08;
+    }
+
+    .fas.fa-star:nth-of-type(3):hover {
+      color: #fc4b08;
+      cursor: pointer;
+      }
+
     .fas.fa-star.checked:nth-of-type(4)::after{
-      content: ":)";
+      content: "🙂";
       position: relative;
       bottom: 25px;
       right: 20px;
       }
 
+      .fas.fa-star.checked:nth-of-type(4).checked {
+        color: #ff7c39;
+      }
+
+      .fas.fa-star:nth-of-type(4):hover {
+        color: #ff7c39;
+        cursor: pointer;
+        }
+
       .fas.fa-star.checked:nth-of-type(5)::after{
-        content: ":D";
+        content: "😃";
         position: relative;
         bottom: 25px;
 right: 20px;
         }
+
+        .fas.fa-star.checked:nth-of-type(5).checked {
+          color: #ffa460;
+        }
+
+        .fas.fa-star:nth-of-type(5):hover {
+          color: #ffa460;
+          cursor: pointer;
+          }
+  
 
 
 input {
