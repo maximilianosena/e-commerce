@@ -397,7 +397,11 @@ body {
 /*Estilos para las imágenes de producto*/
 .product-image {
   text-align: center;
-  background-color: rgb(209, 233, 243); 
+  background-color: #85c4ff;
+}
+
+.product-image:nth-child(odd){
+  background-color: rgb(173, 229, 253);
 }
 
 .product-image img  {
