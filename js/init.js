@@ -44,27 +44,27 @@ let getJSONData = function (url) {
 
 const profile = document.getElementById("login")
 
-function sesion_existe() {
+function sessionExists() {
 
 
   const savedSession = localStorage.getItem("usuarios");
 
   if (savedSession) {
-    usuarios_Locales = JSON.parse(savedSession);
+    local_Users = JSON.parse(savedSession);
 
-    console.log("Sesiones existentes en localStorage:", usuarios_Locales);
-    console.log("Cantidad de usuarios guardados: " + usuarios_Locales.length)
+    console.log("Sesiones existentes en localStorage:", local_Users);
+    console.log("Cantidad de usuarios guardados: " + local_Users.length)
 
-    let lastSession = usuarios_Locales.length - 1;
+    let lastSession = local_Users.length - 1;
 
 
     console.log("Numero de indice de la última sesión: " + lastSession)
 
-    profile.innerText = 'Bienvenido: ' + usuarios_Locales[lastSession].Nombre
+    profile.innerText = 'Bienvenido: ' + local_Users[lastSession].Nombre
   } else {
     //Si no existe elementos en localStorage, redirecciona al login.html
     location.replace("login.html")
   }
 }
 
-sesion_existe();
+sessionExists();

@@ -1,4 +1,4 @@
-let contenedor = document.getElementById("lista");
+let container = document.getElementById("lista");
 let products = [];
 
 function setProductID(id) {
@@ -7,7 +7,7 @@ function setProductID(id) {
 }
 
 
-function show_Products(array) {
+function showProducts(array) {
 
 
 
@@ -22,18 +22,18 @@ function show_Products(array) {
   
   </div>`;
 
-    contenedor.innerHTML += contenido
+    container.innerHTML += contenido
   }
 }
 
 
 
 //Buscador de categorias
-const categorias = localStorage.getItem("catID")
+const categories = localStorage.getItem("catID")
 
-console.log(" Numero de categoria: " + categorias)
+console.log(" Numero de categoria: " + categories)
 
-let url = 'https://japceibal.github.io/emercado-api/cats_products/' + categorias + '.json'
+let url = 'https://japceibal.github.io/emercado-api/cats_products/' + categories + '.json'
 
 fetch(url)
   .then((response) => {
@@ -44,7 +44,7 @@ fetch(url)
   .then((data) => {
     console.log(data);
     products = data.products
-    show_Products(products);
+    showProducts(products);
   })
 
 
@@ -58,35 +58,35 @@ let btn_relevance = document.getElementById("sortByCount")
 
 
 btn_increase.addEventListener("click", function () {
-  contenedor.innerHTML = "";
+  container.innerHTML = "";
 
-  let ascendente = products.sort((a, b) => {
+  let increase = products.sort((a, b) => {
     return a.cost - b.cost
   })
-  console.log(ascendente)
-  show_Products(ascendente)
+  console.log(increase)
+  showProducts(increase)
 })
 
 
 btn_decrease.addEventListener("click", function () {
-  contenedor.innerHTML = "";
+  container.innerHTML = "";
 
-  let descendente = products.sort((a, b) => {
+  let decrease = products.sort((a, b) => {
     return b.cost - a.cost
   })
-  console.log(descendente)
-  show_Products(descendente)
+  console.log(decrease)
+  showProducts(decrease)
 })
 
 
 btn_relevance.addEventListener("click", function () {
-  contenedor.innerHTML = "";
+  container.innerHTML = "";
 
-  let descendente = products.sort((a, b) => {
+  let decrease = products.sort((a, b) => {
     return b.soldCount - a.soldCount
   })
-  console.log(descendente)
-  show_Products(descendente)
+  console.log(decrease)
+  showProducts(decrease)
 }
 )
 
@@ -97,17 +97,17 @@ let search = document.getElementById("search-input");
 
 
 function searching(products) {
-  contenedor.innerHTML = "";
+  container.innerHTML = "";
 
   const filter = products.filter(producto => producto.name.toLowerCase().includes(search.value.toLowerCase()) ||
     producto.description.toLowerCase().includes(search.value.toLowerCase()));
 
 
   if (filter.length === 0) {
-    contenedor.innerHTML = "No hay resultado"
+    container.innerHTML = "No hay resultado"
   } else {
 
-    show_Products(filter)
+    showProducts(filter)
   }
 }
 
@@ -125,7 +125,7 @@ let price_max = document.getElementById("rangeFilterCountMax");
 
 
 btn_filter.addEventListener("click", function () {
-  contenedor.innerHTML = "";
+  container.innerHTML = "";
 
   let tproducts = products;
   let minValue = parseInt(price_min.value);
@@ -134,15 +134,15 @@ btn_filter.addEventListener("click", function () {
   if (!isNaN(minValue) && !isNaN(maxValue)) {
     let filterArray = tproducts.filter((product) => (product.cost >= minValue && product.cost <= maxValue));
     console.log(filterArray);
-    show_Products(filterArray);
+    showProducts(filterArray);
   } else if (isNaN(minValue) && !isNaN(maxValue)) {
     let filterArray = tproducts.filter((product) => (product.cost <= maxValue));
-    show_Products(filterArray);
+    showProducts(filterArray);
   } else if (!isNaN(minValue) && isNaN(maxValue)) {
     let filterArray = tproducts.filter((product) => (product.cost >= minValue));
-    show_Products(filterArray);
+    showProducts(filterArray);
   } else {
-    show_Products(tproducts);
+    showProducts(tproducts);
   }
 
 }
@@ -152,7 +152,7 @@ btn_clear.addEventListener("click", function () {
   document.getElementById("rangeFilterCountMin").value = "";
   document.getElementById("rangeFilterCountMax").value = "";
 
-  contenedor.innerHTML = "";
-  show_Products(products);
+  container.innerHTML = "";
+  showProducts(products);
 });
 
