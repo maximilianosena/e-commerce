@@ -386,23 +386,23 @@ body {
   color: #fff;
 }
 
-/*Colores de estilo en product-info.js*/
 
-/*Estilos para información del producto*/
+/*Estilo para product-info.js*/
 .product-info {
-  background-color: #e7e7e7;
+  background-color: #ffffff;
   padding: 10px;
   margin-bottom: 10px; 
 }
 
 /*Estilos para las imágenes de producto*/
 .product-image {
-  text-align: center; 
+  text-align: center;
+  background-color: rgb(209, 233, 243); 
 }
 
 .product-image img  {
-  width: 70%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   margin-bottom: 10px;
   transition: transform 0.3s; /* Transición para el efecto hover*/
 }
@@ -416,8 +416,8 @@ body {
   cursor: pointer;
   margin-bottom: 10px;
   padding: 5px;
-  background-color: #ffffff;
-  
+  background-color: #e8e8e8;
+
 }
 
 
