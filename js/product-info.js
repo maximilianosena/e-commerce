@@ -46,18 +46,59 @@ async function call_UrlComments() {
 call_UrlComments();
 
 //Mostrar producto
+let title = document.getElementById("title")
 let things = document.getElementById("showP")
+let firstImage= document.getElementById("firstImage")
+let restImages= document.getElementById("restImages")
+let showImages= document.getElementById("showImages")
+
 function showTheProduct(object) {
-    things.innerHTML = `
-   <div class=product-info>Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
-   `
-    for (
-        let image of object.images
-    ) {
-        things.innerHTML += `<div class=product-image><img src=${image} height=300px></div> `
+
+    title.innerHTML +=`
+    <div id="titleProduct">
+    ${object.name} 
+    </div>
+    `
+ 
+
+   firstImage.innerHTML = `<img src=${object.images[0]}>`
+
+   showImages.appendChild(firstImage)
+   const rest = []
+
+for (let i=1; i<object.images.length; i++){
+
+    rest.push(object.images[i])
     }
+
+    console.log(rest)
+
+    for (
+        let image of rest
+    ) {
+        restImages.innerHTML += `<span><img src=${image} height=300px></span> `
+    }
+
+   
+    firstImage.appendChild(restImages)
+
+things.appendChild(showImages)
+
+things.innerHTML += `
+<div class=product-info>
+<div id="priceProduct">
+${object.currency}${object.cost} 
+</div>
+<div id="descriptionProduct">
+Descripción:${object.description} 
+</div>
+<div id="soldCountProduct">
+${object.soldCount} Vendidos</div>
+`
+
+    things.innerHTML+= `<h5>Productos Relacionados:</h5>`
     for (let product of object.relatedProducts) {
-        things.innerHTML += `<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`
+        things.innerHTML += `<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">${product.name} <img src=${product.image} height=150px></div>`
     }
 
 }
