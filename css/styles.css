@@ -388,6 +388,42 @@ body {
 
 
 /*Estilo para product-info.js*/
+/* Estilos para el título del producto */
+#titleProduct {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para la imagen principal del producto */
+#firstImage img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #007BFF;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#firstImage img:hover {
+  border-color: #007BFF;
+}
+
+/* Estilos para las imágenes adicionales del producto */
+#restImages span {
+  margin-right: 10px;
+ 
+}
+
+#restImages img {
+  max-height: 300px;
+  border: 1px solid #ccc;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Aplica un efecto de zoom al el mouse (hover)*/
+#restImages img:hover{
+  transform: scale(1.1);
+}
 
 .product-info {
   background-color: #f2f2f2;
