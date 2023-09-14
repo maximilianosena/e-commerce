@@ -386,28 +386,113 @@ body {
   color: #fff;
 }
 
-/*Colores de estilo en product-info.js*/
 
-/*Estilos para información del producto*/
+/*Estilo para product-info.js*/
+/* Estilos para el título del producto */
+#titleProduct {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos para la imagen principal del producto */
+#firstImage img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #007BFF;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  transition: border-color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#showImages {
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+#firstImage img:hover {
+  border-color: #007BFF;
+}
+
+/* Estilos para las imágenes adicionales del producto */
+#restImages span {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#restImages img {
+  max-height: 300px;
+  border: 1px solid #ccc;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#restImages {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
+
+/* Aplica un efecto de zoom al el mouse (hover)*/
+#restImages img:hover{
+  border-radius: 10px;
+  border-color: #007BFF;
+  transform: scale(1.1);
+}
+
 .product-info {
   background-color: #f2f2f2;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/*Estilos para las imágenes de producto*/
-.product-image img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+/*Estilos para el precio del producto*/
+#priceProduct {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007BFF;
 }
 
-/*Estilos para los productos relacionados*/
-.related-product {
-  cursor: pointer;
-  margin-bottom: 10px;
-  padding: 5px;
-  background-color: #e0e0e0;
+/*Estilos para la descripción del producto*/
+#descriptionProduct {
+  margin-top: 10px;
+  color: #333;
+}
+
+/*Estilos para la cantidad vendida del producto*/
+#soldCountProduct {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Estilos adicionales */
+h5 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Estilos para las imágenes de productos relacionados */
+.related-product img {
+  max-height: 150px;
+  display: block;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: transform 0.2s ease; /* Transición suave de transformación */
+}
+
+/* Efecto hover para las imágenes */
+.related-product img:hover {
+  transform: scale(1.1); /* Escala la imagen al 110% en hover */
+  border-color: #007BFF; /* Cambia el color del borde en hover */
 }
 
 
@@ -417,42 +502,56 @@ body {
   /*id comments*/
 
 #comments{
-  border: black solid 2px;
+  border: 0;
+  background-color: #e4e4e4;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 15px;
+  min-height: 80px;
+  margin-top: 20px;;
+  padding: 20px;
 }
 
 /*class headComment */
 
-.headComment{
-  border: #0087F7 solid 1px;
-  background-color: wheat;
-}
-
 /*class descriptionComment*/
 
 .descriptionComment{
-  border: tomato solid 1px;
-  background-color: springgreen;
+ color: #444;
+  background-color: #e4e4e4;
+  
+  
 }
 
 
 /*Clase nombre y fecha*/
 .name,
 .date {
-    display: inline;
+    display:inline;
+    padding: 8px 14px;
+   
+    
+   
+    
 }
 
 .name{
-  color: red;
+  color: #DC7633 ;
+  
 }
 
 .date {
-  color: darkmagenta;
+  color: rgb(146, 141, 141); 
+  
 }
 
 
 /*clase del comentario*/
 .comment {
-color: rgb(146, 141, 141);
+color: #444;
+padding: 5px 14px;
 }
 
 /*codigo Franco, comentar*/
@@ -464,6 +563,7 @@ color: rgb(146, 141, 141);
   width: 100%;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+
 }
 
 .area-comentario {
@@ -499,6 +599,87 @@ color: rgb(146, 141, 141);
   transition: all 0.2s ease;
 }
 
-input {
+
+.fas.fa-star.checked:nth-of-type(1)::after{
+content: "😣";
+position: relative;
+bottom: 25px;
+right: 20px;
+}
+
+.fas.fa-star.checked:nth-of-type(1).checked {
+  color: #c00000;
+}
+
+.fas.fa-star:nth-of-type(1):hover {
+  color: #c00000;
+  cursor: pointer;
+  }
+
+.fas.fa-star.checked:nth-of-type(2)::after{
+  content: "😕";
+  position: relative;
+  bottom: 25px;
+  right: 20px;
+  }
+
+  .fas.fa-star.checked:nth-of-type(2).checked {
+    color: #de2e03;
+  }
+
+  .fas.fa-star:nth-of-type(2):hover {
+    color: #de2e03;
+    cursor: pointer;
+    }
+
+  .fas.fa-star.checked:nth-of-type(3)::after{
+    content: "😐";
+    position: relative;
+    bottom: 25px;
+right: 20px;
+    }
+
+    .fas.fa-star.checked:nth-of-type(3).checked {
+      color: #fc4b08;
+    }
+
+    .fas.fa-star:nth-of-type(3):hover {
+      color: #fc4b08;
+      cursor: pointer;
+      }
+
+    .fas.fa-star.checked:nth-of-type(4)::after{
+      content: "🙂";
+      position: relative;
+      bottom: 25px;
+      right: 20px;
+      }
+
+      .fas.fa-star.checked:nth-of-type(4).checked {
+        color: #ff7c39;
+      }
+
+      .fas.fa-star:nth-of-type(4):hover {
+        color: #ff7c39;
+        cursor: pointer;
+        }
+
+      .fas.fa-star.checked:nth-of-type(5)::after{
+        content: "😃";
+        position: relative;
+        bottom: 25px;
+right: 20px;
+        }
+
+        .fas.fa-star.checked:nth-of-type(5).checked {
+          color: #ffa460;
+        }
+
+        .fas.fa-star:nth-of-type(5):hover {
+          color: #ffa460;
+          cursor: pointer;
+          }
+  
+.stars > input {
   display: none;
 }
