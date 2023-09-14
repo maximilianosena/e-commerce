@@ -50,3 +50,40 @@ if (response.ok) {
 }
 
 call_UrlComments();
+
+//Código Flor y win 
+let things= document.getElementById("showP")
+function showTheProduct(object){
+   things.innerHTML = `
+   <div class="product-info">Nombre:${object.name} Precio:${object.currency}${object.cost} Descripción:${object.description} Cantidad vendidos:${object.soldCount}</div>
+   `
+   for (
+    let image of object.images
+   ){
+    things.innerHTML+= `<div class="product-image"><img src=${image} height=300px></div> `
+   }
+   for (let product of object.relatedProducts){
+    things.innerHTML+=`<div class="related-product" onclick="setProductID(${product.id})" style="cursor:pointer;">Relacionados:${product.name} <img src=${product.image} height=150px></div>`}
+    
+   }
+    
+
+
+let urlProduct='https://japceibal.github.io/emercado-api/products/'+ product + '.json'
+async function showproduct (){
+  let response = await fetch (urlProduct);
+  if (response.ok) {
+      let responseContents = await response.json();
+      console.log(responseContents);
+      showTheProduct(responseContents);
+  } else {
+      console.log ("Error: " + response.status)
+  }
+  }
+ 
+  showproduct()
+
+  function setProductID (id){
+    localStorage.setItem("productID", id);
+    window.location='product-info.html'
+   }
