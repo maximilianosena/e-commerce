@@ -399,25 +399,30 @@ body {
 #firstImage img {
   max-width: 100%;
   height: auto;
-  border: 1px solid #007BFF;
+  margin: 0 auto;
+  display: block;
   margin-bottom: 10px;
   transition: border-color 0.3s ease-in-out;
-}
-
-#firstImage img:hover {
-  border-color: #007BFF;
 }
 
 /* Estilos para las imágenes adicionales del producto */
 #restImages span {
   margin-right: 10px;
- 
+}
+
+#restImages {
+  text-align: center;
 }
 
 #restImages img {
-  max-height: 300px;
+  max-height: 250px;
   border: 1px solid #ccc;
   transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 
 /* Aplica un efecto de zoom al el mouse (hover)*/
