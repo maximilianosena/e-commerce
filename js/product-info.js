@@ -51,7 +51,7 @@ let things = document.getElementById("showP")
 let firstImage= document.getElementById("firstImage")
 let restImages= document.getElementById("restImages")
 let showImages= document.getElementById("showImages")
-
+//codigo win-flor
 function showTheProduct(object) {
 
     title.innerHTML +=`
