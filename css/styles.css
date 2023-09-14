@@ -393,39 +393,51 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  padding: 20px;
+  text-align: center;
 }
 
 /* Estilos para la imagen principal del producto */
 #firstImage img {
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
-  display: block;
-  border-radius: 10px;
-  border-color: #007BFF;
+  border: 1px solid #007BFF;
   margin-bottom: 10px;
+  margin-top: 10px;
   transition: border-color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#showImages {
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+#firstImage img:hover {
+  border-color: #007BFF;
 }
 
 /* Estilos para las imágenes adicionales del producto */
 #restImages span {
   margin-right: 10px;
-}
-
-#restImages {
-  text-align: center;
+  margin-left: 10px;
 }
 
 #restImages img {
-  max-height: 250px;
+  max-height: 300px;
   border: 1px solid #ccc;
   transition: transform 0.3s ease-in-out;
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 0;
-  margin-bottom: 0;
-
+  border-radius: 10px;
 }
+
+#restImages {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
 
 /* Aplica un efecto de zoom al el mouse (hover)*/
 #restImages img:hover{
@@ -499,6 +511,7 @@ h5 {
   border-radius: 15px;
   min-height: 80px;
   margin-top: 20px;;
+  padding: 20px;
 }
 
 /*class headComment */
