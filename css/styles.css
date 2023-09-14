@@ -401,6 +401,8 @@ body {
   height: auto;
   margin: 0 auto;
   display: block;
+  border-radius: 10px;
+  border-color: #007BFF;
   margin-bottom: 10px;
   transition: border-color 0.3s ease-in-out;
 }
@@ -427,6 +429,8 @@ body {
 
 /* Aplica un efecto de zoom al el mouse (hover)*/
 #restImages img:hover{
+  border-radius: 10px;
+  border-color: #007BFF;
   transform: scale(1.1);
 }
 
