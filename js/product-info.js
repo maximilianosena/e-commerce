@@ -74,9 +74,9 @@ for (let i=1; i<object.images.length; i++){
     console.log(rest)
 
     for (
-        let image of rest
+        let image of object.images
     ) {
-        restImages.innerHTML += `<span><img src=${image} height=300px></span> `
+        firsImages.innerHTML += `<div><img src=${image} height=300px></div> `
     }
 
    
