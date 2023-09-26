@@ -683,3 +683,9 @@ right: 20px;
 .stars > input {
   display: none;
 }
+
+
+/*MENÚ DESPLEGABLE*/
+.dropdown-menu {
+background-color: #ff9100;
+}
