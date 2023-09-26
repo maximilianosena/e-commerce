@@ -59,14 +59,13 @@ function showTheProduct(object) {
     ${object.name} 
     </div>
     `
- 
 
    firstImage.innerHTML = `<img src=${object.images[0]}>`
 
    showImages.appendChild(firstImage)
    const rest = []
 
-for (let i=1; i<object.images.length; i++){
+    for (let i=1; i<object.images.length; i++){
 
     rest.push(object.images[i])
     }
@@ -76,7 +75,7 @@ for (let i=1; i<object.images.length; i++){
     for (
         let image of rest
     ) {
-        restImages.innerHTML += `<span><img src=${image} height=300px></span> `
+        restImages.innerHTML += `<div><img src=${image} height=300px></div> `
     }
 
    
