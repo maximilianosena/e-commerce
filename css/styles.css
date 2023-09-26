@@ -688,4 +688,12 @@ right: 20px;
 /*MENÚ DESPLEGABLE*/
 .dropdown-menu {
 background-color: #ff9100;
+text-align: center;
 }
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #363636;
+ 
+}
+ 
