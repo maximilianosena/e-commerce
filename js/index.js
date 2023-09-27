@@ -34,55 +34,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(text)
 
-    function enableDark() {
+    function enableDark(){
         body.classList.add("dark-mode")
         under_half_page.classList.remove("bg-light")
         under_half_page.classList.add("dark")
+        top_half_page.classList.add("dark-image")
 
-        top_half_page.style.background = "url('../img/cover_back_night.png')"
-        top_half_page.style.backgroundSize = 'cover'
-        top_half_page.style.backgroundPosition = 'center'
-        top_half_page.style.backgroundRepeat = 'no-repeat'
-
-
-        for (let i = 0; i < title.length; i++) {
-            title[i].style.color = "#212529"
+        for (let i=0; i<title.length; i++){
+            title[i].style.color="#212529"
         }
 
-        for (let i = 0; i < text.length; i++) {
-            text[i].style.color = "#212529"
+        for (let i=0; i<text.length; i++){
+            text[i].style.color="#212529"
         }
-        localStorage.setItem("darkMode", "enabled")
-    }
+        localStorage.setItem ("darkMode", "enabled")
+}
 
-    function disableDark() {
-        body.classList.remove("dark-mode")
+function disableDark(){
+    body.classList.remove("dark-mode")
         under_half_page.classList.add("bg-light")
         under_half_page.classList.remove("dark")
+top_half_page.classList.remove("dark-image")
+        
+}
 
-        top_half_page.style.background = "url('../img/cover_back.png')",
-            top_half_page.style.backgroundSize = 'cover',
-            top_half_page.style.backgroundPosition = 'center',
-            top_half_page.style.backgroundRepeat = 'no-repeat'
-        localStorage.setItem("darkMode", "disabled")
+
+if (isDarkMode) {
+    enableDark()
+     darkbtn.checked = true;
+ }
+
+darkbtn.addEventListener("change", () => {
+   if (darkbtn.checked){
+    enableDark()
+    } else {
+        disableDark()
     }
+})
 
+btn_Switch.addEventListener("click", (e) => {
+    e.stopPropagation();
+})
 
-    if (isDarkMode) {
-        enableDark()
-        darkbtn.checked = true;
-    }
-
-    darkbtn.addEventListener("change", () => {
-
-        if (darkbtn.checked) {
-            enableDark()
-        } else {
-            disableDark()
-        }
-    })
-
-    btn_Switch.addEventListener("click", (e) => {
-        e.stopPropagation();
-    })
 });
