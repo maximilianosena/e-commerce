@@ -776,4 +776,11 @@ input:checked+.slider:before{
   border-radius: 50%;
 }
 
+
+.jumbotron.dark-image{
+  background: url('../img/cover_back_night.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 /**************/
