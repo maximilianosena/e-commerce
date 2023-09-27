@@ -40,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         under_half_page.classList.add("dark")
 
         top_half_page.style.background = "url('../img/cover_back_night.png')"
-        top_half_page.style.backgroundSize = 'cover'
-        top_half_page.style.backgroundPosition = 'center'
-        top_half_page.style.backgroundRepeat = 'no-repeat'
+       
 
 
         for (let i = 0; i < title.length; i++) {
