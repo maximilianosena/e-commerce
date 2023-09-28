@@ -48,58 +48,39 @@ call_UrlComments();
 //Mostrar producto
 let title = document.getElementById("title")
 let things = document.getElementById("showP")
-let firstImage= document.getElementById("firstImage")
-let restImages= document.getElementById("restImages")
-let showImages= document.getElementById("showImages")
+let firstImage = document.getElementById("firstImage")
+let restImages = document.getElementById("restImages")
+let showImages = document.getElementById("showImages")
 //codigo win-flor
 function showTheProduct(object) {
 
-    title.innerHTML +=`
+    title.innerHTML += `
     <div id="titleProduct">
     ${object.name} 
     </div>
     `
 
-   firstImage.innerHTML = `<img src=${object.images[0]}>`
+    firstImage.innerHTML += `<div class="carousel-item active"><img src=${object.images[0]} class="d-block w-100" alt="..."></div>`
 
-   showImages.appendChild(firstImage)
-   const rest = []
-
-    for (let i=1; i<object.images.length; i++){
-
-    rest.push(object.images[i])
+    for (let i = 1; i < object.images.length; i++) {
+        firstImage.innerHTML += `<div class="carousel-item"><img src=${object.images[i]} class="d-block w-100" alt="..."></div>`
     }
 
-    console.log(rest)
-
-    for (
-        let image of rest
-    ) {
-        restImages.innerHTML += `<div><img src=${image} height=300px></div> `
-    }
-
-   
-    firstImage.appendChild(restImages)
-
-things.appendChild(showImages)
-
-things.innerHTML += `
-<div class=product-info>
-<div id="priceProduct">
-${object.currency}${object.cost} 
-</div>
-<div id="descriptionProduct">
-Descripción:${object.description} 
-</div>
-<div id="soldCountProduct">
-${object.soldCount} Vendidos</div>
-`
-
-    things.innerHTML+= `<h5>Productos Relacionados:</h5>`
+    things.innerHTML += `
+    <div class=product-info>
+    <div id="priceProduct">
+    ${object.currency}${object.cost} 
+    </div>
+    <div id="descriptionProduct">
+    Descripción:${object.description} 
+    </div>
+    <div id="soldCountProduct">
+    ${object.soldCount} Vendidos</div>
+    `
+    things.innerHTML += `<h5>Productos Relacionados:</h5>`
     for (let product of object.relatedProducts) {
         things.innerHTML += `<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">${product.name} <img src=${product.image} height=150px></div>`
     }
-
 }
 
 
