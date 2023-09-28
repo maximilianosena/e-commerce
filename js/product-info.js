@@ -60,6 +60,7 @@ function showTheProduct(object) {
     </div>
     `
 
+<<<<<<< Updated upstream
     firstImage.innerHTML += `<div class="carousel-item active"><img src=${object.images[0]} class="d-block w-100" alt="..."></div>`
 
     for (let i = 1; i < object.images.length; i++) {
@@ -78,6 +79,32 @@ function showTheProduct(object) {
     ${object.soldCount} Vendidos</div>
     `
     things.innerHTML += `<h5>Productos Relacionados:</h5>`
+=======
+    for (
+        let image of object.images
+    ) {
+        firstImage.innerHTML += `<div><img src=${image} height=300px></div> `
+    }
+
+   
+    firstImage.appendChild(restImages)
+
+things.appendChild(showImages)
+
+things.innerHTML += `
+<div class=product-info>
+<div id="priceProduct">
+${object.currency}${object.cost} 
+</div>
+<div id="descriptionProduct">
+Descripción:${object.description} 
+</div>
+<div id="soldCountProduct">
+${object.soldCount} Vendidos</div>
+`
+
+    things.innerHTML+= `<h5>Productos Relacionados:</h5>`
+>>>>>>> Stashed changes
     for (let product of object.relatedProducts) {
         things.innerHTML += `<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">${product.name} <img src=${product.image} height=150px></div>`
     }
