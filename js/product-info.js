@@ -214,3 +214,45 @@ starsArray.forEach((star, index1) => {
     })
 
 });
+
+//Maxi
+
+let darkbtn = document.getElementById("darkbtn");
+let body = document.body
+let isDarkMode = localStorage.getItem("darkMode") === "enabled";
+let btn_Switch = document.querySelector(".switch")
+
+
+function enableDark() {
+    body.classList.add("dark-mode")
+    showImages.style.backgroundColor = "#070605"
+    localStorage.setItem("darkMode", "enabled")
+}
+
+function disableDark() {
+    body.classList.remove("dark-mode")
+    showImages.style.backgroundColor = "#f2f2f2"
+    localStorage.setItem("darkMode", "disabled")
+}
+
+
+if (isDarkMode) {
+    enableDark()
+    darkbtn.checked = true;
+}
+
+darkbtn.addEventListener("change", () => {
+    if (darkbtn.checked) {
+        enableDark()
+        location.reload()
+    } else {
+        disableDark()
+        location.reload()
+    }
+})
+
+btn_Switch.addEventListener("click", (e) => {
+    e.stopPropagation();
+})
+
+///////////////////////////////////////////////////////////////////
