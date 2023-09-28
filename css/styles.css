@@ -510,7 +510,7 @@ h5 {
   width: 100%;
   border-radius: 15px;
   min-height: 80px;
-  margin-top: 20px;;
+  margin-top: 20px;
   padding: 20px;
 }
 
@@ -688,99 +688,14 @@ right: 20px;
 /*MENÚ DESPLEGABLE*/
 .dropdown-menu {
 background-color: #ff9100;
-text-align: center;
+border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .dropdown-menu a {
+  color: #343a40;
   text-decoration: none;
-  color: #363636;
- 
-}
- 
-
-/*Maxi*/
-
-.dark-mode {
-  background-color: #070605;
 }
 
-.album.py-5.dark   {
-  background-color: #070605;
-  }
-  
-
-.dark {
-  background-color: #070605;
-  color: white;
+.dropdown-menu a:hover {
+  background-color: #e9ecef;
 }
-
-
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 15px;
-  margin-top: 5px;
-} 
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-}
-
-.slider:before{
-  position: absolute;
-  content: "";
-  height: 12px;
-  width: 12px;
-  left: 2px;
-  bottom: 2px;
-  background-image: url("soleado.png");
-  background-size: cover;
-  transition: 0.4s;
-}
-
-input:checked+.slider{
-  background-color: #9b521b;
-}
-
-input:focus+.slider{
-  box-shadow: 0 0 1px #9b521b;
-}
-
-/*transición del cuadrante*/
-input:checked+.slider:before{
-  transform: translateX(42px);
-  background-image: url("luna.png");
-  background-size: cover;
-}
-
-.slider.round {
-  border-radius: 24px;
-}
-
-.slider.round:before{
-  border-radius: 50%;
-}
-
-
-.jumbotron.dark-image{
-  background: url('../img/cover_back_night.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/**************/
