@@ -510,7 +510,7 @@ h5 {
   width: 100%;
   border-radius: 15px;
   min-height: 80px;
-  margin-top: 20px;;
+  margin-top: 20px;
   padding: 20px;
 }
 
@@ -688,12 +688,14 @@ right: 20px;
 /*MENÚ DESPLEGABLE*/
 .dropdown-menu {
 background-color: #ff9100;
-text-align: center;
+border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .dropdown-menu a {
+  color: #343a40;
   text-decoration: none;
-  color: #363636;
- 
 }
- 
+
+.dropdown-menu a:hover {
+  background-color: #e9ecef;
+}
