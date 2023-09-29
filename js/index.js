@@ -64,6 +64,7 @@ function disableDark(){
         under_half_page.classList.remove("dark")
 top_half_page.classList.remove("dark-image")
         
+localStorage.setItem("darkMode", "disabled")
 }
 
 
