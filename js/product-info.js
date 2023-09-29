@@ -256,3 +256,11 @@ btn_Switch.addEventListener("click", (e) => {
 })
 
 ///////////////////////////////////////////////////////////////////
+
+let btn_logout = document.getElementById("logout")
+
+    function closeAccount() {
+        localStorage.removeItem("usuarios")
+    }
+
+    btn_logout.addEventListener("click", closeAccount)
