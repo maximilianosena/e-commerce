@@ -48,26 +48,26 @@ call_UrlComments();
 //Mostrar producto
 let title = document.getElementById("title")
 let things = document.getElementById("showP")
-let firstImage= document.getElementById("firstImage")
-let restImages= document.getElementById("restImages")
-let showImages= document.getElementById("showImages")
+let firstImage = document.getElementById("firstImage")
+let restImages = document.getElementById("restImages")
+let showImages = document.getElementById("showImages")
 //codigo win-flor
 function showTheProduct(object) {
 
-    title.innerHTML +=`
+    title.innerHTML += `
     <div id="titleProduct">
     ${object.name} 
     </div>
     `
 
-   firstImage.innerHTML = `<img src=${object.images[0]}>`
+    firstImage.innerHTML = `<img src=${object.images[0]}>`
 
-   showImages.appendChild(firstImage)
-   const rest = []
+    showImages.appendChild(firstImage)
+    const rest = []
 
-    for (let i=1; i<object.images.length; i++){
+    for (let i = 1; i < object.images.length; i++) {
 
-    rest.push(object.images[i])
+        rest.push(object.images[i])
     }
 
     console.log(rest)
@@ -78,12 +78,12 @@ function showTheProduct(object) {
         restImages.innerHTML += `<div><img src=${image} height=300px></div> `
     }
 
-   
+
     firstImage.appendChild(restImages)
 
-things.appendChild(showImages)
+    things.appendChild(showImages)
 
-things.innerHTML += `
+    things.innerHTML += `
 <div class=product-info>
 <div id="priceProduct">
 ${object.currency}${object.cost} 
@@ -95,7 +95,7 @@ Descripción:${object.description}
 ${object.soldCount} Vendidos</div>
 `
 
-    things.innerHTML+= `<h5>Productos Relacionados:</h5>`
+    things.innerHTML += `<h5>Productos Relacionados:</h5>`
     for (let product of object.relatedProducts) {
         things.innerHTML += `<div class=related-product onclick="setProductID(${product.id})" style="cursor:pointer;">${product.name} <img src=${product.image} height=150px></div>`
     }
@@ -233,3 +233,45 @@ starsArray.forEach((star, index1) => {
     })
 
 });
+
+//Maxi
+
+let darkbtn = document.getElementById("darkbtn");
+let body = document.body
+let isDarkMode = localStorage.getItem("darkMode") === "enabled";
+let btn_Switch = document.querySelector(".switch")
+
+
+function enableDark() {
+    body.classList.add("dark-mode")
+    showImages.style.backgroundColor = "#070605"
+    localStorage.setItem("darkMode", "enabled")
+}
+
+function disableDark() {
+    body.classList.remove("dark-mode")
+    showImages.style.backgroundColor = "#f2f2f2"
+    localStorage.setItem("darkMode", "disabled")
+}
+
+
+if (isDarkMode) {
+    enableDark()
+    darkbtn.checked = true;
+}
+
+darkbtn.addEventListener("change", () => {
+    if (darkbtn.checked) {
+        enableDark()
+        location.reload()
+    } else {
+        disableDark()
+        location.reload()
+    }
+})
+
+btn_Switch.addEventListener("click", (e) => {
+    e.stopPropagation();
+})
+
+///////////////////////////////////////////////////////////////////
