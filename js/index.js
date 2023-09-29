@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
     //Codigo Franco
 
 
+    let btn_logout = document.getElementById("logout")
+
+    function closeAccount() {
+        localStorage.removeItem("usuarios")
+    }
+
+    btn_logout.addEventListener("click", closeAccount)
+    
     //Maxi
 
     let darkbtn = document.getElementById("darkbtn");
