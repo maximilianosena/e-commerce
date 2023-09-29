@@ -181,6 +181,8 @@ footer p {
   display: none;
 }
 
+  
+
 main {
   min-height: calc(100vh - 210px);
 }
