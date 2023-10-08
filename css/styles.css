@@ -786,14 +786,10 @@ input:checked+.slider:before{
    }
  
    #btn_cleanFilt{
-     position: relative;
-     right: 50px;
-   }
- 
-   #btn_sort{
-     position: relative;
-     right: 40px;
-   }
+    position: relative;
+    right: 50px;
+    margin-left: 50%;
+  }
  
    .container_product{
      display: flex;
@@ -838,7 +834,15 @@ input:checked+.slider:before{
        font-size: 75%;
        color: rgb(4, 4, 131);
          }
+
+         #rowEdit{
+          display: grid;
+          margin: 0 10% 0 10%;
+         }
  
+         .form-control.g-md-2.my-2::placeholder{
+          font-size: 75%;
+         }
  }
   
  @media (max-width: 768px) {
@@ -889,4 +893,73 @@ input:checked+.slider:before{
        left: 1%;
          color: rgb(4, 4, 131);
            }
+ }
+
+ @media (max-width: 370px)  {
+  #funcionality {
+   display: grid;
+   grid-template-columns: 100%;
+ align-items: start;
+ justify-items: stretch;
+   }
+ 
+   #btn_cleanFilt{
+     position: relative;
+     right: 50px;
+   }
+ 
+   #btn_sort{
+     position: relative;
+     right: 40px;
+   }
+ 
+   .container_product{
+     display: flex;
+     align-items:center;
+     padding: 20px 0 20px 0;
+     width: auto;
+     border-radius: 7px;
+     margin: 12px;
+     }
+ 
+ 
+     .container_animado img{
+       transform: translateX(0%);
+       max-width: 100%;
+       height: auto;
+        border-radius: 10px;
+     }
+ 
+     .texto-hover{
+       position: absolute;
+       opacity: 0;
+       background-color: rgb(255, 255, 255);
+       font-size: 100%; 
+       max-width: 75%;
+       height: auto;
+       font-family: Arial, Helvetica, sans-serif;
+       transition: opacity 0.3s ease;
+       text-align: center;
+       padding: 10px;
+       border-radius: 20px;
+     }
+ 
+     .description {
+       display: none;
+     }
+ 
+     #vendidos { 
+      position:relative;
+      left: 1%;
+        color: rgb(4, 4, 131);
+         }
+ 
+         #rowEdit{
+          display: grid;
+          margin: 0 0 0 30%;
+         }
+ 
+         .form-control.g-md-2.my-2::placeholder{
+          font-size: 75%;
+         }
  }
