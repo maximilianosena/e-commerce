@@ -55,7 +55,7 @@ let showImages = document.getElementById("showImages")
 function showTheProduct(object) {
 
     title.innerHTML += `
-    <div id="titleProduct">
+    <div class="h1 text-center" id="titleProduct">
     ${object.name} 
     </div>
     `
