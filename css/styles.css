@@ -786,9 +786,8 @@ input:checked+.slider:before{
    }
  
    #btn_cleanFilt{
-    position: relative;
-    right: 50px;
-    margin-left: 50%;
+    display: flex;
+    justify-content: space-around;
   }
  
    .container_product{
@@ -800,7 +799,10 @@ input:checked+.slider:before{
      margin: 12px;
      }
  
- 
+#price{
+  display: flex;
+ }
+
      .container_animado img{
        transform: translateX(0%);
        max-width: 100%;
@@ -904,13 +906,18 @@ input:checked+.slider:before{
    }
  
    #btn_cleanFilt{
-     position: relative;
-     right: 50px;
-   }
+    display: flex;
+    justify-content: space-around;
+  }
+ 
+ 
+#price{
+  display: flex;
+ }
  
    #btn_sort{
      position: relative;
-     right: 40px;
+     right: 22%;
    }
  
    .container_product{
