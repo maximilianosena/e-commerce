@@ -55,7 +55,7 @@ let showImages = document.getElementById("showImages")
 function showTheProduct(object) {
 
     title.innerHTML += `
-    <div id="titleProduct">
+    <div class="h1 text-center" id="titleProduct">
     ${object.name} 
     </div>
     `
@@ -256,3 +256,11 @@ btn_Switch.addEventListener("click", (e) => {
 })
 
 ///////////////////////////////////////////////////////////////////
+
+let btn_logout = document.getElementById("logout")
+
+    function closeAccount() {
+        localStorage.removeItem("usuarios")
+    }
+
+    btn_logout.addEventListener("click", closeAccount)
