@@ -774,3 +774,39 @@ input:checked+.slider:before{
   background-repeat: no-repeat;
 }
 /**************/
+
+/*Estilo para los diferentes tipos de envios*/
+.send-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.type-send label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.type-send select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.address-send label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.address-send input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
