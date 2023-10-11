@@ -35,9 +35,10 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
               <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                 <li><a href="my-profile.html">Mi perfil</a></li>
-                 <li><a href="cart.html">Mi carrito</a></li>
-                 <li><a href="login.html">Cerrar sesión</a></li>
+                
+                 <li><img src="icono perfil.png" ><a href="my-profile.html">Mi perfil</a></li>
+                 <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
+                 <li id="logout"><img src="logout.png" ><a href="login.html">Cerrar sesión</a></li>
                  <li>  <label class="switch">
                   <input type="checkbox" id="darkbtn">
                   <span class="slider round"></span>
@@ -52,22 +53,39 @@
   <main>
     <div class="container">
 
-      <div id="title"> 
+      <div id="title">
 
       </div>
-        <div id="showImages">
+      <div id="showImages">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+              aria-label="Slide 4"></button>
+          </div>
+          <div id="firstImage" class="carousel-inner">
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div id="showP">
 
-<div id="firstImage">
+      </div>
 
-  <div id="restImages">
-
-  </div>
-</div>
-</div>
-<div id="showP">
-
-</div>
-      
       <div id="comments">
 
       </div>
@@ -77,7 +95,8 @@
         <div class="area-comentar">
           <div class="inputs-comentarios">
             <textarea name="" class="area-comentario" id="nuevo-comentario"></textarea>
-            <button type="submit" class="boton-enviar" id="agregar-comentarios"><img src="paper.png" alt="icono enviar"> Agregar
+            <button type="submit" class="boton-enviar" id="agregar-comentarios"><img src="paper.png" alt="icono enviar">
+              Agregar
               comentario</button>
             <div class="stars">
               <input type="radio" name="rate" id="rate-5">
@@ -89,17 +108,17 @@
               <input type="radio" name="rate" id="rate-2">
               <label for="rate-2" class="fas fa-star"></label>
               <input type="radio" name="rate" id="rate-1">
-              <label for="rate-1" class="fas fa-star"></label> 
+              <label for="rate-1" class="fas fa-star"></label>
 
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="current-comments">
-       
+
       </div>
-</div>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -112,9 +131,9 @@
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div id=></div>
+      <div id= ></div>
+      <div id=></div>
       <div></div>
     </div>
   </div>
