@@ -1,7 +1,9 @@
 //Mostrar Productos
-const tableBody = document.getElementById("tableBody");
-const totalElement = document.getElementById("total"); 
-let object;
+let tableBody = document.getElementById("tableBody");
+let totalElement = document.getElementById("total"); 
+let list = [];
+
+console.log("lista", list)
 
 let ID = 25801;
 let urlProduct = 'https://japceibal.github.io/emercado-api/user_cart/' + ID + '.json';
@@ -16,6 +18,7 @@ function products_add(){
   for (let product of cart){
     console.log("cada producto:", product)
     showTheProduct(product)
+    list.push(product)
   }
 }
 
@@ -28,8 +31,9 @@ products_add()}
 async function showproduct() {
   let response = await fetch(urlProduct);
   if (response.ok) {
-    object = await response.json();
+    let object = await response.json();
     console.log(object);
+    list.push(object)
     showTheProduct(object);
   } else {
     console.log("Error: " + response.status);
@@ -42,10 +46,10 @@ function showTheProduct(object) {
   tableBody.innerHTML += ''; 
 
   for (let i = 0; i < object.articles.length; i++) {
-    const product = object.articles[i];
+    let product = object.articles[i];
 
     // Calcula el subtotal en función de la cantidad
-    const subtotal = product.unitCost * product.count;
+    let subtotal = product.unitCost * product.count;
 
     // Agrega el atributo data-index para identificar la fila
     tableBody.innerHTML += `<tr data-index="${i}"> 
@@ -58,30 +62,38 @@ function showTheProduct(object) {
   }
 
   // Agrega un evento de cambio a los campos de cantidad
-  const prodCountInputs = document.querySelectorAll(".prodCount");
+  let prodCountInputs = document.querySelectorAll(".prodCount");
 
   prodCountInputs.forEach((input, index) => {
     input.addEventListener("input", (event) => {
-      const rowIndex = event.target.closest("tr").getAttribute("data-index");
-      const product = object.articles[rowIndex];
-      const newCount = parseInt(event.target.value, 10);
+      let product = list[index].articles;
+      let cost = product[0].unitCost
+      let newCount = parseInt(event.target.value, 10);
 
       if (!isNaN(newCount) && newCount >= 1) {
         
-        object.articles[rowIndex].count = newCount;
+console.log(cost)
+
+        product[0].count = newCount;
 
         // Recalcula el subtotal en función de la nueva cantidad
-        const newSubtotal = product.unitCost * newCount;
+        let newSubtotal = cost * newCount;
 
-        const subtotalElement = event.target.closest("tr").querySelector(".subtotal");
-        subtotalElement.textContent = newSubtotal;
+        let subtotalElement = event.target.closest("tr").querySelector(".subtotal");
+        subtotalElement.innerHTML = parseInt(newSubtotal);
+
+console.log(subtotalElement)
 
         let newTotal = 0;
         document.querySelectorAll(".subtotal").forEach((subtotal) => {
-          newTotal += parseFloat(subtotal.textContent.split(" ")[1]);
+          newTotal += parseInt(subtotal.textContent.split(" ")[1]);
         });
+
+        
         // Actualiza el contenido del elemento "total" con el valor recalculado
-        totalElement.textContent = object.articles[0].currency + " " + newTotal;
+        totalElement = product[0].currency + " " + parseInt(newTotal);
+
+       
       }
     });
   });
