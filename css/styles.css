@@ -446,7 +446,7 @@ body {
 #priceProduct {
   font-size: 24px;
   font-weight: bold;
-  color: #007BFF;;
+  color: #007BFF;
 }
 
 /*Estilos para la descripción del producto*/
@@ -1089,4 +1089,100 @@ input:checked+.slider:before{
 .type-send label {
   display: block;
   margin-bottom: 10px;
+}
+
+.containerCart {
+  display: flex;
+  max-width: 60em;
+  border: #0087F7;
+  border-width: 2px;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  background-color: #f4f4f4;
+  padding: 1.5em;
+}
+
+.type-send {
+  border-style: none;
+  margin-right: 4em;
+}
+
+.address-send {
+  border-style: none;
+  margin-left: 4em;
+}
+
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerData {
+  background-color: #e4e4e4;;
+  padding: 0.5em;
+  border-radius: 12px;
+}
+
+table.table {
+  width: 100%;
+}
+
+#street {
+  border-radius: 10px;
+}
+
+#number {
+  border-radius: 10px;
+}
+
+#corner {
+  border-radius: 10px;
+}
+
+table.table td:nth-child(5) {
+  color: #007BFF;
+}
+
+#addCart {
+  margin: 1em;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+#addCart {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(194 100% 69% / 1);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  padding: 0.9em 1.4em;
+  min-width: 120px;
+  min-height: 44px;
+  font-size: var(--size, 1rem);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 500;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5), 0px 5px 5px -1px rgba(58, 125, 233, 0.25), inset 4px 4px 8px rgba(175, 230, 255, 0.5), inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+}
+
+#addCart:hover {
+  background-position: right top;
+}
+
+#addCart:is(:focus, :focus-visible, :active) {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #addCart: {
+    transition: linear;
+  }
 }
