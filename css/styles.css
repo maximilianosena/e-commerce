@@ -775,26 +775,31 @@ input:checked+.slider:before{
 }
 /**************/
 
-/*Estilo para los diferentes tipos de envios*/
-.send-container {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
+/*Estilo para los tipos de envios*/
+.type-send {
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.type-send h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .type-send label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.type-send select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
+/* Estilos para la dirección de envío*/
+.address-send {
   border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.address-send h2 {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
@@ -803,10 +808,14 @@ input:checked+.slider:before{
   margin-bottom: 5px;
 }
 
-.address-send input{
+.address-send input[type="text"] {
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/*Estilo para los radios dentro del contenedor de tipo de envio*/
+.type-send input[type="radio"] {
+  margin-right: 10px;
 }
