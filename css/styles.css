@@ -815,6 +815,10 @@ input:checked+.slider:before{
   border: 1px solid #ccc;
 }
 
+#street , #number {
+  justify-content: center;
+}
+
 /*Estilo para los radios dentro del contenedor de tipo de envio*/
 .type-send input[type="radio"] {
   margin-right: 10px;
