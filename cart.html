@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet" >
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,18 +30,19 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><img src="icono perfil.png" ><a href="my-profile.html">Mi perfil</a></li>
-                <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
-                <li id="logout"><img src="logout.png" ><a href="login.html">Cerrar sesión</a></li>
-                 <li>  <label class="switch">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"></a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><img src="icono perfil.png"><a href="my-profile.html">Mi perfil</a></li>
+              <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
+              <li id="logout"><img src="logout.png"><a href="login.html">Cerrar sesión</a></li>
+              <li> <label class="switch">
                   <input type="checkbox" id="darkbtn">
                   <span class="slider round"></span>
-                 </label> </li>
-              </ul>
-            </li>
+                </label> </li>
+            </ul>
+          </li>
           </li>
         </ul>
       </div>
@@ -53,67 +54,72 @@
     </div>
     <div class="container">
       <p class="lead">Artículos a comprar</p>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Costo</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-      </table>  
+      <div class="containerData">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col" id="subTotal">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
-  
-
+  <div class="containerWrapper">
+    <div class="containerCart">
       <!--Código para diferentes tipos de envios -->
-<div class="type-send">
-  <h2>Tipo de Envío</h2>
-  <label>
-    <input type="radio" name="shipping_option" value="premium"> Premium 2 a 5 días (15%)
-  </label>
-  <label>
-    <input type="radio" name="shipping_option" value="express"> Express 5 a 8 días (7%)
-  </label>
-  <label>
-    <input type="radio" name="shipping_option" value="standard"> Standard 12 a 15 días (5%)  
-  </label>
- </div>
+      <div class="type-send">
+        <h2>Tipo de Envío</h2>
+        <label>
+          <input type="radio" name="shipping_option" value="premium"> Premium 2 a 5 días (15%)
+        </label>
+        <label>
+          <input type="radio" name="shipping_option" value="express"> Express 5 a 8 días (7%)
+        </label>
+        <label>
+          <input type="radio" name="shipping_option" value="standard"> Standard 12 a 15 días (5%)
+        </label>
+      </div>
 
- <br>
+      <br>
 
- <div class="address-send">
- <h2>Dirección de Envío</h2>
+      <div class="address-send">
+        <h2>Dirección de Envío</h2>
 
- <div class="col-12">
-  <div class="row ">
-    <div class="col-9">
- <label for="street">Calle</label>
- <input type="text" id="street">
-</div>
-<div class="col">
- <label for="number" >Número</label>
- <input type="text" id="number">
-</div>
-</div>
-</div>
-<div class="col-9">
- <label for="corner">Esquina</label>
- <input type="text" id="corner">
-</div>
-</div> 
+        <div class="col-12">
+          <div class="row ">
+            <div class="col-9">
+              <label for="street">Calle</label>
+              <input type="text" id="street">
+            </div>
+            <div class="col">
+              <label for="number">Número</label>
+              <input type="text" id="number">
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <label for="corner">Esquina</label>
+          <input type="text" id="corner">
+        </div>
+      </div>
+    </div>
+  </div>
 
- <footer class="text-muted">
-  <div class="container">
-    <p class="float-end">
-      <a href="#">Volver arriba</a>
-    </p>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
 
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -130,4 +136,3 @@
 </body>
 
 </html>
-
