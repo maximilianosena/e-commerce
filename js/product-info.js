@@ -55,7 +55,7 @@ let showImages = document.getElementById("showImages")
 function showTheProduct(object) {
 
     title.innerHTML += `
-    <div id="titleProduct">
+    <div class="h1 text-center" id="titleProduct">
     ${object.name} 
     </div>
     `
@@ -215,3 +215,67 @@ starsArray.forEach((star, index1) => {
 
 });
 
+
+///////////////////////////////////////////////////////////////////
+btn_add= document.getElementById("addCart")
+
+let products_Cart = JSON.parse(localStorage.getItem("cart")) || []
+console.log(products_Cart)
+
+const sessions = localStorage.getItem("usuarios")
+console.log(sessions)
+let last = JSON.parse(sessions)
+
+let lastUserNumber = last.length-1
+
+let nameUser= last[lastUserNumber].Nombre
+console.log(nameUser)
+
+function addProduct(cart_product){
+
+    let newProduct = {
+    "user": nameUser,
+    "articles":[
+        {
+            "id": cart_product.id,
+"name": cart_product.name,
+"count": 1,
+"unitCost": cart_product.cost,
+"currency": cart_product.currency,
+"image": cart_product.images[0]
+        }
+    ]
+    }
+    products_Cart.push(newProduct)
+}
+
+async function productToTheCart() {
+    let response = await fetch(urlProduct);
+    if (response.ok) {
+        let responseContents = await response.json();
+        console.log(responseContents);
+        addProduct(responseContents);
+    } else {
+        console.log("Error: " + response.status)
+    }
+}
+
+
+
+function jsonCart (){
+    localStorage.setItem("cart", JSON.stringify(products_Cart))
+}
+
+btn_add.addEventListener("click",()=>{
+    btn_add.disabled = true; // Desactivar el botón
+
+    productToTheCart()
+        .then(() => {
+            jsonCart();
+            btn_add.disabled = false; // Volver a habilitar el botón después de agregar el producto
+        })
+        .catch((error) => {
+            console.error("Error: " + error);
+            btn_add.disabled = false; // Volver a habilitar el botón en caso de error
+        });
+})
