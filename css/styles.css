@@ -1071,6 +1071,11 @@ input:checked+.slider:before{
   border: 1px solid #ccc;
 }
 
+.prodCount  {
+  border-radius: 8px;
+  border-style: groove;
+}
+
 .address-send label {
   display: block;
   margin-bottom: 5px;
@@ -1128,6 +1133,7 @@ table.table {
   width: 100%;
 }
 
+
 #street {
   border-radius: 10px;
 }
@@ -1144,45 +1150,83 @@ table.table td:nth-child(5) {
   color: #007BFF;
 }
 
-#addCart {
-  margin: 1em;
-  padding: 1em;
-  margin-bottom: 2em;
-}
-
-#addCart {
-  --clr-font-main: hsla(0 0% 20% / 100);
-  --btn-bg-1: hsla(194 100% 69% / 1);
-  --btn-bg-2: hsla(217 100% 56% / 1);
-  --btn-bg-color: hsla(360 100% 100% / 1);
-  --radii: 0.5em;
-  cursor: pointer;
-  padding: 0.9em 1.4em;
-  min-width: 120px;
-  min-height: 44px;
-  font-size: var(--size, 1rem);
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-weight: 500;
-  transition: 0.8s;
-  background-size: 280% auto;
-  background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+.CartBtn {
+  width: 190px;
+  height: 45px;
+  border-radius: 12px;
   border: none;
-  border-radius: var(--radii);
-  color: var(--btn-bg-color);
-  box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5), 0px 5px 5px -1px rgba(58, 125, 233, 0.25), inset 4px 4px 8px rgba(175, 230, 255, 0.5), inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  background-color: #248dfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  margin: 1em;
+  margin-bottom: 1.5em;
 }
 
-#addCart:hover {
-  background-position: right top;
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .5s;
+  
 }
 
-#addCart:is(:focus, :focus-visible, :active) {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+.icon {
+  border-radius: 1px;
+  color: wheat;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #addCart: {
-    transition: linear;
-  }
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(238, 238, 238);
+  z-index: 1;
+  transition-duration: .5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: .5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px,0px);
+  transition-duration: .5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
+}
+
+.table-container {
+  max-height: 500px; /* Establece la altura máxima que desees */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+}
+
+.table td {
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 8px;
 }
