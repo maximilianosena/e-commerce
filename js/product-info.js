@@ -272,6 +272,10 @@ btn_add.addEventListener("click",()=>{
     productToTheCart()
         .then(() => {
             jsonCart();
+            mostrarToast();
+            audioEtiqueta.setAttribute("src", "tono-mensaje-.mp3")
+      audioEtiqueta.play()
+      console.log(`Reproduciendo: ${audioEtiqueta.src}`)
             btn_add.disabled = false; // Volver a habilitar el botón después de agregar el producto
         })
         .catch((error) => {
@@ -279,3 +283,11 @@ btn_add.addEventListener("click",()=>{
             btn_add.disabled = false; // Volver a habilitar el botón en caso de error
         });
 })
+
+function mostrarToast(){
+    var miToast = document.getElementById('miToast');
+      var cartel = new bootstrap.Toast(miToast);
+      cartel.show();
+    }
+    
+    let audioEtiqueta = document.querySelector("audio")
