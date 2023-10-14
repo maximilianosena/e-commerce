@@ -1151,11 +1151,11 @@ table.table td:nth-child(5) {
 }
 
 .CartBtn {
-  width: 190px;
+  width: 230px;
   height: 45px;
   border-radius: 12px;
   border: none;
-  background-color: #248dfd;
+  background-color: orange;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1167,6 +1167,7 @@ table.table td:nth-child(5) {
   margin: 1em;
   margin-bottom: 1.5em;
 }
+
 
 .IconContainer {
   position: absolute;
@@ -1206,6 +1207,7 @@ table.table td:nth-child(5) {
   transform: translateX(58px);
   border-radius: 40px;
   transition-duration: .5s;
+
 }
 
 .CartBtn:hover .text {
@@ -1241,3 +1243,4 @@ table.table td:nth-child(5) {
   margin: 15px;
   border-style: none;
 }
+
