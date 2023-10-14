@@ -1219,8 +1219,8 @@ table.table td:nth-child(5) {
 }
 
 .table-container {
-  max-height: 500px; /* Establece la altura máxima que desees */
-  overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+  max-height: 500px; 
+  overflow-y: auto; 
 }
 
 .table td {
@@ -1229,4 +1229,15 @@ table.table td:nth-child(5) {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 8px;
+}
+
+.toast-header {
+  background-color: orange;
+  color: white;
+  border-style: none;
+}
+
+#miToast {
+  margin: 15px;
+  border-style: none;
 }
