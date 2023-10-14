@@ -215,52 +215,79 @@ starsArray.forEach((star, index1) => {
 
 });
 
-//Maxi
-
-let darkbtn = document.getElementById("darkbtn");
-let body = document.body
-let isDarkMode = localStorage.getItem("darkMode") === "enabled";
-let btn_Switch = document.querySelector(".switch")
-
-
-function enableDark() {
-    body.classList.add("dark-mode")
-    showImages.style.backgroundColor = "#070605"
-    localStorage.setItem("darkMode", "enabled")
-}
-
-function disableDark() {
-    body.classList.remove("dark-mode")
-    showImages.style.backgroundColor = "#f2f2f2"
-    localStorage.setItem("darkMode", "disabled")
-}
-
-
-if (isDarkMode) {
-    enableDark()
-    darkbtn.checked = true;
-}
-
-darkbtn.addEventListener("change", () => {
-    if (darkbtn.checked) {
-        enableDark()
-        location.reload()
-    } else {
-        disableDark()
-        location.reload()
-    }
-})
-
-btn_Switch.addEventListener("click", (e) => {
-    e.stopPropagation();
-})
 
 ///////////////////////////////////////////////////////////////////
+btn_add= document.getElementById("addCart")
 
-let btn_logout = document.getElementById("logout")
+let products_Cart = JSON.parse(localStorage.getItem("cart")) || []
+console.log(products_Cart)
 
-    function closeAccount() {
-        localStorage.removeItem("usuarios")
+const sessions = localStorage.getItem("usuarios")
+console.log(sessions)
+let last = JSON.parse(sessions)
+
+let lastUserNumber = last.length-1
+
+let nameUser= last[lastUserNumber].Nombre
+console.log(nameUser)
+
+function addProduct(cart_product){
+
+    let newProduct = {
+    "user": nameUser,
+    "articles":[
+        {
+            "id": cart_product.id,
+"name": cart_product.name,
+"count": 1,
+"unitCost": cart_product.cost,
+"currency": cart_product.currency,
+"image": cart_product.images[0]
+        }
+    ]
     }
+    products_Cart.push(newProduct)
+}
 
-    btn_logout.addEventListener("click", closeAccount)
+async function productToTheCart() {
+    let response = await fetch(urlProduct);
+    if (response.ok) {
+        let responseContents = await response.json();
+        console.log(responseContents);
+        addProduct(responseContents);
+    } else {
+        console.log("Error: " + response.status)
+    }
+}
+
+
+
+function jsonCart (){
+    localStorage.setItem("cart", JSON.stringify(products_Cart))
+}
+
+btn_add.addEventListener("click",()=>{
+    btn_add.disabled = true; // Desactivar el botón
+
+    productToTheCart()
+        .then(() => {
+            jsonCart();
+            mostrarToast();
+            audioEtiqueta.setAttribute("src", "tono-mensaje-.mp3")
+      audioEtiqueta.play()
+      console.log(`Reproduciendo: ${audioEtiqueta.src}`)
+            btn_add.disabled = false; // Volver a habilitar el botón después de agregar el producto
+        })
+        .catch((error) => {
+            console.error("Error: " + error);
+            btn_add.disabled = false; // Volver a habilitar el botón en caso de error
+        });
+})
+
+function mostrarToast(){
+    var miToast = document.getElementById('miToast');
+      var cartel = new bootstrap.Toast(miToast);
+      cartel.show();
+    }
+    
+    let audioEtiqueta = document.querySelector("audio")
