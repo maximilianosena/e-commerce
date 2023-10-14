@@ -1198,8 +1198,9 @@ table.table td:nth-child(5) {
   color: rgb(238, 238, 238);
   z-index: 1;
   transition-duration: .5s;
-  font-size: 1.04em;
-  font-weight: 600;
+  font-size: 0.9em;
+  font-weight: 100;
+  margin-top: auto;
 }
 
 .CartBtn:hover .IconContainer {
