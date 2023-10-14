@@ -58,7 +58,8 @@ function showTheProduct(object) {
       <td>${product.currency} ${product.unitCost}</td>
       <td><input class="prodCount" type="number" value=${product.count} min="1" style="width:70px"></td>
       <td><b>${product.currency} <span class="subtotal">${subtotal}</span></b></td>
-    </tr>`;
+      <td><button type="button" class="btn btn-danger" onclick="removeProductCart(${product.id})">X <audio src="paper.mp3"></audio></button></td>
+      </tr>`;
   }
 
   // Agrega un evento de cambio a los campos de cantidad
@@ -98,3 +99,26 @@ console.log(subtotalElement)
     });
   });
 }
+
+function removeProductCart(id) {
+  tableBody.innerHTML = '';
+
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].articles[0].id === id) {
+      // Elimina el primer objeto que coincida con la id
+      cart.splice(i, 1);
+      break; // Detiene el bucle después de eliminar el elemento
+    }
+  }
+  
+  console.log("Nueva lista:", cart);
+  if (audio){
+  audio.play()
+      console.log(`Reproduciendo: ${audio.src}`)}
+  localStorage.setItem("cart", JSON.stringify(cart));
+  showproduct(); //Llama al auto predefinido
+  products_add(); //Llama a los productos filtrados
+} 
+
+
+let audio = document.querySelector("audio")
