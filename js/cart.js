@@ -1,30 +1,29 @@
 //Mostrar Productos
 let tableBody = document.getElementById("tableBody");
-let totalElement = document.getElementById("total"); 
+let totalElement = document.getElementById("total");
 let list = [];
 
 console.log("lista", list)
-
 let ID = 25801;
 let urlProduct = 'https://japceibal.github.io/emercado-api/user_cart/' + ID + '.json';
 
-
+let resultadoSubtotal;
 /////////////////////////////////////////////////////////////
 let cart = JSON.parse(localStorage.getItem("cart"))
 
 console.log(cart)
 
-function products_add(){
-  for (let product of cart){
+function products_add() {
+  for (let product of cart) {
     console.log("cada producto:", product)
     showTheProduct(product)
     list.push(product)
   }
 }
 
-if (JSON.parse(localStorage.getItem("cart")))
-{
-products_add()}
+if (JSON.parse(localStorage.getItem("cart"))) {
+  products_add()
+}
 
 /////////////////////////////////////////////////////
 
@@ -35,6 +34,7 @@ async function showproduct() {
     console.log(object);
     list.push(object)
     showTheProduct(object);
+    subTotals(); //agrego función al fetch para ver al cargar la página
   } else {
     console.log("Error: " + response.status);
   }
@@ -43,7 +43,7 @@ async function showproduct() {
 showproduct();
 
 function showTheProduct(object) {
-  tableBody.innerHTML += ''; 
+  tableBody.innerHTML += '';
 
   for (let i = 0; i < object.articles.length; i++) {
     let product = object.articles[i];
@@ -72,8 +72,8 @@ function showTheProduct(object) {
       let newCount = parseInt(event.target.value, 10);
 
       if (!isNaN(newCount) && newCount >= 1) {
-        
-console.log(cost)
+
+        console.log(cost)
 
         product[0].count = newCount;
 
@@ -83,18 +83,20 @@ console.log(cost)
         let subtotalElement = event.target.closest("tr").querySelector(".subtotal");
         subtotalElement.innerHTML = parseInt(newSubtotal);
 
-console.log(subtotalElement)
+        console.log(subtotalElement)
 
         let newTotal = 0;
         document.querySelectorAll(".subtotal").forEach((subtotal) => {
           newTotal += parseInt(subtotal.textContent.split(" ")[1]);
         });
 
-        
-        // Actualiza el contenido del elemento "total" con el valor recalculado
-        totalElement = product[0].currency + " " + parseInt(newTotal);
 
-       
+        // Actualiza el contenido del elemento "total" con el valor recalculado
+        totalElement = product[0].currency + " " + newTotal;
+
+        //Función que se dispara al cambiar la cantidad de inputs
+        subTotals()
+
       }
     });
   });
@@ -110,15 +112,115 @@ function removeProductCart(id) {
       break; // Detiene el bucle después de eliminar el elemento
     }
   }
-  
+
   console.log("Nueva lista:", cart);
-  if (audio){
-  audio.play()
-      console.log(`Reproduciendo: ${audio.src}`)}
+  if (audio) {
+    audio.play()
+    console.log(`Reproduciendo: ${audio.src}`)
+  }
   localStorage.setItem("cart", JSON.stringify(cart));
   showproduct(); //Llama al auto predefinido
   products_add(); //Llama a los productos filtrados
-} 
+}
 
 
 let audio = document.querySelector("audio")
+
+
+
+//SUMA TOTAL
+let allSubtotal = document.getElementsByTagName("b")
+console.log(allSubtotal.length)
+
+let usd = 40;
+
+
+//Función que devuelve la suma de los subtotales, y actualiza el valor del costo de envío y costo total
+function subTotals() {
+  let resultado = 0;
+  for (let i = 0; i < allSubtotal.length; i++) {
+    if (allSubtotal[i].textContent.includes("USD")) {
+      resultado += parseFloat(allSubtotal[i].childNodes[1].textContent)
+    }
+    else {
+      //Si el valor no está en dolares, se convierte 
+      resultado += parseFloat(allSubtotal[i].childNodes[1].textContent) / usd
+    }
+  }
+  containerSubtotal.innerHTML = ` USD ${resultado.toFixed(2)}`
+
+  valueTax(resultado)
+  let taxNumber = parseFloat(containerTax.innerHTML.replace("USD ", ""))
+  console.log(taxNumber)
+  final(resultado, taxNumber)
+}
+
+
+//Selección tipo de envío
+let shipping = document.getElementsByName("shipping_option")
+let containerTax = document.getElementById("shipType")
+let containerSubtotal = document.getElementById("subAll")
+
+
+console.log(shipping)
+
+
+for (let input of shipping) {
+  console.log("Este es un input", input.value)
+}
+
+function valueTax(resultadoSubtotal) {
+  let selectedOption;
+
+
+
+  //Recorrido que se detiene al encontrar el valor seleccionado
+  for (let i = 0; i < shipping.length; i++) {
+    if (shipping[i].checked) {
+      selectedOption = shipping[i].value;
+      break;
+    }
+  }
+  let subtotalNumber = parseFloat(containerSubtotal.textContent.replace("USD ", ""))
+  console.log(subtotalNumber)
+
+  if (selectedOption === "premium") {
+    let tax = resultadoSubtotal * 0.15
+    containerTax.innerHTML = ` USD ${tax.toFixed(2)}`
+    final(subtotalNumber, tax)
+  }
+  else if (selectedOption === "express") {
+    let tax = resultadoSubtotal * 0.07
+    containerTax.innerHTML = ` USD ${tax.toFixed(2)}`
+    final(subtotalNumber, tax)
+  }
+  else if (selectedOption === "standard") {
+    let tax = resultadoSubtotal * 0.05
+    containerTax.innerHTML = ` USD ${tax.toFixed(2)}`
+    final(subtotalNumber, tax)
+  }
+
+  console.log(selectedOption)
+}
+
+
+
+//Evento al seleccionar un tipo de envío
+for (let i = 0; i < shipping.length; i++) {
+  shipping[i].addEventListener("click", () => {
+    subTotals()
+  })
+}
+
+
+//Función Suma Total
+
+let totalFinal = document.getElementById("totalCart")
+
+function final(subtotalCart, taxCart) {
+  let result = 0
+  result += subtotalCart + taxCart
+  totalFinal.textContent = ` USD ${result.toFixed(2)}`
+  console.log(result)
+}
+
