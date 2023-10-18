@@ -1245,3 +1245,95 @@ table.table td:nth-child(5) {
   border-style: none;
 }
 
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 60%;
+  height: 95%;
+}
+
+/* Estilos para la lista */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Otros estilos */
+h2 {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.dropdown-divider {
+  border: 1px solid #4d4c4c;
+  margin: 5px 0;
+}
+
+.payment-option {
+  margin-bottom: 5px;
+}
+
+.payment-fields label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.payment-fields input {
+  width: 60%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+#custom-button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  float: right;
+  border-radius: 5px;
+}
+
+#custom-button:hover {
+  background-color: #0056b3;
+}
+
+#creditCardNumber {
+  width: 120px;
+  height: 26px;
+}
+    
+#securityCode {
+  width: 50px;
+  height: 26px;
+}
+
+#accountNumber {
+  width: 200px;
+  height: 24px; 
+}
+
+
+
+    
+

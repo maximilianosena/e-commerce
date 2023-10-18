@@ -224,3 +224,16 @@ function final(subtotalCart, taxCart) {
   console.log(result)
 }
 
+// Forma de Pago
+function openModal() {
+  let modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  let modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+// Asignar evento al enlace para abrir el modal
+document.getElementById("openModalLink").addEventListener("click", openModal);

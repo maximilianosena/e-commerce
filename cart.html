@@ -114,6 +114,79 @@
     </div>
   </div>
 
+  <!-- Código de Forma de Pago -->
+  <h2>Forma de Pago</h2>
+  <p>No ha seleccionado<a href="#" id="openModalLink"> Seleccionar</a></p>
+
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <h2>Forma de Pago</h2>
+        <ul>
+            <li><hr class="dropdown-divider" ></li>
+        </ul>
+
+        <div class="payment-option">
+          <div class="col-12">
+            <div class="row ">
+              <div class="col-9">
+          
+
+            <div>
+                <input type="radio" name="payment" value="credit_card" id="credit_card_option">
+                <label for="credit_card_option">Tarjeta de Crédito</label>
+            </div>
+
+            <ul>
+                <li><hr class="dropdown-divider" ></li>
+            </ul>
+
+            <div id="creditCardFields" class="payment_fields">
+                <label for="cardNumber">Número de tarjeta</label>
+                <input type="text" id="creditCardNumber"><br><br>
+
+                <label for="security">Código de seg.</label>
+                <input type="text" id="securityCode"> <br><br>
+
+                <label for="expiriration">Vencimiento (MM/AA)</label>
+                <input type="text"  id="expiryDate">
+            </div>
+
+            <br>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" value="bank_transfer" id="bank_transfer_option">
+                <label for="bank_transfer_option"> Transferencia Bancaria</label>
+            </div>
+
+            <ul>
+                <li><hr class="dropdown-divider" ></li>
+            </ul>
+
+            <div id="bankTransferFields" class="payment-fields">
+                <label for="account">Número de cuenta</label>
+                <input type="text" id="accountNumber">
+            </div>
+
+            <ul>
+                <li><hr class="dropdown-divider" ></li>
+            </ul>
+
+            <button id="custom-button" onclick="closeModal()" >Cerrar</button>
+          
+          </div>
+          
+       </div>
+      
+      </div>
+
+
+        </div>
+
+    </div>
+  </div>
+
+
   
   <div class="col-12">
     <div class="row ">
