@@ -21,9 +21,6 @@ function products_add() {
   }
 }
 
-if (JSON.parse(localStorage.getItem("cart"))) {
-  products_add()
-}
 
 /////////////////////////////////////////////////////
 
@@ -32,7 +29,7 @@ async function showproduct() {
   if (response.ok) {
     let object = await response.json();
     console.log(object);
-    list.push(object)
+    localStorage.setItem("cart", JSON.stringify([object]))
     showTheProduct(object);
     subTotals(); //agrego función al fetch para ver al cargar la página
   } else {
@@ -40,7 +37,7 @@ async function showproduct() {
   }
 }
 
-showproduct();
+
 
 function showTheProduct(object) {
   tableBody.innerHTML += '';
@@ -119,8 +116,9 @@ function removeProductCart(id) {
     console.log(`Reproduciendo: ${audio.src}`)
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-  showproduct(); //Llama al auto predefinido
+
   products_add(); //Llama a los productos filtrados
+  subTotals();
 }
 
 
@@ -138,6 +136,12 @@ let usd = 40;
 //Función que devuelve la suma de los subtotales, y actualiza el valor del costo de envío y costo total
 function subTotals() {
   let resultado = 0;
+  if (allSubtotal.length===0){
+console.log("vacío")
+containerSubtotal.innerHTML = ` USD 0`
+containerTax.innerHTML = ` USD 0`
+totalFinal.textContent = ` USD 0`
+  } else{
   for (let i = 0; i < allSubtotal.length; i++) {
     if (allSubtotal[i].textContent.includes("USD")) {
       resultado += parseFloat(allSubtotal[i].childNodes[1].textContent)
@@ -154,7 +158,7 @@ function subTotals() {
   console.log(taxNumber)
   final(resultado, taxNumber)
 }
-
+}
 
 //Selección tipo de envío
 let shipping = document.getElementsByName("shipping_option")
@@ -237,3 +241,11 @@ function closeModal() {
 
 // Asignar evento al enlace para abrir el modal
 document.getElementById("openModalLink").addEventListener("click", openModal);
+
+if (cart === null)  {
+  showproduct()
+  location.reload()
+}  else {
+  products_add()
+  subTotals()
+}
