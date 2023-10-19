@@ -1048,6 +1048,135 @@ input:checked+.slider:before{
 }
 
 
+.text-center h2 {
+  font-size: 24px; 
+}
+
+.btn.btn-danger {
+  border-radius: 100%;
+}
+
+/* Estilo para la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.table th, .table td {
+  border-bottom: none;
+  padding: 1em;
+}
+
+
+#subAll {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+#shipType {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+#totalCart {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+
+/* Estilo para los campos de entrada de texto */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Estilo para los botones */
+#custom-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#custom-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para la página de forma de pago */
+.payMethod {
+  background-color: #fff;
+  margin-top: 1em;
+  max-width: 59em;
+  margin-bottom: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1.5em;
+  border-radius: 10px;
+  margin: 1em auto;
+}
+
+#openModalLink {
+  text-decoration: none;
+  padding: 0.6em;
+  background-color: #007BFF;
+  margin: 1em;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#openModalLink:hover {
+  background-color: #0056b3;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 35% auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px;
+  width: 30%;
+  margin-top: 4em;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.modal-content ul li {
+  margin: 0.7em; 
+}
+
+
+
+TODO EL CODIGO
+
+
 /*Estilo para los tipos de envios*/
 .type-send {
   border: 1px solid #ccc;
@@ -1055,20 +1184,8 @@ input:checked+.slider:before{
   margin-bottom: 20px;
 }
 
-.type-send h2 {
+h2 {
   font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.type-send input[type="radio"] {
-  margin-right: 10px;
-}
-
-.address-send input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
 }
 
 .prodCount  {
@@ -1076,20 +1193,6 @@ input:checked+.slider:before{
   border-style: groove;
 }
 
-.address-send label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.address-send h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.address-send {
-  border: 1px solid #ccc;
-  padding: 20px;
-}
 
 .type-send label {
   display: block;
@@ -1098,13 +1201,12 @@ input:checked+.slider:before{
 
 .containerCart {
   display: flex;
-  max-width: 60em;
-  border: #0087F7;
-  border-width: 2px;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  background-color: #f4f4f4;
+  background-color: #fff;
   padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0em auto;
 }
 
 .type-send {
@@ -1123,32 +1225,9 @@ input:checked+.slider:before{
   justify-content: center;
 }
 
-.containerData {
-  background-color: #e4e4e4;;
-  padding: 0.5em;
-  border-radius: 12px;
-}
-
-table.table {
-  width: 100%;
-}
 
 
-#street {
-  border-radius: 10px;
-}
-
-#number {
-  border-radius: 10px;
-}
-
-#corner {
-  border-radius: 10px;
-}
-
-table.table td:nth-child(5) {
-  color: #007BFF;
-}
+/*Estilo para Boton de agregar carrito y toast*/
 
 .CartBtn {
   width: 230px;
@@ -1221,19 +1300,6 @@ table.table td:nth-child(5) {
   transition-duration: .5s;
 }
 
-.table-container {
-  max-height: 500px; 
-  overflow-y: auto; 
-}
-
-.table td {
-  border-left: none;
-  border-right: none;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  padding: 8px;
-}
-
 .toast-header {
   background-color: orange;
   color: white;
@@ -1244,96 +1310,3 @@ table.table td:nth-child(5) {
   margin: 15px;
   border-style: none;
 }
-
-/* Estilos para el modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 10px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  width: 60%;
-  height: 95%;
-}
-
-/* Estilos para la lista */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Otros estilos */
-h2 {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.dropdown-divider {
-  border: 1px solid #4d4c4c;
-  margin: 5px 0;
-}
-
-.payment-option {
-  margin-bottom: 5px;
-}
-
-.payment-fields label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.payment-fields input {
-  width: 60%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-#custom-button {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  float: right;
-  border-radius: 5px;
-}
-
-#custom-button:hover {
-  background-color: #0056b3;
-}
-
-#creditCardNumber {
-  width: 120px;
-  height: 26px;
-}
-    
-#securityCode {
-  width: 50px;
-  height: 26px;
-}
-
-#accountNumber {
-  width: 200px;
-  height: 24px; 
-}
-
-
-
-    
-
