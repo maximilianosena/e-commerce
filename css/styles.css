@@ -1172,11 +1172,6 @@ input[type="text"] {
   margin: 0.7em; 
 }
 
-
-
-TODO EL CODIGO
-
-
 /*Estilo para los tipos de envios*/
 .type-send {
   border: 1px solid #ccc;
@@ -1316,4 +1311,7 @@ h2 {
   padding-left: 20%;
   padding-right: 20%;
   
+}
+input:disabled{
+  background-color: #aaaaaa;
 }

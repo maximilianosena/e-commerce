@@ -249,3 +249,38 @@ if (cart === null)  {
   products_add()
   subTotals()
 }
+//funcion forma de pago
+let option1 = document.getElementById("credit_card_option");
+let option2 = document.getElementById("bank_transfer_option");
+
+let cardpass = document.getElementById("creditCardNumber");
+let securityCard = document.getElementById("securityCode")
+let expiryDay = document.getElementById("expiryDate")
+let bankpass = document.getElementById("accountNumber");
+let selectedPaymentMethod = document.getElementById("selectedPaymentMethod");
+
+console.log(cardpass)
+
+option1.addEventListener("click", () => {
+  if (option1.checked) {
+    selectedPaymentMethod.innerHTML = ` Tarjeta de crédito` ;
+
+   bankpass.disabled=true
+   cardpass.disabled = false;
+   securityCard.disabled = false;
+   expiryDay.disabled = false;
+  }
+});
+
+option2.addEventListener("click", () => {
+  if (option2.checked) { 
+    selectedPaymentMethod.innerHTML = ` Transferencia bancaria` ;
+   
+      cardpass.disabled = true;
+      securityCard.disabled = true;
+      expiryDay.disabled = true;
+    
+      bankpass.disabled = false;
+
+  }
+});
