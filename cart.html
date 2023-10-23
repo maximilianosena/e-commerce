@@ -214,7 +214,24 @@
       <p id="totalCart"> </p>
     </div>
   </div>
-<button type="button" id="finalizePurchase" class="btn btn-primary btn-lg btn-block" > Finalizar compra</button>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSuccessModal()"></span>
+      <p>¡Compra realizada exitosamente!</p>
+      <button id="closeSuccessModalButton">Cerrar</button>
+    </div>
+  </div> 
+
+  <div id="emptyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEmptyModal()"></span>
+      <p>El carrito está vacío. Agregue productos antes de finalizar su compra.</p>
+      <button id="closeEmptyModalButton">Cerrar</button>
+    </div>
+  </div>
+
+  <button type="button" id="finalizePurchase" onclick="(finalizarCompra)" class="btn btn-primary btn-lg btn-block" > Finalizar compra</button>
 
 
   <footer class="text-muted">

@@ -284,3 +284,64 @@ option2.addEventListener("click", () => {
 
   }
 });
+
+// Modal de exito de compra
+
+var  modalButton = document.getElementById("finalizePurchase");
+var successModal = document.getElementById("successModal");
+var closeSuccessModal = document.getElementById("closeSuccessModalButton");
+var emptyModal = document.getElementById("emptyModal")
+var closeEmptyModal = document.getElementById("closeEmptyModalButton")
+
+
+modalButton.addEventListener("click", finalizarCompra);
+
+closeSuccessModal.addEventListener("click", closeSuccessModalFunction);
+
+closeEmptyModal.addEventListener("click", closeEmptyModalFunction);
+
+function openSuccessModal() {
+  successModal.style.display = "block";
+};
+
+function openEmptyModal() {
+  emptyModal.style.display = "block";
+};
+
+function closeSuccessModalFunction() { 
+  successModal.style.display = "none";
+};
+
+function closeEmptyModalFunction() { 
+  emptyModal.style.display = "none";
+};
+
+
+function finalizarCompra() {
+
+  if (cart && cart.length > 0) {
+    
+    let comprasExitosas = JSON.parse(localStorage.getItem("compraExitosa")) || [];
+
+    comprasExitosas = comprasExitosas.concat(cart);
+
+    localStorage.setItem("compraExitosa", JSON.stringify(comprasExitosas));
+    
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    resetPage()
+
+    openSuccessModal();
+  } else {
+    openEmptyModal();
+  }
+
+};
+
+function resetPage() {
+  tableBody.innerHTML = '';
+  containerSubtotal.innerHTML = ` USD 0`;
+  containerTax.innerHTML = ` USD 0`;
+  totalFinal.textContent = ` USD 0`;
+};
