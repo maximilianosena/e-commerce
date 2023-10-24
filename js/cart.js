@@ -103,6 +103,12 @@ function showTheProduct(object) {
         //Función que se dispara al cambiar la cantidad de inputs
         subTotals()
 
+        localStorage.setItem("cart", JSON.stringify(list));
+
+        tableBody.innerHTML = '';
+        for (let product of list) {
+          showTheProduct(product);
+        }
       }
     });
   });
