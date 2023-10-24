@@ -14,11 +14,20 @@ let cart = JSON.parse(localStorage.getItem("cart"))
 console.log(cart)
 
 function products_add() {
-  for (let product of cart) {
-    console.log("cada producto:", product)
-    showTheProduct(product)
-    list.push(product)
-  }
+  list =[]
+  // Recorre el carrito original para buscar duplicados
+  cart.forEach((product) => {
+    const product_Exist = list.find((item) => item.articles[0].id === product.articles[0].id);
+    if (product_Exist) {
+      // Si se encuentra un duplicado, suma las unidades
+      product_Exist.articles[0].count += product.articles[0].count;
+    } else {
+      list.push(product);
+    }
+  });
+  for (let product of list) {
+  showTheProduct(product);
+}
 }
 
 
@@ -55,7 +64,7 @@ function showTheProduct(object) {
       <td>${product.currency} ${product.unitCost}</td>
       <td><input class="prodCount" type="number" value=${product.count} min="1" style="width:70px"></td>
       <td><b>${product.currency} <span class="subtotal">${subtotal}</span></b></td>
-      <td><button type="button" class="btn btn-danger" onclick="removeProductCart(${product.id})">X <audio src="paper.mp3"></audio></button></td>
+      <td><button type="button" class="btn btn-danger" onclick="removeProductCart(${product.id})">X <audio src="audio/trash.mp3" id="audio_trash"></audio></button></td>
       </tr>`;
   }
 
@@ -99,30 +108,40 @@ function showTheProduct(object) {
   });
 }
 
+
+let trashAudio = new Audio ('audio/trash.mp3')
+
 function removeProductCart(id) {
+
+  let audio = document.getElementById("audio_trash")
+console.log(audio)
+
   tableBody.innerHTML = '';
 
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].articles[0].id === id) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].articles[0].id === id) {
       // Elimina el primer objeto que coincida con la id
-      cart.splice(i, 1);
-      break; // Detiene el bucle después de eliminar el elemento
+      list.splice(i, 1);
+      cart = list;
+      break;
     }
   }
 
   console.log("Nueva lista:", cart);
-  if (audio) {
-    audio.play()
-    console.log(`Reproduciendo: ${audio.src}`)
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
 
-  products_add(); //Llama a los productos filtrados
-  subTotals();
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  if (audio) {
+    trashAudio.play()
+    console.log(`Reproduciendo: ${trashAudio}`)
+  }
+
+products_add(); 
+subTotals();
+
 }
 
 
-let audio = document.querySelector("audio")
 
 
 
@@ -242,13 +261,7 @@ function closeModal() {
 // Asignar evento al enlace para abrir el modal
 document.getElementById("openModalLink").addEventListener("click", openModal);
 
-if (cart === null)  {
-  showproduct()
-  location.reload()
-}  else {
-  products_add()
-  subTotals()
-}
+
 //funcion forma de pago
 let option1 = document.getElementById("credit_card_option");
 let option2 = document.getElementById("bank_transfer_option");
@@ -345,3 +358,11 @@ function resetPage() {
   containerTax.innerHTML = ` USD 0`;
   totalFinal.textContent = ` USD 0`;
 };
+
+if (cart === null)  {
+  showproduct()
+  location.reload()
+}  else {
+  products_add()
+  subTotals()
+}
