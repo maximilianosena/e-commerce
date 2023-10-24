@@ -70,90 +70,124 @@ function sessionExists() {
 sessionExists();
 
 let darkbtn = document.getElementById("darkbtn");
- let body = document.body
- let isDarkMode = localStorage.getItem("darkMode") === "enabled";
- let btn_Switch = document.querySelector(".switch")
+let body = document.body
+let isDarkMode = localStorage.getItem("darkMode") === "enabled";
+let btn_Switch = document.querySelector(".switch")
 let search_container = document.querySelector(".contenedor.search")
 let product_cart = document.querySelector(".table")
 let top_half_page = document.querySelector(".jumbotron")
 let under_half_page = document.querySelector(".album.py-5.bg-light")
+let nav_link = document.querySelector('.nav-link')
+let categoriesNav = document.getElementById('categoriesNav')
+let sell = document.getElementById('sell')
+let login = document.getElementById('login') 
+let subTitle = document.getElementById('subTitle')
 
 
 
-
- function enableDark() {
-    body.classList.add("dark-mode")
-    if(search_container?.classList){
+function enableDark() {
+  body.classList.add("dark-mode")
+  if (search_container?.classList) {
     search_container.classList.add("dark-mode")
-    }
-    if (product_cart?.classList){
-      product_cart.classList.add("text-light")
-    }
-    if (top_half_page?.classList){
-      top_half_page.classList.add("dark-image")
-    }
-    if (under_half_page?.classList){
-      under_half_page.classList.remove("bg-light")
-      under_half_page.classList.add("dark")
-    }    
-    localStorage.setItem ("darkMode", "enabled")
+  }
+  if (product_cart?.classList) {
+    product_cart.classList.add("text-light")
+  }
+  if (top_half_page?.classList) {
+    top_half_page.classList.add("dark-image")
+  }
+  if (under_half_page?.classList) {
+    under_half_page.classList.remove("bg-light")
+    under_half_page.classList.add("dark")
+  }
+  if (nav_link?.classList) {
+    nav_link.classList.add("text-light")
+  }
+  if (categoriesNav?.classList) {
+    categoriesNav.classList.add("text-light")
+  }
+  if (sell?.classList) {
+    sell.classList.add("text-light")
+  }
+  if (login?.classList) {
+    login.classList.add("text-light")
+  }
+  if (subTitle?.classList) {
+    subTitle.classList.add("text-light")
+  }
+
+  localStorage.setItem("darkMode", "enabled")
 }
 
-function disableDark () {
-    body.classList.remove("dark-mode")
-    if(search_container?.classList){
-      search_container.classList.remove("dark-mode")
-      }
-      if (product_cart?.classList){
-        product_cart.classList.remove("text-light")
-      }
-      if (top_half_page?.classList){
-        top_half_page.classList.remove("dark-image")
-      }
-      if (under_half_page?.classList){
-        under_half_page.classList.add("bg-light")
-        under_half_page.classList.remove("dark")
-      }
-         localStorage.setItem ("darkMode", "disabled")
-     }
+function disableDark() {
+  body.classList.remove("dark-mode")
+  if (search_container?.classList) {
+    search_container.classList.remove("dark-mode")
+  }
+  if (product_cart?.classList) {
+    product_cart.classList.remove("text-light")
+  }
+  if (top_half_page?.classList) {
+    top_half_page.classList.remove("dark-image")
+  }
+  if (under_half_page?.classList) {
+    under_half_page.classList.add("bg-light")
+    under_half_page.classList.remove("dark")
+  }
+
+  localStorage.setItem("darkMode", "disabled")
+
+  if (nav_link?.classList) {
+    nav_link.classList.remove("text-light")
+  }
+  if (categoriesNav?.classList) {
+    categoriesNav.classList.remove("text-light")
+  }
+  if (sell?.classList) {
+    sell.classList.remove("text-light")
+  }
+  if (login?.classList) {
+    login.classList.remove("text-light")
+  }
+  if (subTitle?.classList) {
+    subTitle.classList.remove("text-light")
+  }
+}
 
 
- if (isDarkMode) {
-   enableDark()
-      darkbtn.checked = true;
- }
+if (isDarkMode) {
+  enableDark()
+  darkbtn.checked = true;
+}
 
- darkbtn.addEventListener("change", () => {
-     if (darkbtn.checked){ 
-        enableDark()    
-     } else {
-         disableDark()
- }
+darkbtn.addEventListener("change", () => {
+  if (darkbtn.checked) {
+    enableDark()
+  } else {
+    disableDark()
+  }
 })
 
-btn_Switch.addEventListener("click", (e)=>{
-    e.stopPropagation();
+btn_Switch.addEventListener("click", (e) => {
+  e.stopPropagation();
 })
 
 
 
-      //Codigo Franco
+
+let btn_logout = document.getElementById("logout")
+
+function closeAccount() {
+  localStorage.removeItem("usuarios")
+}
+
+btn_logout.addEventListener("click", closeAccount)
 
 
-      let btn_logout = document.getElementById("logout")
 
-      function closeAccount() {
-          localStorage.removeItem("usuarios")
-      }
-  
-      btn_logout.addEventListener("click", closeAccount)
-      
-   
-  
-      
-    
-    
-  
-  
-  
-     
+
+
+
+
+
+

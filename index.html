@@ -21,92 +21,113 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
+            <img src="/img/logoEcomerce.png" alt="Logo" class="logo">
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
+            <a class="nav-link" id="categoriesNav" href="categories.html">Categorías</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
+            <a class="nav-link" id="sell" href="sell.html">Vender</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+            <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><img src="icono perfil.png" ><a href="my-profile.html">Mi perfil</a></li>
+              <li><img src="icono perfil.png"><a id="profileNav" href="my-profile.html">Mi perfil</a></li>
               <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
-              <li id="logout"><img src="logout.png" ><a href="login.html">Cerrar sesión</a></li>
-               <li> <label class="switch">
-                <input type="checkbox" id="darkbtn">
-                <span class="slider round"></span>
-               </label></li>
+              <li id="logout"><img src="logout.png"><a href="login.html">Cerrar sesión</a></li>
+              <li> <label class="switch">
+                  <input type="checkbox" id="darkbtn">
+                  <span class="slider round"></span>
+                </label></li>
             </ul>
           </li>
           </li>
         </ul>
-      
       </div>
     </div>
   </nav>
   <main>
     <div class="jumbotron text-center"></div>
-    <div class="album py-5 bg-light">
-      <div class="container index">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
-              <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
-                alt="Imgagen representativa de la categoría 'Autos'">
-              <h3 class="m-3">Autos</h3>
-              <div class="card-body">
-                <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
-              <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
-                alt="Imgagen representativa de la categoría 'Juguetes'">
-              <h3 class="m-3">Juguetes</h3>
-              <div class="card-body">
-                <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
-              <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
-                alt="Imgagen representativa de la categoría 'Muebles'">
-              <h3 class="m-3">Muebles</h3>
-              <div class="card-body">
-                <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
-              </div>
-            </div>
-          </div>
-           <!-- Codigo Franco -->
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="herramientas">
-              <img class="bd-placeholder-img card-img-top" src="img/cat104_1.jpg"
-                alt="Imgagen representativa de la categoría 'Herramientas'">
-              <h3 class="m-3">Herramientas</h3>
-              <div class="card-body">
-                <p class="card-text">Herramientas para realizar reparaciones y cualquier tipo de trabajo.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Codigo Franco -->
-        </div>
-        <div class="row">
-          <a class="btn btn-light btn-lg btn-block" href="categories.html">Y mucho más!</a>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="text-section">
+          <h4 id="subTitle">Descubre Nuestra Variedad de Productos</h4>
+          <p>Bienvenido a nuestra tienda en línea, tu destino para encontrar una amplia gama de productos para toda la
+            familia. Ofrecemos productos de alta calidad, desde autos y muebles hasta juguetes y herramientas. Nuestra
+            misión es proporcionar a nuestros clientes la mejor experiencia de compra en línea con una selección
+            diversa y precios competitivos.</p>
         </div>
       </div>
-    </div>
+      
+      <div class="col-md-6">
+        <div class="animated-image">
+          <img class="shopimg" src="/img/shopimage.png" alt="Imagen animada">
+        </div>
+      </div>
+
+    <div class="album py-5 bg-light">
+        <div class="container index">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
+                <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'">
+                <h3 class="m-3">Autos</h3>
+                <div class="card-body">
+                  <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
+                <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
+                  alt="Imgagen representativa de la categoría 'Juguetes'">
+                <h3 class="m-3">Juguetes</h3>
+                <div class="card-body">
+                  <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
+                <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
+                  alt="Imgagen representativa de la categoría 'Muebles'">
+                <h3 class="m-3">Muebles</h3>
+                <div class="card-body">
+                  <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Codigo Franco -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm custom-card cursor-active" id="herramientas">
+                <img class="bd-placeholder-img card-img-top" src="img/cat104_1.jpg"
+                  alt="Imgagen representativa de la categoría 'Herramientas'">
+                <h3 class="m-3">Herramientas</h3>
+                <div class="card-body">
+                  <p class="card-text">Herramientas para realizar reparaciones y cualquier tipo de trabajo.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Codigo Franco -->
+          </div>
+          <div class="row">
+            <a class="btn btn-light btn-lg btn-block" id="btnMuchoMas" href="categories.html">Y mucho más!</a>
+          </div>
+        </div>
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
