@@ -1315,3 +1315,8 @@ h2 {
 input:disabled{
   background-color: #aaaaaa;
 }
+
+.me-auto a{
+  color: white;
+  text-decoration: none;
+}
