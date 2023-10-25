@@ -208,7 +208,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #ff9f1a;
   border-radius: 5px;
   background: white;
 }
@@ -543,7 +543,7 @@ body {
 #priceProduct {
   font-size: 24px;
   font-weight: bold;
-  color: #007BFF;
+  color: #ff9f1a;
 }
 
 /*Estilos para la descripción del producto*/
@@ -1056,7 +1056,7 @@ input:checked+.slider:before {
   }
 
   #vendidos {
-    color: #0056b3;
+    color: #ff9f1a;
   }
 
   #rowEdit {
@@ -1168,17 +1168,17 @@ input:checked+.slider:before {
 
 
 #subAll {
-  color: #007BFF;
+  color: #ff9f1a;
   font-weight: bold;
 }
 
 #shipType {
-  color: #007BFF;
+  color: #ff9f1a;
   font-weight: bold;
 }
 
 #totalCart {
-  color: #007BFF;
+  color: #ff9f1a;
   font-weight: bold;
 }
 
@@ -1194,7 +1194,7 @@ input[type="text"] {
 
 /* Estilo para los botones */
 #custom-button {
-  background-color: #007bff;
+  background-color: #ff9f1a;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -1203,7 +1203,7 @@ input[type="text"] {
 }
 
 #custom-button:hover {
-  background-color: #0056b3;
+  background-color: #ff9f1a;
 }
 
 /* Estilo para la página de forma de pago */
@@ -1223,7 +1223,7 @@ input[type="text"] {
 #openModalLink {
   text-decoration: none;
   padding: 0.6em;
-  background-color: #007BFF;
+  background-color: #ff9f1a;
   margin: 1em;
   color: #fff;
   border: none;
@@ -1232,7 +1232,7 @@ input[type="text"] {
 }
 
 #openModalLink:hover {
-  background-color: #0056b3;
+  background-color: #ff9f1a;
 }
 
 .modal {
@@ -1412,6 +1412,8 @@ h2 {
   margin-left: 24.5%;
   padding-left: 20%;
   padding-right: 20%;
+  background-color:orange;
+  border-color: orange;
 
 }
 
