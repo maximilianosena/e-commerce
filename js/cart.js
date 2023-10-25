@@ -271,14 +271,18 @@ document.getElementById("openModalLink").addEventListener("click", openModal);
 //funcion forma de pago
 let option1 = document.getElementById("credit_card_option");
 let option2 = document.getElementById("bank_transfer_option");
-
+let btn_Modal = document.getElementById("openModalLink")
 let cardpass = document.getElementById("validationCustom06");
 let securityCard = document.getElementById("validationCustom07")
 let expiryDay = document.getElementById("validationCustom08")
 let bankpass = document.getElementById("validationCustom09");
 let selectedPaymentMethod = document.getElementById("selectedPaymentMethod");
+let spanHidden = document.getElementById("hiddenSpan")
+let text_errorInput = document.getElementById("hiddenSpanInputs")
+let inputsFormCreditCard = document.querySelectorAll("#creditCardFields .form-control")
 
-console.log(cardpass)
+
+console.log(inputsFormCreditCard)
 
 option1.addEventListener("click", () => {
   if (option1.checked) {
@@ -288,6 +292,34 @@ option1.addEventListener("click", () => {
     cardpass.disabled = false;
     securityCard.disabled = false;
     expiryDay.disabled = false;
+
+if (bankpass.value.trim()!==""){
+  bankpass.value =""
+}
+
+    if(
+spanHidden.classList.contains("open")){
+  spanHidden.classList.remove("open")
+}
+
+if (btn_Modal.classList.contains("bg-danger")){
+  btn_Modal.classList.remove("bg-danger")
+}
+
+inputsFormCreditCard.forEach(inputEmpty => {
+  inputEmpty.addEventListener("input", () => {
+    {
+      if (
+        cardpass.value.trim() !== "" &&
+        securityCard.value.trim() !== "" &&
+        expiryDay.value.trim() !== ""
+      ) {
+        text_errorInput.classList.remove("open");
+      }
+    }
+  });
+});
+
   }
 });
 
@@ -302,8 +334,34 @@ option2.addEventListener("click", () => {
     cardpass.setAttribute("required", false);
     securityCard.setAttribute("required", false);
     expiryDay.setAttribute("required", false);
+
+    if (expiryDay.value.trim()!==""||securityCard.value.trim()!==""||cardpass.value.trim()!==""){
+      inputsFormCreditCard.forEach(inputEmpty => {
+        inputEmpty.value=""
+      })
+    }
+    
+
+    if(
+      spanHidden.classList.contains("open")){
+        spanHidden.classList.remove("open")
+      }
+
+      if (btn_Modal.classList.contains("bg-danger")){
+        btn_Modal.classList.remove("bg-danger")
+      }
+
+     bankpass.addEventListener("input", ()=>{
+      if (bankpass.value.trim()!=""){
+      if (text_errorInput.classList.contains("open")){
+        text_errorInput.classList.remove("open")
+      }
+    }
+    })
   }
 });
+
+
 
 // Modal de exito de compra
 
@@ -322,10 +380,9 @@ function finalizarCompra() {
     setTimeout(function () {
       alertPlaceholder.style.display = "none"
     }, 2000)
-    tableBody.innerHTML = '';
-    containerSubtotal.innerHTML = ` USD 0`;
-    containerTax.innerHTML = ` USD 0`;
-    totalFinal.textContent = ` USD 0`;
+ 
+    setTimeout(function () {
+   location.reload()},2000)
 
   } else {
     alertPlaceholder.style.display = "block"
@@ -351,6 +408,8 @@ if (cart === null) {
   products_add()
   subTotals()
 }
+
+
 (() => {
   'use strict'
 
@@ -366,7 +425,18 @@ if (cart === null) {
         setTimeout(function () {
           alertPlaceholder.style.display = "none"
         }, 2000)
-
+        if (!option1.checked && !option2.checked)
+        {
+          spanHidden.classList.add("open")
+            btn_Modal.classList.add("bg-danger")
+        }
+        if (option1.checked || option2.checked){
+if ((bankpass.value.trim() === "" && !option1.checked)|| (cardpass.value.trim()==="" || securityCard.value.trim()==="" || expiryDay.value.trim()==="" || !option2.checked))
+{
+  text_errorInput.classList.add("open")
+}
+}
+        
         event.preventDefault()
         event.stopPropagation()
       } else {
