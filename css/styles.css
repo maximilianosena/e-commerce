@@ -1423,3 +1423,16 @@ input:disabled {
   color: white;
   text-decoration: none;
 }
+
+#hiddenSpan, #hiddenSpanInputs
+{
+  display: none;
+}
+
+#hiddenSpan.open {
+  display: inline;
+}
+
+#hiddenSpanInputs.open{
+  display: inline;
+}
