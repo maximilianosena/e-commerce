@@ -14,7 +14,7 @@ let cart = JSON.parse(localStorage.getItem("cart"))
 console.log(cart)
 
 function products_add() {
-  list =[]
+  list = []
   // Recorre el carrito original para buscar duplicados
   cart.forEach((product) => {
     const product_Exist = list.find((item) => item.articles[0].id === product.articles[0].id);
@@ -26,8 +26,8 @@ function products_add() {
     }
   });
   for (let product of list) {
-  showTheProduct(product);
-}
+    showTheProduct(product);
+  }
 }
 
 
@@ -115,12 +115,12 @@ function showTheProduct(object) {
 }
 
 
-let trashAudio = new Audio ('audio/trash.mp3')
+let trashAudio = new Audio('audio/trash.mp3')
 
 function removeProductCart(id) {
 
   let audio = document.getElementById("audio_trash")
-console.log(audio)
+  console.log(audio)
 
   tableBody.innerHTML = '';
 
@@ -136,14 +136,14 @@ console.log(audio)
   console.log("Nueva lista:", cart);
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  
+
   if (audio) {
     trashAudio.play()
     console.log(`Reproduciendo: ${trashAudio}`)
   }
 
-products_add(); 
-subTotals();
+  products_add();
+  subTotals();
 
 }
 
@@ -161,28 +161,28 @@ let usd = 40;
 //Función que devuelve la suma de los subtotales, y actualiza el valor del costo de envío y costo total
 function subTotals() {
   let resultado = 0;
-  if (allSubtotal.length===0){
-console.log("vacío")
-containerSubtotal.innerHTML = ` USD 0`
-containerTax.innerHTML = ` USD 0`
-totalFinal.textContent = ` USD 0`
-  } else{
-  for (let i = 0; i < allSubtotal.length; i++) {
-    if (allSubtotal[i].textContent.includes("USD")) {
-      resultado += parseFloat(allSubtotal[i].childNodes[1].textContent)
+  if (allSubtotal.length === 0) {
+    console.log("vacío")
+    containerSubtotal.innerHTML = ` USD 0`
+    containerTax.innerHTML = ` USD 0`
+    totalFinal.textContent = ` USD 0`
+  } else {
+    for (let i = 0; i < allSubtotal.length; i++) {
+      if (allSubtotal[i].textContent.includes("USD")) {
+        resultado += parseFloat(allSubtotal[i].childNodes[1].textContent)
+      }
+      else {
+        //Si el valor no está en dolares, se convierte 
+        resultado += parseFloat(allSubtotal[i].childNodes[1].textContent) / usd
+      }
     }
-    else {
-      //Si el valor no está en dolares, se convierte 
-      resultado += parseFloat(allSubtotal[i].childNodes[1].textContent) / usd
-    }
-  }
-  containerSubtotal.innerHTML = ` USD ${resultado.toFixed(2)}`
+    containerSubtotal.innerHTML = ` USD ${resultado.toFixed(2)}`
 
-  valueTax(resultado)
-  let taxNumber = parseFloat(containerTax.innerHTML.replace("USD ", ""))
-  console.log(taxNumber)
-  final(resultado, taxNumber)
-}
+    valueTax(resultado)
+    let taxNumber = parseFloat(containerTax.innerHTML.replace("USD ", ""))
+    console.log(taxNumber)
+    final(resultado, taxNumber)
+  }
 }
 
 //Selección tipo de envío
@@ -272,91 +272,70 @@ document.getElementById("openModalLink").addEventListener("click", openModal);
 let option1 = document.getElementById("credit_card_option");
 let option2 = document.getElementById("bank_transfer_option");
 
-let cardpass = document.getElementById("creditCardNumber");
-let securityCard = document.getElementById("securityCode")
-let expiryDay = document.getElementById("expiryDate")
-let bankpass = document.getElementById("accountNumber");
+let cardpass = document.getElementById("validationCustom06");
+let securityCard = document.getElementById("validationCustom07")
+let expiryDay = document.getElementById("validationCustom08")
+let bankpass = document.getElementById("validationCustom09");
 let selectedPaymentMethod = document.getElementById("selectedPaymentMethod");
 
 console.log(cardpass)
 
 option1.addEventListener("click", () => {
   if (option1.checked) {
-    selectedPaymentMethod.innerHTML = ` Tarjeta de crédito` ;
-
-   bankpass.disabled=true
-   cardpass.disabled = false;
-   securityCard.disabled = false;
-   expiryDay.disabled = false;
+    selectedPaymentMethod.innerHTML = ` Tarjeta de crédito`;
+    bankpass.setAttribute("required", false);
+    bankpass.disabled = true
+    cardpass.disabled = false;
+    securityCard.disabled = false;
+    expiryDay.disabled = false;
   }
 });
 
 option2.addEventListener("click", () => {
-  if (option2.checked) { 
-    selectedPaymentMethod.innerHTML = ` Transferencia bancaria` ;
-   
-      cardpass.disabled = true;
-      securityCard.disabled = true;
-      expiryDay.disabled = true;
-    
-      bankpass.disabled = false;
+  if (option2.checked) {
+    selectedPaymentMethod.innerHTML = ` Transferencia bancaria`;
 
+    cardpass.disabled = true;
+    securityCard.disabled = true;
+    expiryDay.disabled = true;
+    bankpass.disabled = false;
+    cardpass.setAttribute("required", false);
+    securityCard.setAttribute("required", false);
+    expiryDay.setAttribute("required", false);
   }
 });
 
 // Modal de exito de compra
 
-var  modalButton = document.getElementById("finalizePurchase");
-var successModal = document.getElementById("successModal");
-var closeSuccessModal = document.getElementById("closeSuccessModalButton");
-var emptyModal = document.getElementById("emptyModal")
-var closeEmptyModal = document.getElementById("closeEmptyModalButton")
-
-
-modalButton.addEventListener("click", finalizarCompra);
-
-closeSuccessModal.addEventListener("click", closeSuccessModalFunction);
-
-closeEmptyModal.addEventListener("click", closeEmptyModalFunction);
-
-function openSuccessModal() {
-  successModal.style.display = "block";
-};
-
-function openEmptyModal() {
-  emptyModal.style.display = "block";
-};
-
-function closeSuccessModalFunction() { 
-  successModal.style.display = "none";
-};
-
-function closeEmptyModalFunction() { 
-  emptyModal.style.display = "none";
-};
-
-
+let alertTrigger = document.getElementById('liveAlertBtn');
 function finalizarCompra() {
-
   if (cart && cart.length > 0) {
-    
     let comprasExitosas = JSON.parse(localStorage.getItem("compraExitosa")) || [];
-
     comprasExitosas = comprasExitosas.concat(cart);
-
     localStorage.setItem("compraExitosa", JSON.stringify(comprasExitosas));
-    
+
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    resetPage()
+    alertPlaceholder.style.display = "block"
+    appendAlert('Compra exitosa!', 'success')
+    setTimeout(function () {
+      alertPlaceholder.style.display = "none"
+    }, 2000)
+    tableBody.innerHTML = '';
+    containerSubtotal.innerHTML = ` USD 0`;
+    containerTax.innerHTML = ` USD 0`;
+    totalFinal.textContent = ` USD 0`;
 
-    openSuccessModal();
   } else {
-    openEmptyModal();
-  }
+    alertPlaceholder.style.display = "block"
+    appendAlert('Agregue un producto al carrito!', 'danger')
+    setTimeout(function () {
+      alertPlaceholder.style.display = "none"
+    }, 2000)
 
-};
+  }
+}
 
 function resetPage() {
   tableBody.innerHTML = '';
@@ -365,10 +344,51 @@ function resetPage() {
   totalFinal.textContent = ` USD 0`;
 };
 
-if (cart === null)  {
+if (cart === null) {
   showproduct()
   location.reload()
-}  else {
+} else {
   products_add()
   subTotals()
+}
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        alertPlaceholder.style.display = "block"
+        appendAlert('Complete todos los campos!', 'danger')
+        setTimeout(function () {
+          alertPlaceholder.style.display = "none"
+        }, 2000)
+
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+        finalizarCompra();
+        event.preventDefault()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
 }
