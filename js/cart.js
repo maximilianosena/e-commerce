@@ -278,7 +278,6 @@ let expiryDay = document.getElementById("validationCustom08")
 let bankpass = document.getElementById("validationCustom09");
 let selectedPaymentMethod = document.getElementById("selectedPaymentMethod");
 let spanHidden = document.getElementById("hiddenSpan")
-let text_errorInput = document.getElementById("hiddenSpanInputs")
 let inputsFormCreditCard = document.querySelectorAll("#creditCardFields .form-control")
 
 
@@ -287,14 +286,35 @@ console.log(inputsFormCreditCard)
 option1.addEventListener("click", () => {
   if (option1.checked) {
     selectedPaymentMethod.innerHTML = ` Tarjeta de crédito`;
-    bankpass.setAttribute("required", false);
+  
     bankpass.disabled = true
     cardpass.disabled = false;
     securityCard.disabled = false;
     expiryDay.disabled = false;
+    
+    if (cardpass.getAttribute("required")===null){
+      cardpass.setAttribute("required", "required")
+      cardpass.setAttribute("pattern","^[0-9]+$")
+
+      securityCard.setAttribute("required", "required")
+securityCard.setAttribute("pattern","^[0-9]+$")
+      expiryDay.setAttribute("required", "required")
+      expiryDay.setAttribute("pattern","^(0[1-9]|1[0-2])\/[0-9]{2}$")
+      }
+
+
+    bankpass.removeAttribute("required");
+    bankpass.removeAttribute("pattern")
 
 if (bankpass.value.trim()!==""){
   bankpass.value =""
+}
+
+if (bankpass?.classList.contains("is-invalid")){
+  bankpass?.classList.remove("is-invalid")
+}
+if (bankpass?.classList.contains("is-valid")){
+  bankpass?.classList.remove("is-valid")
 }
 
     if(
@@ -306,15 +326,28 @@ if (btn_Modal.classList.contains("bg-danger")){
   btn_Modal.classList.remove("bg-danger")
 }
 
+expiryDay.addEventListener("input", function() {
+  const value = expiryDay.value;
+  if (value.length === 2 && !value.includes("/")) {
+    expiryDay.value = value + "/";
+  }
+})
+
+inputsFormCreditCard.forEach(inputEmpty => {
+  inputEmpty.classList.add("is-invalid")
+  inputEmpty.addEventListener("input", ()=>{
+    if(inputEmpty.checkValidity()){
+    inputEmpty.classList.remove("is-invalid")
+    inputEmpty.classList.add("is-valid")
+  }
+})
+})
+
 inputsFormCreditCard.forEach(inputEmpty => {
   inputEmpty.addEventListener("input", () => {
     {
-      if (
-        cardpass.value.trim() !== "" &&
-        securityCard.value.trim() !== "" &&
-        expiryDay.value.trim() !== ""
-      ) {
-        text_errorInput.classList.remove("open");
+      {
+        spanHidden.classList.remove("open");
       }
     }
   });
@@ -331,16 +364,35 @@ option2.addEventListener("click", () => {
     securityCard.disabled = true;
     expiryDay.disabled = true;
     bankpass.disabled = false;
-    cardpass.setAttribute("required", false);
-    securityCard.setAttribute("required", false);
-    expiryDay.setAttribute("required", false);
+
+    if (bankpass.getAttribute("required")===null){
+bankpass.setAttribute("required", "required")
+bankpass.setAttribute("pattern","^[0-9]+$")
+}
+
+    cardpass.removeAttribute("required");
+    securityCard.removeAttribute("required");
+    expiryDay.removeAttribute("required");
+
+    cardpass.removeAttribute("pattern");
+    securityCard.removeAttribute("pattern");
+    expiryDay.removeAttribute("pattern");
 
     if (expiryDay.value.trim()!==""||securityCard.value.trim()!==""||cardpass.value.trim()!==""){
       inputsFormCreditCard.forEach(inputEmpty => {
         inputEmpty.value=""
+        
       })
     }
     
+    inputsFormCreditCard.forEach(inputEmpty => {
+    if (inputEmpty?.classList.contains("is-invalid")){
+      inputEmpty?.classList.remove("is-invalid")
+    }
+   if (inputEmpty?.classList.contains("is-valid")){
+      inputEmpty?.classList.remove("is-valid")
+    }
+  })
 
     if(
       spanHidden.classList.contains("open")){
@@ -352,15 +404,22 @@ option2.addEventListener("click", () => {
       }
 
      bankpass.addEventListener("input", ()=>{
-      if (bankpass.value.trim()!=""){
-      if (text_errorInput.classList.contains("open")){
-        text_errorInput.classList.remove("open")
+      if (bankpass.checkValidity){
+      if (spanHidden.classList.contains("open")){
+        spanHidden.classList.remove("open")
       }
     }
     })
-  }
+    bankpass.classList.add("is-invalid")
+    
+    bankpass.addEventListener("input", ()=>{
+    if(bankpass.checkValidity()){
+        bankpass.classList.remove("is-invalid")
+        bankpass.classList.add("is-valid")
+      }
+  })
+}
 });
-
 
 
 // Modal de exito de compra
@@ -384,14 +443,8 @@ function finalizarCompra() {
     setTimeout(function () {
    location.reload()},2000)
 
-  } else {
-    alertPlaceholder.style.display = "block"
-    appendAlert('Agregue un producto al carrito!', 'danger')
-    setTimeout(function () {
-      alertPlaceholder.style.display = "none"
-    }, 2000)
-
-  }
+  } 
+  
 }
 
 function resetPage() {
@@ -419,24 +472,28 @@ if (cart === null) {
   // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
+      
+      if (cart && cart.length === 0) {
         alertPlaceholder.style.display = "block"
-        appendAlert('Complete todos los campos!', 'danger')
+        appendAlert('Agregue un producto al carrito!', 'danger')
         setTimeout(function () {
           alertPlaceholder.style.display = "none"
         }, 2000)
-        if (!option1.checked && !option2.checked)
-        {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+
+      if (!form.checkValidity()) {
+
+        alertPlaceholder.style.display = "block"
+        appendAlert('Complete todos los campos!', 'danger')
+        if (!option1.checked && !option2.checked){
+          btn_Modal.classList.add("bg-danger")
           spanHidden.classList.add("open")
-            btn_Modal.classList.add("bg-danger")
         }
-        if (option1.checked || option2.checked){
-if ((bankpass.value.trim() === "" && !option1.checked)|| (cardpass.value.trim()==="" || securityCard.value.trim()==="" || expiryDay.value.trim()==="" || !option2.checked))
-{
-  text_errorInput.classList.add("open")
-}
-}
-        
+        setTimeout(function () {
+          alertPlaceholder.style.display = "none"
+        }, 2000)       
         event.preventDefault()
         event.stopPropagation()
       } else {
@@ -445,7 +502,7 @@ if ((bankpass.value.trim() === "" && !option1.checked)|| (cardpass.value.trim()=
       }
 
       form.classList.add('was-validated')
-    }, false)
+    }}, false)
   })
 })()
 

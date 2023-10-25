@@ -1424,7 +1424,7 @@ input:disabled {
   text-decoration: none;
 }
 
-#hiddenSpan, #hiddenSpanInputs
+#hiddenSpan, #hiddenSpanInputs, #datosValidos
 {
   display: none;
 }
@@ -1434,5 +1434,9 @@ input:disabled {
 }
 
 #hiddenSpanInputs.open{
+  display: inline;
+}
+
+#datosValidos.open {
   display: inline;
 }
