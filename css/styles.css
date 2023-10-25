@@ -33,6 +33,7 @@ nav a {
   display: flex;
 }
 
+
 .logo {
   max-height: 1.5em;
 }
@@ -50,7 +51,7 @@ nav a {
 }
 
 .banner img {
-  width: 100%; 
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -75,9 +76,11 @@ nav a {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
   }
@@ -105,7 +108,7 @@ nav a {
 }
 
 .text-section p {
-  color: #666; 
+  color: #666;
   font-size: 23px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -130,7 +133,7 @@ nav a {
   display: inline-block;
   background-color: orange;
   color: #fff;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
@@ -318,35 +321,17 @@ a.custom-card:hover {
   transition: 0.5s;
 }
 
-.col-md-4:hover .bd-placeholder-img {
+.card:hover .bd-placeholder-img {
   filter: opacity(1);
 }
 
-.col-md-4:hover {
-  -webkit-transform: scale(1.3);
+.card:hover {
   transform: scale(0.9);
-  overflow: hidden;
-  filter: opacity(1);
+  border-radius: 1em;
 }
 
-.col-md-4 {
+.card {
   transition: 0.5s;
-  flex: 0 0 22%;
-}
-
-#autos {
-  border-radius: 1em;
-}
-
-#juguetes {
-  border-radius: 1em;
-}
-
-#muebles {
-  border-radius: 1em;
-}
-
-#herramientas {
   border-radius: 1em;
 }
 
@@ -355,102 +340,72 @@ a.custom-card:hover {
   display: flex;
 }
 
-/*Css milagros*/
 .container_product {
-  display: flex;
-  align-items: center;
-  padding: 20px 0 20px 0;
   width: auto;
   border-radius: 7px;
-  margin: 12px;
 }
-
 #lista {
-  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
 }
 
-.container_product:nth-of-type(even) {
-  background-color: #ffb14b48;
+.container_product {
+  padding: 1vw;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffffab;
 }
 
-.container_product:nth-of-type(odd) {
-  background-color: #d1882979;
+.texto-hover {
+  font-size: 1vw;
+  color: #007BFF;
+  font-weight: bold;
 }
 
-/*Contenedor de img y nombre*/
 .container_animado {
   position: relative;
-  display: flex;
-}
-
-/*Con el position,top,left y transform lo centro,
-con el opacity lo oculto*/
-.texto-hover {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  background-color: rgb(151, 151, 151);
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: opacity 0.3s ease;
-  /*acelera gradualmente y luego desacelera gradualmente*/
-  text-align: center;
-  padding: 10px;
-  border-radius: 20px;
 }
 
 .container_animado img {
-  transform: translateX(100%);
-  /*Lo mueve 100% a la derecha*/
   transition-duration: 0.5s;
   border-radius: 10px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1vw;
 }
 
-/*Blurrear la imagen al hacerle hover*/
-.container_animado:hover img {
-  filter: blur(3px);
-  transform: translateX(0%);
-  /*lo lleva al comienzo del div*/
-  transition: transform 0.5s ease;
-}
-
-/*Al texto-hover contenido en container_animado cuando paso por encima*/
-.container_animado:hover .texto-hover {
-  opacity: 0.8;
-}
-
-/*Al primer span enseguida luego del div container_animado*/
-.container_animado+span {
-  opacity: 0;
-}
-
-.container_animado:hover+span {
-  opacity: 1;
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  padding: 0;
 }
 
 /*Span con id vendidos*/
 #vendidos {
-  font-size: smaller;
-  color: rgb(88, 87, 87);
-  position: absolute;
-  bottom: 0;
-  left: 200.5%;
-  text-align: center;
+  font-size: 0.7vw;
+  color: rgb(172, 172, 172);
+
 }
 
 /*span con clase*/
 .description {
-  font-size: 23px;
-  margin-left: 20px;
-  font-family: 'Arial Narrow Bold', sans-serif;
-  color: rgb(97, 97, 97);
+  font-size: 20px;
+  font-family: 'Verdana', serif;
+  color: rgb(56, 56, 56);
 }
 
-/*Codigo Franco*/
-.container_product {
-  padding: 20px 0 20px 20px;
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  /* Coloca la imagen por encima del degradado */
+  position: relative;
+  z-index: 2;
 }
 
 /*Código de la Barra de Busqueda*/
@@ -460,17 +415,20 @@ body {
   padding: 0;
   background-color: #f0f0f0;
   justify-content: center;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 
 .contenedor {
-  display: flex;
   justify-content: space-between;
   background-color: #f0f0f0;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  display: flexbox;
+  margin-bottom: 4vw;
 }
+
+
 
 .input-group.mb-3 {
   border-radius: 20px;
@@ -478,6 +436,7 @@ body {
   display: flex;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 2vw;
   float: initial;
   color: #ffff;
   background-color: #Ffff;
@@ -891,6 +850,7 @@ input:checked+.slider:before {
 
 
 
+
 /**************/
 
 @media (max-width: 576px) {
@@ -1038,7 +998,7 @@ input:checked+.slider:before {
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 375px) {
   .area-comentario {
     width: 90%;
   }
@@ -1056,7 +1016,6 @@ input:checked+.slider:before {
   }
 
 
-
   #price {
     display: flex;
   }
@@ -1067,34 +1026,16 @@ input:checked+.slider:before {
   }
 
   .container_product {
-    display: flex;
     align-items: center;
     padding: 20px 0 20px 0;
     width: auto;
     border-radius: 7px;
-    margin: 12px;
   }
 
 
   .container_animado img {
-    transform: translateX(0%);
-    max-width: 100%;
-    height: auto;
+    max-width: 10%;
     border-radius: 10px;
-  }
-
-  .texto-hover {
-    position: absolute;
-    opacity: 0;
-    background-color: rgb(255, 255, 255);
-    font-size: 100%;
-    max-width: 75%;
-    height: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: opacity 0.3s ease;
-    text-align: center;
-    padding: 10px;
-    border-radius: 20px;
   }
 
   .description {
@@ -1102,9 +1043,7 @@ input:checked+.slider:before {
   }
 
   #vendidos {
-    position: relative;
-    left: 1%;
-
+    color: #0056b3;
   }
 
   #rowEdit {
@@ -1169,6 +1108,12 @@ input:checked+.slider:before {
   #vendidos {
     position: relative;
     left: 1%;
+  }
+
+  .text-section {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10vw;
   }
 }
 
@@ -1302,7 +1247,6 @@ input[type="text"] {
 
 
 TODO EL CODIGO
-
 
 /*Estilo para los tipos de envios*/
 .type-send {
@@ -1442,13 +1386,14 @@ h2 {
   margin-left: 24.5%;
   padding-left: 20%;
   padding-right: 20%;
-  
+
 }
-input:disabled{
+
+input:disabled {
   background-color: #aaaaaa;
 }
 
-.me-auto a{
+.me-auto a {
   color: white;
   text-decoration: none;
 }
