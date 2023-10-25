@@ -490,6 +490,9 @@ if (cart === null) {
         if (!option1.checked && !option2.checked){
           btn_Modal.classList.add("bg-danger")
           spanHidden.classList.add("open")
+          inputsFormCreditCard.forEach(inputEmpty => {
+  inputEmpty.classList.add("is-invalid")})
+  bankpass.classList.add("is-invalid")
         }
         setTimeout(function () {
           alertPlaceholder.style.display = "none"
