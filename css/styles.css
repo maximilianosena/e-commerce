@@ -938,6 +938,13 @@ input:checked+.slider:before {
   .form-control.g-md-2.my-2::placeholder {
     font-size: 75%;
   }
+
+  .text-section {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10vw;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -995,6 +1002,12 @@ input:checked+.slider:before {
     position: relative;
     left: 1%;
 
+  }
+
+  .text-section {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10vw;
   }
 }
 
@@ -1121,6 +1134,13 @@ input:checked+.slider:before {
     margin: 0;
     margin-bottom: 10vw;
   }
+  
+  .text-section {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10vw;
+  }
+
 }
 
 
