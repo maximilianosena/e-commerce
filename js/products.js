@@ -1,5 +1,7 @@
 let container = document.getElementById("lista");
 let products = [];
+let addClass
+
 
 function setProductID(id) {
   localStorage.setItem("productID", id);
@@ -22,7 +24,10 @@ function showProducts(array) {
   
   </div>`;
 
+
     container.innerHTML += contenido
+
+    
   }
 }
 
