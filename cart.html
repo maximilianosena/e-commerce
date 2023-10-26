@@ -100,14 +100,14 @@
           <div class="row">
             <div class="col-lg-8 col-sm-2 col-md-8">
               <label for="validationCustom03" class="form-label" >Calle</label>
-              <input type="text" class="form-control " id="validationCustom03"  required pattern="[A-Za-z]+">
+              <input type="text" class="form-control " id="validationCustom03"  required pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
               <div class="invalid-feedback">
                 Agregue una calle.
               </div>
             </div>
             <div class="col-lg-8 col-sm-2 col-md-4">
               <label for="validationCustom04" class="form-label">Número</label>
-              <input type="text" class="form-control" id="validationCustom04" required>
+              <input type="text" class="form-control" id="validationCustom04" required pattern="^[a-zA-Z0-9\s]+$">
               <div class="invalid-feedback">
                 Agregue un número.
               </div>
@@ -115,7 +115,7 @@
           
         <div class="col-lg-8 col-sm-2 col-md-10">
           <label for="validationCustom05" class="form-label">Esquina</label>
-          <input type="text" class="form-control" id="validationCustom05" required pattern="[A-Za-z]+">
+          <input type="text" class="form-control" id="validationCustom05" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
           <div class="invalid-feedback">
             Agregue una esquina.
           </div>
