@@ -23,28 +23,30 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <img src="img/logoEcomerce.png" alt="Logo" class="logo">
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
+            <a class="nav-link" id="categoriesNav" href="categories.html">Categorías</a>
           </li>
           <li class="nav-item">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><img src="icono perfil.png" ><a href="my-profile.html">Mi perfil</a></li>
-                <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
-                <li id="logout"><img src="logout.png" ><a href="login.html">Cerrar sesión</a></li>
-                 <li>  <label class="switch">
+            <a class="nav-link" id="sell" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"></a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><img src="icono perfil.png"><a id="profileNav" href="my-profile.html">Mi perfil</a></li>
+              <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
+              <li id="logout"><img src="logout.png"><a href="login.html">Cerrar sesión</a></li>
+              <li> <label class="switch">
                   <input type="checkbox" id="darkbtn">
                   <span class="slider round"></span>
-                 </label> </li>
-              </ul>
-            </li>
-            </li>
+                </label></li>
+            </ul>
+          </li>
           </li>
         </ul>
       </div>
