@@ -286,72 +286,72 @@ console.log(inputsFormCreditCard)
 option1.addEventListener("click", () => {
   if (option1.checked) {
     selectedPaymentMethod.innerHTML = ` Tarjeta de crédito`;
-  
+
     bankpass.disabled = true
     cardpass.disabled = false;
     securityCard.disabled = false;
     expiryDay.disabled = false;
-    
-    if (cardpass.getAttribute("required")===null){
+
+    if (cardpass.getAttribute("required") === null) {
       cardpass.setAttribute("required", "required")
-      cardpass.setAttribute("pattern","^[0-9]+$")
+      cardpass.setAttribute("pattern", "^[0-9]+$")
 
       securityCard.setAttribute("required", "required")
-securityCard.setAttribute("pattern","^[0-9]+$")
+      securityCard.setAttribute("pattern", "^[0-9]+$")
       expiryDay.setAttribute("required", "required")
-      expiryDay.setAttribute("pattern","^(0[1-9]|1[0-2])\/[0-9]{2}$")
-      }
+      expiryDay.setAttribute("pattern", "^(0[1-9]|1[0-2])\/[0-9]{2}$")
+    }
 
 
     bankpass.removeAttribute("required");
     bankpass.removeAttribute("pattern")
 
-if (bankpass.value.trim()!==""){
-  bankpass.value =""
-}
-
-if (bankpass?.classList.contains("is-invalid")){
-  bankpass?.classList.remove("is-invalid")
-}
-if (bankpass?.classList.contains("is-valid")){
-  bankpass?.classList.remove("is-valid")
-}
-
-    if(
-spanHidden.classList.contains("open")){
-  spanHidden.classList.remove("open")
-}
-
-if (btn_Modal.classList.contains("bg-danger")){
-  btn_Modal.classList.remove("bg-danger")
-}
-
-expiryDay.addEventListener("input", function() {
-  const value = expiryDay.value;
-  if (value.length === 2 && !value.includes("/")) {
-    expiryDay.value = value + "/";
-  }
-})
-
-inputsFormCreditCard.forEach(inputEmpty => {
-  inputEmpty.classList.add("is-invalid")
-  inputEmpty.addEventListener("input", ()=>{
-    if(inputEmpty.checkValidity()){
-    inputEmpty.classList.remove("is-invalid")
-    inputEmpty.classList.add("is-valid")
-  }
-})
-})
-
-inputsFormCreditCard.forEach(inputEmpty => {
-  inputEmpty.addEventListener("input", () => {
-    {
-      {
-        spanHidden.classList.remove("open");
-      }
+    if (bankpass.value.trim() !== "") {
+      bankpass.value = ""
     }
-  });
-});
+
+    if (bankpass?.classList.contains("is-invalid")) {
+      bankpass?.classList.remove("is-invalid")
+    }
+    if (bankpass?.classList.contains("is-valid")) {
+      bankpass?.classList.remove("is-valid")
+    }
+
+    if (
+      spanHidden.classList.contains("open")) {
+      spanHidden.classList.remove("open")
+    }
+
+    if (btn_Modal.classList.contains("bg-danger")) {
+      btn_Modal.classList.remove("bg-danger")
+    }
+
+    expiryDay.addEventListener("input", function () {
+      const value = expiryDay.value;
+      if (value.length === 2 && !value.includes("/")) {
+        expiryDay.value = value + "/";
+      }
+    })
+
+    inputsFormCreditCard.forEach(inputEmpty => {
+      inputEmpty.classList.add("is-invalid")
+      inputEmpty.addEventListener("input", () => {
+        if (inputEmpty.checkValidity()) {
+          inputEmpty.classList.remove("is-invalid")
+          inputEmpty.classList.add("is-valid")
+        }
+      })
+    })
+
+    inputsFormCreditCard.forEach(inputEmpty => {
+      inputEmpty.addEventListener("input", () => {
+        {
+          {
+            spanHidden.classList.remove("open");
+          }
+        }
+      });
+    });
 
   }
 });
@@ -365,10 +365,10 @@ option2.addEventListener("click", () => {
     expiryDay.disabled = true;
     bankpass.disabled = false;
 
-    if (bankpass.getAttribute("required")===null){
-bankpass.setAttribute("required", "required")
-bankpass.setAttribute("pattern","^[0-9]+$")
-}
+    if (bankpass.getAttribute("required") === null) {
+      bankpass.setAttribute("required", "required")
+      bankpass.setAttribute("pattern", "^[0-9]+$")
+    }
 
     cardpass.removeAttribute("required");
     securityCard.removeAttribute("required");
@@ -378,47 +378,47 @@ bankpass.setAttribute("pattern","^[0-9]+$")
     securityCard.removeAttribute("pattern");
     expiryDay.removeAttribute("pattern");
 
-    if (expiryDay.value.trim()!==""||securityCard.value.trim()!==""||cardpass.value.trim()!==""){
+    if (expiryDay.value.trim() !== "" || securityCard.value.trim() !== "" || cardpass.value.trim() !== "") {
       inputsFormCreditCard.forEach(inputEmpty => {
-        inputEmpty.value=""
-        
+        inputEmpty.value = ""
+
       })
     }
-    
+
     inputsFormCreditCard.forEach(inputEmpty => {
-    if (inputEmpty?.classList.contains("is-invalid")){
-      inputEmpty?.classList.remove("is-invalid")
-    }
-   if (inputEmpty?.classList.contains("is-valid")){
-      inputEmpty?.classList.remove("is-valid")
-    }
-  })
-
-    if(
-      spanHidden.classList.contains("open")){
-        spanHidden.classList.remove("open")
+      if (inputEmpty?.classList.contains("is-invalid")) {
+        inputEmpty?.classList.remove("is-invalid")
       }
-
-      if (btn_Modal.classList.contains("bg-danger")){
-        btn_Modal.classList.remove("bg-danger")
+      if (inputEmpty?.classList.contains("is-valid")) {
+        inputEmpty?.classList.remove("is-valid")
       }
+    })
 
-     bankpass.addEventListener("input", ()=>{
-      if (bankpass.checkValidity){
-      if (spanHidden.classList.contains("open")){
-        spanHidden.classList.remove("open")
-      }
+    if (
+      spanHidden.classList.contains("open")) {
+      spanHidden.classList.remove("open")
     }
+
+    if (btn_Modal.classList.contains("bg-danger")) {
+      btn_Modal.classList.remove("bg-danger")
+    }
+
+    bankpass.addEventListener("input", () => {
+      if (bankpass.checkValidity) {
+        if (spanHidden.classList.contains("open")) {
+          spanHidden.classList.remove("open")
+        }
+      }
     })
     bankpass.classList.add("is-invalid")
-    
-    bankpass.addEventListener("input", ()=>{
-    if(bankpass.checkValidity()){
+
+    bankpass.addEventListener("input", () => {
+      if (bankpass.checkValidity()) {
         bankpass.classList.remove("is-invalid")
         bankpass.classList.add("is-valid")
       }
-  })
-}
+    })
+  }
 });
 
 
@@ -439,12 +439,13 @@ function finalizarCompra() {
     setTimeout(function () {
       alertPlaceholder.style.display = "none"
     }, 2000)
- 
-    setTimeout(function () {
-   location.reload()},2000)
 
-  } 
-  
+    setTimeout(function () {
+      location.reload()
+    }, 2000)
+
+  }
+
 }
 
 function resetPage() {
@@ -472,7 +473,7 @@ if (cart === null) {
   // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
-      
+
       if (cart && cart.length === 0) {
         alertPlaceholder.style.display = "block"
         appendAlert('Agregue un producto al carrito!', 'danger')
@@ -483,29 +484,31 @@ if (cart === null) {
         event.stopPropagation()
       } else {
 
-      if (!form.checkValidity()) {
+        if (!form.checkValidity()) {
 
-        alertPlaceholder.style.display = "block"
-        appendAlert('Complete todos los campos!', 'danger')
-        if (!option1.checked && !option2.checked){
-          btn_Modal.classList.add("bg-danger")
-          spanHidden.classList.add("open")
-          inputsFormCreditCard.forEach(inputEmpty => {
-  inputEmpty.classList.add("is-invalid")})
-  bankpass.classList.add("is-invalid")
+          alertPlaceholder.style.display = "block"
+          appendAlert('Complete todos los campos!', 'danger')
+          if (!option1.checked && !option2.checked) {
+            btn_Modal.classList.add("bg-danger")
+            spanHidden.classList.add("open")
+            inputsFormCreditCard.forEach(inputEmpty => {
+              inputEmpty.classList.add("is-invalid")
+            })
+            bankpass.classList.add("is-invalid")
+          }
+          setTimeout(function () {
+            alertPlaceholder.style.display = "none"
+          }, 2000)
+          event.preventDefault()
+          event.stopPropagation()
+        } else {
+          finalizarCompra();
+          event.preventDefault()
         }
-        setTimeout(function () {
-          alertPlaceholder.style.display = "none"
-        }, 2000)       
-        event.preventDefault()
-        event.stopPropagation()
-      } else {
-        finalizarCompra();
-        event.preventDefault()
-      }
 
-      form.classList.add('was-validated')
-    }}, false)
+        form.classList.add('was-validated')
+      }
+    }, false)
   })
 })()
 
