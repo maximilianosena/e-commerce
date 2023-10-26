@@ -361,7 +361,7 @@ a.custom-card:hover {
 
 .texto-hover {
   font-size: 1vw;
-  color: #007BFF;
+  color: #ff9f1a;
   font-weight: bold;
 }
 
@@ -869,7 +869,7 @@ input:checked+.slider:before {
   
   .texto-hover {
     font-size: 2vw;
-    color: #007BFF;
+    color: #ff9f1a;
     font-weight: bold;
   }
   
@@ -1003,7 +1003,7 @@ display: none;
   
   .texto-hover {
     font-size: 2vw;
-    color: #007BFF;
+    color: #ff9f1a;
     font-weight: bold;
   }
   
@@ -1068,7 +1068,7 @@ display: none;
 }
 
 
-@media (max-width: 389px) {
+@media (max-width: 374px) {
  
   
   .container .container_product {
@@ -1081,7 +1081,7 @@ display: none;
   
   span.texto-hover {
     font-size: 4vw;
-    color: #ff0000;
+    color: #ff9f1a;
     font-weight: bold;
   }
   
@@ -1181,7 +1181,7 @@ display: none;
   
   .texto-hover {
     font-size: 2vw;
-    color: #007BFF;
+    color: #ff9f1a;
     font-weight: bold;
   }
   
