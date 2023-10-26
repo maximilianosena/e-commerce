@@ -82,7 +82,9 @@ let categoriesNav = document.getElementById('categoriesNav')
 let sell = document.getElementById('sell')
 let login = document.getElementById('login') 
 let subTitle = document.getElementById('subTitle')
-
+let table = document.querySelector(".containerData table")
+let containerCart = document.querySelector(".containerCart")
+let payMethod = document.querySelector(".payMethod")
 
 
 function enableDark() {
@@ -116,6 +118,21 @@ function enableDark() {
     subTitle.classList.add("text-light")
   }
 
+  if (table?.classList){
+    table.classList.remove("text-light")
+     table.classList.add("text-dark")
+   
+  }
+
+  if(containerCart?.classList){
+    containerCart.classList.add("text-dark")
+  }
+
+  if (payMethod?.classList){
+    payMethod.classList.add("text-dark")
+  }
+
+  
   localStorage.setItem("darkMode", "enabled")
 }
 
@@ -151,6 +168,20 @@ function disableDark() {
   }
   if (subTitle?.classList) {
     subTitle.classList.remove("text-light")
+  }
+  
+  if (table?.classList){
+     table.classList.remove("text-dark")
+   
+  }
+
+  if(containerCart?.classList){
+    containerCart.classList.remove("text-dark")
+  }
+
+  
+  if (payMethod?.classList){
+    payMethod.classList.remove("text-dark")
   }
 }
 
