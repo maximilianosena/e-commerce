@@ -99,7 +99,7 @@
           <div class="row ">
             <div class="col-9">
               <label for="validationCustom03" class="form-label" >Calle</label>
-              <input type="text" class="form-control" id="validationCustom03" required>
+              <input type="text" class="form-control" id="validationCustom03"  required pattern="[A-Za-z]+">
               <div class="invalid-feedback">
                 Agregue una calle.
               </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="col-9">
           <label for="validationCustom05" class="form-label">Esquina</label>
-          <input type="text" class="form-control" id="validationCustom05" required>
+          <input type="text" class="form-control" id="validationCustom05" required pattern="[A-Za-z]+">
           <div class="invalid-feedback">
             Agregue una esquina.
           </div>
@@ -129,6 +129,7 @@
     <h2>Forma de Pago</h2>
     <span id="selectedPaymentMethod">No ha seleccionado</span> 
     <a id="openModalLink">Seleccionar</a>
+    <span> <small class="text-danger" id="hiddenSpan">&#10132; Ingrese datos válidos</small></span>
     <hr>
     <div id="myModal" class="modal">
       <div class="modal-content">
@@ -158,19 +159,19 @@
 
                 <div id="creditCardFields" class="payment_fields">
                   <label for="validationCustom06" class="form-label">Número de tarjeta</label>
-                  <input type="text" class="form-control" id="validationCustom06" required>
+                  <input type="text" class="form-control" id="validationCustom06" required pattern="^[0-9]+$">
                   <div class="invalid-feedback">
                     Agregue el numero de su tarjeta.
                   </div>
 
                   <label for="validationCustom07" class="form-label">Código de seg.</label>
-                  <input type="text" class="form-control" id="validationCustom07" required> 
+                  <input type="text" class="form-control" id="validationCustom07" required pattern="^[0-9]+$"> 
                   <div class="invalid-feedback">
                     Agregue el código de seguridad.
                   </div>
 
                   <label for="validationCustom08" class="form-label">Vencimiento (MM/AA)</label>
-                  <input type="text" class="form-control" id="validationCustom08" required >
+                  <input type="text" class="form-control" id="validationCustom08" maxlength="5" pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$">
                   <div class="invalid-feedback">
                     Agregue la fecha de vencimiento.
                   </div>
@@ -195,7 +196,7 @@
 
                 <div id="bankTransferFields" class="payment-fields">
                   <label for="validationCustom09" class="form-label">Número de cuenta</label>
-                  <input type="text" class="form-control" id="validationCustom09" required >
+                  <input type="text" class="form-control" id="validationCustom09" required pattern="^[0-9]+$">
                   <div class="invalid-feedback">
                     Agregue el número de su cuenta.
                   </div>
@@ -258,7 +259,7 @@
   </div>
 
   <div id="liveAlertPlaceholder"></div>
-  <button type="submit" id="liveAlertBtn" class="btn btn-primary btn-lg btn-block" > Finalizar compra</button>
+  <button type="submit" id="finalizePurchase" class="btn btn-primary btn-lg btn-block" > Finalizar compra</button>
 </form>
   <footer class="text-muted">
     <div class="container">
