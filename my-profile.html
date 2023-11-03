@@ -66,9 +66,16 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="containerProfile">
+      <div class="profile-image-container">
+        <img id="profileImage" src="avatar.png" class="profile-image" />
+        <br>
+        <p id="nameProfile">(Nombre)</p>
+          <input type="file" id="file-input" accept="image/*"/>
+          <label class="upload-button">Subir Foto
+              <input type="file" style="display: none;"/>
+          </label>
+          <button id="remove-image" class="remove-image-button">Eliminar Imagen</button>
       </div>
     </div>
   </main>
@@ -77,7 +84,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
