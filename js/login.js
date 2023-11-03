@@ -1,8 +1,8 @@
+(() => {
 let btn_show = document.getElementById("show_password");
 let btn_submit = document.getElementById("submit");
 const password = document.getElementById("password");
 const icon = document.querySelector(".bx");
-
 
 const user = document.getElementById("user");
 
@@ -10,26 +10,8 @@ function redirect() {
     location.replace("index.html")
 }
 
-
-
-function required(event) {
-    if (user.value === "" || password.value === "") {
-        alert("Debe completar los campos.")
-        event.preventDefault()
-    } else {
-        login();
-        saveSession();
-        redirect();
-    }
-}
-
-btn_submit.addEventListener("click", required)
-
-
-
 //ARRAY donde se guardan los nuevos registros de usuarios
 let localUsers = []
-
 
 function login() {
     const USER_SAVE = user.value.trim();
@@ -73,3 +55,25 @@ icon.addEventListener("click", e => {
         password.type = "password"
     }
 })
+
+
+'use strict'
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.needs-validation')
+// Loop over them and prevent submission
+Array.from(forms).forEach(form => {
+    
+  form.addEventListener('submit', event => {
+    
+    if (!form.checkValidity()) {
+      event.preventDefault()
+      event.stopPropagation()
+    } else {
+        login();
+        saveSession();
+        redirect();
+    }
+    form.classList.add('was-validated')
+  }, false)
+})
+})()
