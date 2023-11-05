@@ -21,13 +21,28 @@ uploadButton.addEventListener('click', (e) => {
 // Agrega un evento para manejar la selección de una imagen local
 fileInput.addEventListener('change', () => {
     const selectedFile = fileInput.files[0];
+
     if (selectedFile) {
         const imageUrl = URL.createObjectURL(selectedFile);
         profileImage.src = imageUrl;
 
-       
-        localStorage.setItem('profileImage', imageUrl);
+        const image = new Image();
+        image.src = imageUrl;
+        image.onload = function() {
+            const canvas = document.createElement("canvas");
+            canvas.width = image.width;
+            canvas.height = image.height;
+            const context = canvas.getContext("2d");
+            context.drawImage(image, 0, 0);
+
+            // Convierte el contenido del Canvas en una cadena Base64
+            const base64String = canvas.toDataURL("image/jpeg"); 
+
+            console.log(base64String);
+
+            localStorage.setItem('profileImage', base64String);
     }
+}
 });
 
 // Agrega un evento para eliminar la imagen de perfil
