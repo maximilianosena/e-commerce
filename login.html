@@ -27,7 +27,7 @@
 
     <div class="contenedor">
 
-      <form action="index.html" class="form-box">
+      <form action="index.html" class="form-box needs-validation" novalidate>
 
          <div>
           <img src="img1.png" width="100%" height="100%">
@@ -37,14 +37,26 @@
         <!--Nombre de usuario-->
         <label for="user">
          <i class="fa-solid fa-user"></i>
-          <input type="text" placeholder="Usuario" id="user">
+          <input type="text" placeholder="Usuario" id="user" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+          <div class="valid-feedback">
+                
+          </div>
+          <div class="invalid-feedback">
+            Debe ingresar un correo válido
+          </div>
         </label>
 
         <!--Contraseña -->
         <label for="password">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" placeholder="Contraseña" id="password">
+          <input type="password" placeholder="Contraseña" id="password" required pattern=".{6,}">
           <i class='bx bx-show-alt'></i>
+          <div class="valid-feedback">
+                
+          </div>
+          <div class="invalid-feedback">
+            Debe ingresar una contraseña (6 dígitos min.)
+          </div>
         </label>
 
         <!-- Botón de Login-->
