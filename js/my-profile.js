@@ -3,11 +3,15 @@ const profileImage = document.getElementById('profileImage');
 const uploadButton = document.querySelector('.upload-button');
 const removeImageButton = document.getElementById('remove-image');
 
+
+const input_email = document.getElementById("user")
+let localStorage_user = JSON.parse(localStorage.getItem("usuarios"))
+let email = localStorage_user[0].Nombre
+
 document.addEventListener("DOMContentLoaded", function() {
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("usuarios");
     if (user) {
-        document.getElementById("user").textContent = user
-        ;
+        input_email.value=email
     } else {
         // Si no se encontró un correo electrónico almacenado, redirige al usuario a la página de inicio de sesión.
         window.location.href = "login.html";
@@ -62,10 +66,3 @@ removeImageButton.addEventListener('click', () => {
     localStorage.removeItem('profileImage');
 });
 
-const input_email = document.getElementById("user")
-
-let localStorage_user = JSON.parse(localStorage.getItem("usuarios"))
-
-let email = localStorage_user[0].Nombre
-
-input_email.value=email
