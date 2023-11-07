@@ -13,7 +13,7 @@ body {
   font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover:not(#noApply) {
   background-color: orange;
   font-size: 17px;
   border-radius: 20em;
