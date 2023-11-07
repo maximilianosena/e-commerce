@@ -72,7 +72,7 @@
       <div class="profile-image-container">
         <img id="profileImage" src="avatar.png" class="profile-image" />
         <br>
-        <p id="nameProfile">(Nombre)</p>
+        <p id="nameProfile">(Nombre Usuario)</p>
           <input type="file" id="file-input" accept="image/*"/>
           <label class="upload-button">Subir Foto
               <input type="file" style="display: none;"/>
@@ -80,11 +80,26 @@
           <button id="remove-image" class="remove-image-button">Eliminar Imagen</button>
       </div>
     </div>
-    <form class="row g-3">
+    <form class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-md-8">
+        <label for="userName" class="form-label">Nombre de Usuario</label>
+        <input type="text" class="form-control" id="userName"  required pattern="[A-Za-z0-9._*@:()#!?/&\\-]" placeholder="Nickname con el que se identificará en la página">
+        <div class="valid-feedback">
+        </div>
+        <div class="invalid-feedback">
+          Debe ingresar un Nickname
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
       <div class="col-md-4">
         <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name"  required>
+        <input type="text" class="form-control" id="name"  required pattern="[a-zA-Z]{2,}">
         <div class="valid-feedback">
+        </div>
+        <div class="invalid-feedback">
+          Debe ingresar su nombre
         </div>
       </div>
       
@@ -93,11 +108,15 @@
         <input type="text" class="form-control" id="secondName" rows="1">
       </div>
     </div>
+  </div>
     <div class="row g-3">
       <div class="col-md-4">
         <label for="lastName" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="lastName"  required>
+        <input type="text" class="form-control" id="lastName"  required pattern="[a-zA-Z]{2,}">
         <div class="valid-feedback">
+        </div>
+        <div class="invalid-feedback">
+          Debe ingresar su apellido
         </div>
       </div>
         <div class="col-md-4">
@@ -125,6 +144,7 @@
     </div>
     </div>
     </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
