@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let btn = document.getElementById("btn_datos");
     let lastname_inp = document.getElementById("lastName"); 
     let name_inp = document.getElementById("name");
+    
     let secName_inp = document.getElementById("secondName");
     let secLastName_inp = document.getElementById("secondLastName");
     let phone_inp = document.getElementById("phone");
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
           localStorage.setItem("storedScdName", secName_inp.value);
           localStorage.setItem("storedScdLastName", secLastName_inp.value);
           localStorage.setItem("storedPhone", phone_inp.value);
-          location.reload();
+          location.reload()
         }
     });
     
