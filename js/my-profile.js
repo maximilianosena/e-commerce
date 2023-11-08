@@ -72,14 +72,29 @@ document.addEventListener("DOMContentLoaded", function() {
     let btn = document.getElementById("btn_datos");
     let lastname_inp = document.getElementById("lastName"); 
     let name_inp = document.getElementById("name");
-  
-    btn.addEventListener('submit', () => {
-      if (lastname_inp.value === "" || email_inp.value === "" || name_inp.value === "") {
-        alert("Debe completar los campos requeridos");
-      } else {
-      localStorage.setItem("storedName", JSON.stringify(name_inp.value));
-      localStorage.setItem("storedLastName",JSON.stringify (lastname_inp.value));
-      localStorage.setItem("storedEmail", JSON.stringify(email_inp.value));
-      }
+    let secName_inp = document.getElementById("secondName");
+    let secLastName_inp = document.getElementById("secondLastName");
+    let phone_inp = document.getElementById("phone");
+
+
+    name_inp.value = localStorage.getItem("storedName");
+    lastname_inp.value = localStorage.getItem("storedLastName");
+    secName_inp.value = localStorage.getItem("storedScdName");
+    secLastName_inp.value = localStorage.getItem("storedScdLastName");
+    phone_inp.value = localStorage.getItem("storedPhone");
+    
+
+
+    btn.addEventListener('click', () => {
+        if (lastname_inp.value != "" && email_inp.value != "" && name_inp.value !="") {
+          localStorage.setItem("storedName", name_inp.value);
+          localStorage.setItem("storedLastName",lastname_inp.value);
+          localStorage.setItem("storedEmail", email_inp.value);
+          localStorage.setItem("storedScdName", secName_inp.value);
+          localStorage.setItem("storedScdLastName", secLastName_inp.value);
+          localStorage.setItem("storedPhone", phone_inp.value);
+          location.reload()
+        }
     });
-  });
+    
+});
