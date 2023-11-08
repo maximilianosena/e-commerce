@@ -201,8 +201,6 @@ for (let input of shipping) {
 function valueTax(resultadoSubtotal) {
   let selectedOption;
 
-
-
   //Recorrido que se detiene al encontrar el valor seleccionado
   for (let i = 0; i < shipping.length; i++) {
     if (shipping[i].checked) {
@@ -279,9 +277,6 @@ let bankpass = document.getElementById("validationCustom09");
 let selectedPaymentMethod = document.getElementById("selectedPaymentMethod");
 let spanHidden = document.getElementById("hiddenSpan")
 let inputsFormCreditCard = document.querySelectorAll("#creditCardFields .form-control")
-
-
-console.log(inputsFormCreditCard)
 
 option1.addEventListener("click", () => {
   if (option1.checked) {

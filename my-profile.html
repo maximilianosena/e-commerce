@@ -53,9 +53,9 @@
             <a class="nav-link dropdown-toggle" id="login" role="button" data-bs-toggle="dropdown"
               aria-expanded="false"></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><img src="icono perfil.png"><a id="profileNav" href="my-profile.html">Mi perfil</a></li>
-              <li id="shopping_cart"> <img src="carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
-              <li id="logout"><img src="logout.png"><a href="login.html">Cerrar sesión</a></li>
+              <li><img src="img/icono perfil.png"><a id="profileNav" href="my-profile.html">Mi perfil</a></li>
+              <li id="shopping_cart"> <img src="img/carrito-de-compras-24.png"><a href="cart.html">Mi carrito</a></li>
+              <li id="logout"><img src="img/logout.png"><a href="login.html">Cerrar sesión</a></li>
               <li> <label class="switch">
                   <input type="checkbox" id="darkbtn">
                   <span class="slider round"></span>
@@ -70,9 +70,9 @@
   <main>
     <div class="containerProfile">
       <div class="profile-image-container">
-        <img id="profileImage" src="avatar.png" class="profile-image" />
+        <img id="profileImage" src="img/avatar.png" class="profile-image" />
         <br>
-        <p id="nameProfile">(Nombre)</p>
+        <p id="nameProfile"></p>
           <input type="file" id="file-input" accept="image/*"/>
           <label class="upload-button">Subir Foto
               <input type="file" style="display: none;"/>
@@ -80,43 +80,76 @@
           <button id="remove-image" class="remove-image-button">Eliminar Imagen</button>
       </div>
     </div>
-    <form class="row g-3">
+    <form class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-md-8">
+          <label for="username" class="form-label">Nombre de Usuario</label>
+          <input type="text" class="form-control" id="username"  required pattern="^[A-Za-z0-9_-]*$">
+          <div class="invalid-feedback">
+            Ingrese un nombre de usuario.
+          </div>
+        
+        </div>
+      </div>
+        <div class="row g-3">
       <div class="col-md-4">
         <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name"  required>
-        <div class="valid-feedback">
+        <input type="text" class="form-control" id="name"  required pattern="[a-zA-Z]{2,}">
+        <div class="invalid-feedback">
+          Ingrese su nombre.
         </div>
+      
       </div>
       
         <div class="col-md-4">
         <label for="secondName" class="form-label">Segundo Nombre</label>
-        <input type="text" class="form-control" id="secondName" rows="1">
+        <input type="text" class="form-control" id="secondName" rows="1" pattern="[a-zA-Z]{2,}">
+        <div class="invalid-feedback">
+          Ingrese un nombre válido.
+        </div>
       </div>
+      
     </div>
     <div class="row g-3">
       <div class="col-md-4">
         <label for="lastName" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="lastName"  required>
-        <div class="valid-feedback">
+        <input type="text" class="form-control" id="lastName"  required pattern="[a-zA-Z]{2,}">
+        <div class="invalid-feedback">
+          Ingrese su apellido
         </div>
       </div>
         <div class="col-md-4">
         <label for="secondLastName" class="form-label">Segundo Apellido</label>
-        <input type="text" class="form-control" id="secondLastName" rows="1">
+        <input type="text" class="form-control" id="secondLastName" rows="1" pattern="[a-zA-Z]{2,}">
+        <div class="invalid-feedback">
+          Ingrese un apellido válido.
+        </div>
       </div>
     </div>
       <div class="row g-3">
         <div class="col-md-8">
-        <label for="user" class="col-sm-2 col-form-label">Email</label>
+        <label for="user" class="col-sm-2 col-form-label">Email de Acceso</label>
           <input  type="text" readonly class="form-control-plaintext" id="user" required>
-          <div class="valid-feedback">
+          <div class="invalid-feedback">
+          </div> 
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-8">
+        <label for="email" class="col-sm-2 col-form-label">Email de Contacto</label>
+          <input  type="text" class="form-control" id="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="Aquí recibirá toda la información y notificaciones">
+          <div class="invalid-feedback">
+            Ingrese un correo válido.
           </div> 
         </div>
       </div>
       <div class="row g-3">
         <div class="col-md-8">
         <label for="phone" class="form-label">Celular de contacto</label>
-        <input type="text" class="form-control" id="phone" >
+        <input type="text" class="form-control" id="phone" pattern="[0-9]{9}">
+        <div class="invalid-feedback">
+          Ingrese un número de celular válido.
+        </div> 
       </div>
     </div>
     <div class="row g-3">
@@ -125,6 +158,7 @@
     </div>
     </div>
     </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">

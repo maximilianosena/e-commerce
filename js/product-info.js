@@ -107,14 +107,6 @@ function setProductID(id) {
 
 /*Codigo Milagros*/
 
-//Para conocer el usuario conectado
-const savedSession = localStorage.getItem("usuarios")
-localUsers = JSON.parse(savedSession)
-//Busco la última sesión iniciada, obtengo la ubicación, el indice
-let lastSession = localUsers.length - 1;
-
-console.log(localUsers[lastSession].Nombre)
-
 fecha = new Date();
 const day = fecha.getDate().toString().padStart(2, '0');
 const numberMonth = fecha.getMonth() + 1;
@@ -128,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener los elementos HTML
     let newCommentInput = document.getElementById("nuevo-comentario");
     let addCommentButton = document.getElementById("agregar-comentarios");
-    let currentComments = document.querySelector(".current-comments");
 
     addCommentButton.addEventListener("click", function () {
         // Obtener el texto del nuevo comentario
@@ -151,7 +142,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let commentName = document.createElement("div");
             commentDateName.appendChild(commentName);
             commentName.className = "name";
-            commentName.textContent = `${localUsers[lastSession].Nombre} `
+            commentName.textContent = `${localStorage.getItem("username") === ""
+                    ? localStorage.getItem("storedEmail")
+                    : localStorage.getItem("username")
+                } `
 
             let commentDate = document.createElement("div");
             commentDateName.appendChild(commentDate);
@@ -217,34 +211,28 @@ starsArray.forEach((star, index1) => {
 
 
 ///////////////////////////////////////////////////////////////////
-btn_add= document.getElementById("addCart")
+btn_add = document.getElementById("addCart")
 
 let products_Cart = JSON.parse(localStorage.getItem("cart")) || []
 console.log(products_Cart)
 
-const sessions = localStorage.getItem("usuarios")
-console.log(sessions)
-let last = JSON.parse(sessions)
 
-let lastUserNumber = last.length-1
+let nameUser = localStorage.getItem("storedEmail")
 
-let nameUser= last[lastUserNumber].Nombre
-console.log(nameUser)
-
-function addProduct(cart_product){
+function addProduct(cart_product) {
 
     let newProduct = {
-    "user": nameUser,
-    "articles":[
-        {
-            "id": cart_product.id,
-"name": cart_product.name,
-"count": 1,
-"unitCost": cart_product.cost,
-"currency": cart_product.currency,
-"image": cart_product.images[0]
-        }
-    ]
+        "user": nameUser,
+        "articles": [
+            {
+                "id": cart_product.id,
+                "name": cart_product.name,
+                "count": 1,
+                "unitCost": cart_product.cost,
+                "currency": cart_product.currency,
+                "image": cart_product.images[0]
+            }
+        ]
     }
     products_Cart.push(newProduct)
 }
@@ -262,11 +250,11 @@ async function productToTheCart() {
 
 
 
-function jsonCart (){
+function jsonCart() {
     localStorage.setItem("cart", JSON.stringify(products_Cart))
 }
 
-btn_add.addEventListener("click",()=>{
+btn_add.addEventListener("click", () => {
     btn_add.disabled = true; // Desactivar el botón
 
     productToTheCart()
@@ -274,8 +262,8 @@ btn_add.addEventListener("click",()=>{
             jsonCart();
             mostrarToast();
             audioEtiqueta.setAttribute("src", "audio/tono-mensaje-.mp3")
-      audioEtiqueta.play()
-      console.log(`Reproduciendo: ${audioEtiqueta.src}`)
+            audioEtiqueta.play()
+            console.log(`Reproduciendo: ${audioEtiqueta.src}`)
             btn_add.disabled = false; // Volver a habilitar el botón después de agregar el producto
         })
         .catch((error) => {
@@ -284,10 +272,10 @@ btn_add.addEventListener("click",()=>{
         });
 })
 
-function mostrarToast(){
+function mostrarToast() {
     var miToast = document.getElementById('miToast');
-      var cartel = new bootstrap.Toast(miToast);
-      cartel.show();
-    }
-    
-    let audioEtiqueta = document.querySelector("audio")
+    var cartel = new bootstrap.Toast(miToast);
+    cartel.show();
+}
+
+let audioEtiqueta = document.querySelector("audio")
