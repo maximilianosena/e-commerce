@@ -76,15 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let secLastName_inp = document.getElementById("secondLastName");
     let phone_inp = document.getElementById("phone");
 
-
     name_inp.value = localStorage.getItem("storedName");
     lastname_inp.value = localStorage.getItem("storedLastName");
     secName_inp.value = localStorage.getItem("storedScdName");
     secLastName_inp.value = localStorage.getItem("storedScdLastName");
     phone_inp.value = localStorage.getItem("storedPhone");
     
-
-
     btn.addEventListener('click', () => {
         if (lastname_inp.value != "" && email_inp.value != "" && name_inp.value !="") {
           localStorage.setItem("storedName", name_inp.value);
