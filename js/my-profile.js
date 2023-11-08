@@ -93,6 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
           localStorage.setItem("storedPhone", phone_inp.value);
           location.reload();
         }
-    });
+});
     
 });
