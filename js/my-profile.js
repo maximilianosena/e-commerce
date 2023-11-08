@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let lastname_inp = document.getElementById("lastName"); 
     let name_inp = document.getElementById("name");
   
-    btn.addEventListener('submit', () => {
+    btn.addEventListener('click', () => {
       if (lastname_inp.value === "" || email_inp.value === "" || name_inp.value === "") {
         alert("Debe completar los campos requeridos");
       } else {
