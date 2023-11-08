@@ -66,3 +66,20 @@ removeImageButton.addEventListener('click', () => {
     localStorage.removeItem('profileImage');
 });
 
+//parte de flor
+document.addEventListener("DOMContentLoaded", function() {
+    let email_inp = document.getElementById("user");
+    let btn = document.getElementById("btn_datos");
+    let lastname_inp = document.getElementById("lastName"); 
+    let name_inp = document.getElementById("name");
+  
+    btn.addEventListener('submit', () => {
+      if (lastname_inp.value === "" || email_inp.value === "" || name_inp.value === "") {
+        alert("Debe completar los campos requeridos");
+      } else {
+      localStorage.setItem("storedName", JSON.stringify(name_inp.value));
+      localStorage.setItem("storedLastName",JSON.stringify (lastname_inp.value));
+      localStorage.setItem("storedEmail", JSON.stringify(email_inp.value));
+      }
+    });
+  });
