@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
           localStorage.setItem("storedScdName", secName_inp.value);
           localStorage.setItem("storedScdLastName", secLastName_inp.value);
           localStorage.setItem("storedPhone", phone_inp.value);
-          location.reload()
+          location.reload();
         }
     });
     
