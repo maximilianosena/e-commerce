@@ -1615,9 +1615,12 @@ input:disabled {
   border-style: none;
 }
 
-.name img{
+.name img, #login img{
   width: 30px;
   border-radius: 33%;
   box-shadow:  20px 20px 60px #bebebe,
              -20px -20px 60px #ffffff;
 }
+
+ 
+ 

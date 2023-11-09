@@ -60,10 +60,14 @@ function sessionExists() {
 
     console.log("Numero de indice de la última sesión: " + lastSession)
 
-    profile.textContent = `Bienvenido: ${localStorage.getItem("username") === ""
+    profile.innerHTML = `Bienvenido: ${(localStorage.getItem("username") === "" || localStorage.getItem("username") === null)
         ? localStorage.getItem("storedEmail")
         : localStorage.getItem("username")
-      } `
+      }  <img src=
+      ${(localStorage.getItem("profileImage") === "" || localStorage.getItem("profileImage")=== null)
+              ? "img/avatar.png"
+              : localStorage.getItem("profileImage")
+          } >`
   } else {
     //Si no existe elementos en localStorage, redirecciona al login.html
     location.replace("login.html")
