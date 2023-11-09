@@ -56,6 +56,7 @@ let localStorage_user = JSON.parse(localStorage.getItem("usuarios"))
 let email = localStorage_user[0].Nombre
 email_inp.value = email
 
+//Variables de los input
 let btn = document.getElementById("btn_datos");
 let lastname_inp = document.getElementById("lastName");
 let name_inp = document.getElementById("name");
