@@ -1608,7 +1608,7 @@ input:disabled {
 
 #btn_datos {
   background-color: #ff9f1a;
-  border-color: rgb(255, 94, 0);
+  border-style: none;
 }
 
 .remove-image-button {
