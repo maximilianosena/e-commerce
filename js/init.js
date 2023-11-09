@@ -221,6 +221,7 @@ function closeAccount() {
   localStorage.setItem("username", "")
   localStorage.setItem("secondEmail", "")
   localStorage.setItem("storedEmail", "")
+  localStorage.setItem("profileImage", "")
 }
 
 btn_logout.addEventListener("click", closeAccount)
