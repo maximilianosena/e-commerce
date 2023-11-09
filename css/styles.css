@@ -1627,5 +1627,7 @@ input:disabled {
              -20px -20px 60px #ffffff;
 }
 
- 
- 
+.list-group-item:hover {-webkit-transform:scale(0.99);transform:scale(0.99);
+background-color: rgb(209, 208, 207);
+}
+
