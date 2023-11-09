@@ -94,7 +94,7 @@
         <div class="row g-3">
       <div class="col-md-4">
         <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name"  required pattern="[a-zA-Z]{2,}">
+        <input type="text" class="form-control" id="name"  required pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
         <div class="invalid-feedback">
           Ingrese su nombre.
         </div>
@@ -103,7 +103,7 @@
       
         <div class="col-md-4">
         <label for="secondName" class="form-label">Segundo Nombre</label>
-        <input type="text" class="form-control" id="secondName" rows="1" pattern="[a-zA-Z]{2,}">
+        <input type="text" class="form-control" id="secondName" rows="1" pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
         <div class="invalid-feedback">
           Ingrese un nombre válido.
         </div>
@@ -113,14 +113,14 @@
     <div class="row g-3">
       <div class="col-md-4">
         <label for="lastName" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="lastName"  required pattern="[a-zA-Z]{2,}">
+        <input type="text" class="form-control" id="lastName"  required pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
         <div class="invalid-feedback">
           Ingrese su apellido
         </div>
       </div>
         <div class="col-md-4">
         <label for="secondLastName" class="form-label">Segundo Apellido</label>
-        <input type="text" class="form-control" id="secondLastName" rows="1" pattern="[a-zA-Z]{2,}">
+        <input type="text" class="form-control" id="secondLastName" rows="1" pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$">
         <div class="invalid-feedback">
           Ingrese un apellido válido.
         </div>
