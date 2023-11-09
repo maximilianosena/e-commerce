@@ -11,7 +11,7 @@ function showComments(array) {
 
         let publication = document.createElement("div");
         publication.classList.add("headComment");
-        publication.innerHTML = `<div class=name>${comment.user} </div> <div class=date>${comment.dateTime}</div>`;
+        publication.innerHTML = `<div class=name> <img src="img/avatar.png">  ${comment.user} </div>  <div class=date>${comment.dateTime}</div> `;
 
 
         let descriptionComment = document.createElement("div");
@@ -142,10 +142,17 @@ document.addEventListener("DOMContentLoaded", function () {
             let commentName = document.createElement("div");
             commentDateName.appendChild(commentName);
             commentName.className = "name";
-            commentName.textContent = `${localStorage.getItem("username") === ""
+            commentName.innerHTML = `
+            <img src=
+            ${(localStorage.getItem("profileImage") === "" || localStorage.getItem("profileImage")=== null)
+                    ? "img/avatar.png"
+                    : localStorage.getItem("profileImage")
+                } >
+            ${localStorage.getItem("username") === ""
                     ? localStorage.getItem("storedEmail")
                     : localStorage.getItem("username")
-                } `
+                } 
+            `
 
             let commentDate = document.createElement("div");
             commentDateName.appendChild(commentDate);

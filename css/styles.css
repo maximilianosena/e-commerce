@@ -1614,3 +1614,10 @@ input:disabled {
   border-radius: 5px;
   border-style: none;
 }
+
+.name img{
+  width: 30px;
+  border-radius: 33%;
+  box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
