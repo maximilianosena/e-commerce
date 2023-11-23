@@ -855,7 +855,7 @@ input:checked+.slider:before {
 
 /**************/
 
-@media (min-width: 374px) {
+@media (max-width: 375px) {
 
   .container_product {
     width: auto;
